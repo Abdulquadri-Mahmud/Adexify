@@ -9,7 +9,7 @@ import { CgMenuRight } from "react-icons/cg";
 
 export default function BottomNav() {
   return (
-    <div className='block md:hidden mt-32 fixed bottom-0 bg-gray-800 w-full py-3 px-4 text-white'>
+    <div className='block md:hidden fixed bottom-0 bg-gray-800 w-full py-3 px-4 text-white'>
         <div className="flex justify-between items-center">
             <div className="flex justify-center flex-col items-center text-pink-500 hover:text-black">
                 <div className="">
