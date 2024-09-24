@@ -65,7 +65,7 @@ export default function Header() {
             </div>
         </Box>
         <div className="hidde md:block bg-gray-800 text-white">
-            <Box className="flex justify-center items-center gap-5 font-medium py-3 md:max-w-[50%] w-full rounded-tr-2xl rounded-tl-2xl mx-auto md:bg-pink-600">
+            <Box className="flex justify-center items-center gap-3 sm:gap-5 font-medium py-3 md:max-w-[50%] w-full rounded-tr-2xl rounded-tl-2xl mx-auto md:bg-pink-600">
                 <div className="">
                     <div className="flex items-center flex-col md:flex-row cursor-pointer">
                         <RiMenu5Line className='text-lg'/>
