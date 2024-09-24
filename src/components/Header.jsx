@@ -35,10 +35,12 @@ export default function Header() {
             </div>
         </div>
         <Box top={0} position={'sticky'} zIndex={100} className=' flex justify-between items-center py-3 md:px-6 px-4 bg-gray-800 text-white'>
-            <div className="flex items-center">
-                <MdOutlineShoppingCart className='md:text-3xl text-2xl animate text-pink-600'/>
-                <h1 className='md:text-3xl text-2xl font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify</h1>
-            </div>
+            <Link to={'/'}>
+                <div className="flex items-center">
+                    <MdOutlineShoppingCart className='md:text-3xl text-2xl animate text-pink-600'/>
+                    <h1 className='md:text-3xl text-2xl font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify</h1>
+                </div>
+            </Link>
             <div className="w-[30%] rounded hidden md:block">
                 <form className='w-[100%] relative'>
                     <form className="">
@@ -65,14 +67,14 @@ export default function Header() {
             </div>
         </Box>
         <div className="hidde md:block bg-gray-800 text-white">
-            <Box className="flex justify-center items-center gap-3 sm:gap-5 font-medium py-3 md:max-w-[50%] w-full rounded-tr-2xl rounded-tl-2xl mx-auto md:bg-pink-600">
+            <Box className="flex justify-center items-center gap-4 sm:gap-5 font-medium py-3 md:max-w-[50%] w-full rounded-tr-2xl rounded-tl-2xl mx-auto md:bg-pink-600">
                 <div className="">
                     <div className="flex items-center flex-col md:flex-row cursor-pointer">
                         <RiMenu5Line className='text-lg'/>
                         <h2 className="text-[10px] md:text-sm">Browse All</h2>
                     </div>
                     <div className="">
-
+                        
                     </div>
                 </div>
                 <div className="md:hidden block">
