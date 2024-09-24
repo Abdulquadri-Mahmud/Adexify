@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.bgImage{
+    background-image: url('/side_banner1.png');
+    height: 65vh;
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+@media screen and (max-width: 768px) {
+    .bgImage{
+        height: 50vh;
+    }
+}
