@@ -22,7 +22,7 @@ export default function TodaysDeal() {
 
   return (
     <Box className='my-10 bg-slate-200'>
-      <Box bgGradient='linear(to-l, gray.800, pink.600)' className="bg-white py-3 rounded-t-lg px-5 flex justify-between items-center gap-4">
+      <Box bg={'gray.800'} className="bg-white sticky top-0 py-3 rounded-t-lg px-5 flex justify-between items-center gap-4">
           <Heading fontWeight={500} fontSize={25} color={'white'} className='text-xl'>Today's Deals</Heading>
           <Link to={'/'} className='text-sm text-white underline font-medium'>See All Items</Link>
       </Box>

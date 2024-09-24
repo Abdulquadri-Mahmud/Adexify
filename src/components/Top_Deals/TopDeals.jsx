@@ -22,7 +22,7 @@ export default function TopDeals() {
 
   return (
     <div className='mt-10 md:mb-0 mb-20 bg-slate-200 rounded-t-lg'>
-      <Box bgGradient='linear(to-l, gray.800, pink.600)' className="py-3 rounded-t-lg px-5 flex justify-between items-center">
+      <Box bg={'gray.800'} className="py-3 rounded-t-lg px-5 flex justify-between items-center">
           <Heading fontWeight={500} fontSize={25} className='text-xl text-white'>Top Deals</Heading>
           <Link to={'/'} className='text-sm text-white underline font-medium'>See All Items</Link>
       </Box>

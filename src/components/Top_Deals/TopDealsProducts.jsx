@@ -12,7 +12,7 @@ export default function TopDealsProducts() {
   const handleCart = () => {
 
   }
-
+  console.log(product);
   return (
     <div className='bg-white p-2 rounded-xl shadow-sm '>
       <Link to={`product-details/${_id}`}>

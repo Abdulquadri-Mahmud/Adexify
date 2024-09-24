@@ -9,7 +9,7 @@ export default function TodaysDealsProducts() {
 
     const {_id, deal, quantity, image, name, price, description} = product;
 
-    console.log(deal);
+    console.log(product);
 
     const handleCart = () => {
 
