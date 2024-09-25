@@ -79,52 +79,55 @@ export default function Section1() {
     };
 
   return (
-    <div className='py-10 md:max-w-[90%] max-w-[1000%]  mx-auto text-black font-medium'>
-        {/* <Heading color={'black'} fontWeight={500} fontSize={{md: 30, base: 20}} textAlign={'center'}>Choose Department</Heading> */}
-        <Slider {...settings}>
-            <div className="p-2">
-                <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img1} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
-                    <div className="">
-                        <h2>Men's Wear</h2>
-                    </div>
-                </Flex>
-            </div>
-            <div className="p-2">
-                <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img2} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
-                    <div className="">
-                        <h2>Women's Wear</h2>
-                    </div>
-                </Flex>
-            </div>
-            <div className="p-2">
-                <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img1} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
-                    <div className="">
-                        <h2>Men's Bags</h2>
-                    </div>
-                </Flex>
-            </div>
-            <div className="p-2">
-                <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img3} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
-                    <div className="">
-                        <h2>Women's Bags</h2>
-                    </div>
-                </Flex>
-            </div>
-            <div className="p-2">
-                <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img5} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
-                    <div className="">
-                        <h2>Men's Shoes</h2>
-                    </div>
-                </Flex>
-            </div>
-            <div className="p-2">
-                <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img4} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
-                    <div className="">
-                        <h2>Women's Shoes</h2>
-                    </div>
-                </Flex>
-            </div>
-        </Slider>
+    <div className="bg-white py-10">
+
+        <div className=' md:max-w-[90%] max-w-[1000%]  mx-auto text-black font-medium'>
+            <Heading pb={6} color={'black'} fontWeight={500} fontSize={{md: 30, base: 20}} textAlign={'center'}>Choose Department</Heading>
+            <Slider {...settings}>
+                <div className="p-2">
+                    <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img1} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
+                        <div className="">
+                            <h2>Men's Wear</h2>
+                        </div>
+                    </Flex>
+                </div>
+                <div className="p-2">
+                    <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img2} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
+                        <div className="">
+                            <h2>Women's Wear</h2>
+                        </div>
+                    </Flex>
+                </div>
+                <div className="p-2">
+                    <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img1} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
+                        <div className="">
+                            <h2>Men's Bags</h2>
+                        </div>
+                    </Flex>
+                </div>
+                <div className="p-2">
+                    <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img3} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
+                        <div className="">
+                            <h2>Women's Bags</h2>
+                        </div>
+                    </Flex>
+                </div>
+                <div className="p-2">
+                    <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img5} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
+                        <div className="">
+                            <h2>Men's Shoes</h2>
+                        </div>
+                    </Flex>
+                </div>
+                <div className="p-2">
+                    <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img4} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
+                        <div className="">
+                            <h2>Women's Shoes</h2>
+                        </div>
+                    </Flex>
+                </div>
+            </Slider>
+        </div>
     </div>
   )
 }
