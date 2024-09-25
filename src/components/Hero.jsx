@@ -7,11 +7,11 @@ import "slick-carousel/slick/slick-theme.css";
 
 import Slider from "react-slick";
 
-import side_banner2 from '/img1.png';
-import side_banner3 from '/img2.png';
-import side_banner4 from '/img4.png';
-import side_banner5 from '/side_banner1.png';
-import side_banner6 from '/img3.png';
+// import side_banner2 from '/img1.png';
+// import side_banner3 from '/img2.png';
+// import side_banner4 from '/img4.png';
+// import side_banner5 from '/side_banner1.png';
+// import side_banner6 from '/img3.png';
 
 import { Link } from 'react-router-dom';
 import { MdOutlineShoppingCart } from 'react-icons/md';
