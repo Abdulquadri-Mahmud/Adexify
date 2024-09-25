@@ -19,7 +19,7 @@ import { GiConverseShoe } from "react-icons/gi";
 export default function Header() {
   return (
     <div className="sticky top-0 z-10">
-        <div className="relative flex justify-between items-center px-2 md:px-6 bg-pink-600 text-white">
+        <Box className="relative flex justify-between items-center px-2 md:px-6 bg-pink-600 text-white">
             <div className="flex items-center">
                 <IoMdCall/>
                 <Link to='tel:+2347047594667' className='text-sm font-medium'>+234-704-7594-667</Link>
@@ -33,7 +33,7 @@ export default function Header() {
                 <Link to='#'><FaTwitter className="text-1xl text-1xl duration-200 hover:-translate-y-1"/></Link>
                 <Link to='#'><IoLogoYoutube className="text-1xl text-1xl duration-200 hover:-translate-y-1"/></Link>
             </div>
-        </div>
+        </Box>
         <Box top={0} position={'sticky'} zIndex={100} className=' flex justify-between items-center py-3 md:px-6 px-4 bg-gray-800 text-white'>
             <Link to={'/'}>
                 <div className="flex items-center">
@@ -52,12 +52,20 @@ export default function Header() {
                 </form>
             </div>
             <div className="flex items-center">
-                <div className="bg-pink-600 text-white flex justify-between gap-2 p-1 px-3 rounded-md">
-                    <Box className='flex items-center gap-2'>
-                        <Icon as={BsCart4} color={useColorModeValue('white', 'white')}/>
-                        <p>My Cart</p>
-                    </Box>
-                    <div className="bg-white px-2 text-black rounded-full">
+                <div className="hidden md:block">
+                    <div className="bg-pink-600 text-white flex justify-between gap-2 p-1 px-3 rounded-md">
+                        <Box className='flex items-center gap-2'>
+                            <Icon as={BsCart4} color={useColorModeValue('white', 'white')}/>
+                            <p>My Cart</p>
+                        </Box>
+                        <div className="bg-white px-2 text-black rounded-full">
+                            <p>0</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="md:hidden block text-xl relative">
+                    <MdOutlineShoppingCart/>
+                    <div className="absolute -top-3 right-0 text-pink-600 text-sm">
                         <p>0</p>
                     </div>
                 </div>
