@@ -5,7 +5,7 @@
 
 .bgImage{
     background-image: url('/side_banner1.png');
-    height: 65vh;
+    height: 85vh;
     background-size: contain;
     background-position: right;
     background-repeat: no-repeat;
@@ -14,7 +14,7 @@
 }
 @media screen and (max-width: 768px) {
     .bgImage{
-        height: 50vh;
+        height: 70vh;
     }
 }
 .glass{
