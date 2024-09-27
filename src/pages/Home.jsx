@@ -3,6 +3,8 @@ import Hero from '../components/Hero'
 import TopDeals from '../components/Top_Deals/TopDeals'
 import TodaysDeal from '../components/TodaysDeal/TodaysDeal'
 import Section1 from '../components/sections/Section1'
+import Womens_wear from '../components/womens_wear/womens_wear'
+import Mens_wear from '../components/mens_wear/Mens_wear'
 
 export default function Home() {
   return (
@@ -11,6 +13,8 @@ export default function Home() {
       <Section1/>
       <TodaysDeal/>
       <TopDeals/>
+      <Womens_wear/>
+      <Mens_wear/>
     </div>
   )
 }

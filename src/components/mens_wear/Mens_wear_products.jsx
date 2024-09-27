@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { TodaysDealsProductsContext } from './TodaysDeal'
 import { Link } from 'react-router-dom';
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { FaCartShopping } from 'react-icons/fa6';
+import { MensProductsContext } from './Mens_wear';
 
-export default function TodaysDealsProducts() {
-    const product = useContext(TodaysDealsProductsContext);
+export default function Mens_wear_products() {
+    const product = useContext(MensProductsContext);
 
     const {_id, deal, quantity, image, name, price, description} = product;
 

@@ -24,7 +24,7 @@ export default function Settings() {
                     <Link to='/signin' className=''>Sign In</Link> 
                 </MenuItem>
                 <MenuItem _hover={{bgGradient:'linear(to-l, pink.500, gray.800)'}} bg={useColorModeValue('gray.800', 'gray.600')} color={'white'} rounded={5} padding={2.5} mb={3} transitionDuration={200} className='hover:-translate-y-1 font-medium'>
-                    <Link to='/signin' className=''>Sign Out</Link> 
+                    <Link to='/signout' className=''>Sign Out</Link> 
                 </MenuItem>
                 <MenuItem _hover={{bgGradient:'linear(to-l, pink.500, gray.800)'}} bg={useColorModeValue('gray.800', 'gray.600')} color={'white'} rounded={5} padding={2.5} mb={3} transitionDuration={200} className='hover:-translate-y-1 font-medium'>
                     <Link to='/' className=''>Contact Us</Link> 

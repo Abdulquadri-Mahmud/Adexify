@@ -8,9 +8,10 @@ function SampleNextArrow(props) {
   
     const { className, style, onClick } = props;
     return (
-      <Box bgGradient='linear(to-l, red.500, gray.800)'
-        className={className}
-        style={{ ...style, display: "none",
+      <Box bgGradient='linear(to-l, gray.800, pink.600)' width={'30px'} height={'30px'} rounded={'full'}
+      right={'5vh'}  
+      className={className}
+        style={{ ...style, display: "block",
           paddingTop: '5.5px', paddingLeft: '5.5px',
         }}
         onClick={onClick}
@@ -21,9 +22,10 @@ function SampleNextArrow(props) {
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
-      <Box bgGradient='linear(to-l, red.500, gray.800)'
+      <Box bgGradient='linear(to-r, gray.800, pink.600)' width={'30px'} height={'30px'} rounded={'full'}
+        left={'5vh'} zIndex={'10'}
         className={className}
-        style={{ ...style, display: "none", 
+        style={{ ...style, display: "block", 
           paddingTop: '5.5px', paddingLeft: '5.5px',
         }}
         onClick={onClick}
@@ -38,6 +40,7 @@ import img4 from '/img5.jpg';
 import img5 from '/img6.jpg';
 
 import { Box, Flex, Heading } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 export default function Section1() {
     const settings = {
@@ -85,46 +88,58 @@ export default function Section1() {
             <Heading pb={6} color={'black'} fontWeight={500} fontSize={{md: 30, base: 20}} textAlign={'center'}>Choose Department</Heading>
             <Slider {...settings}>
                 <div className="p-2">
-                    <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img1} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
-                        <div className="">
-                            <h2>Men's Wear</h2>
-                        </div>
-                    </Flex>
+                    <Link to={'/'}>
+                        <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img1} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
+                            <div className="">
+                                <h2>Men's Wear</h2>
+                            </div>
+                        </Flex>
+                    </Link>
                 </div>
                 <div className="p-2">
-                    <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img2} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
-                        <div className="">
-                            <h2>Women's Wear</h2>
-                        </div>
-                    </Flex>
+                    <Link to={'/'}>
+                        <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img2} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
+                            <div className="">
+                                <h2>Women's Wear</h2>
+                            </div>
+                        </Flex>
+                    </Link>
                 </div>
                 <div className="p-2">
-                    <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img1} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
-                        <div className="">
-                            <h2>Men's Bags</h2>
-                        </div>
-                    </Flex>
+                    <Link to={'/'}>
+                        <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img1} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
+                            <div className="">
+                                <h2>Men's Bags</h2>
+                            </div>
+                        </Flex>
+                    </Link>
                 </div>
                 <div className="p-2">
-                    <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img3} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
-                        <div className="">
-                            <h2>Women's Bags</h2>
-                        </div>
-                    </Flex>
+                    <Link to={'/'}>
+                        <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img3} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
+                            <div className="">
+                                <h2>Women's Bags</h2>
+                            </div>
+                        </Flex>
+                    </Link>
                 </div>
                 <div className="p-2">
-                    <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img5} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
-                        <div className="">
-                            <h2>Men's Shoes</h2>
-                        </div>
-                    </Flex>
+                    <Link to={'/'}>
+                        <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img5} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
+                            <div className="">
+                                <h2>Men's Shoes</h2>
+                            </div>
+                        </Flex>
+                    </Link>
                 </div>
                 <div className="p-2">
-                    <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img4} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
-                        <div className="">
-                            <h2>Women's Shoes</h2>
-                        </div>
-                    </Flex>
+                    <Link to={'/'}>
+                        <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img4} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
+                            <div className="">
+                                <h2>Women's Shoes</h2>
+                            </div>
+                        </Flex>
+                    </Link>
                 </div>
             </Slider>
         </div>

@@ -11,7 +11,7 @@ export default function BottomNav() {
   return (
     <div className='block md:hidden fixed bottom-0 bg-gray-800 w-full py-3 px-4 text-white'>
         <div className="flex justify-between items-center">
-            <div className="flex justify-center flex-col items-center text-pink-500 hover:text-black">
+            <div className="flex justify-center flex-col items-center text-pink-600 focus:text-pink-600 hover:text-white">
                 <div className="">
                     <GoHomeFill className='font-semibold text-[17px]'/>
                 </div>
@@ -19,7 +19,7 @@ export default function BottomNav() {
                     <Text className='text-[12px]'>Home</Text>
                 </div>
             </div>
-            <div className="flex justify-center flex-col items-center hover:text-pink-500">
+            <div className="flex justify-center flex-col items-center hover:text-pink-600 focus:text-pink-600">
                 <div className="">
                     <LuTag className='font-semibold text-[17px]'/>
                 </div>
@@ -27,7 +27,7 @@ export default function BottomNav() {
                     <Text className='text-[12px]'>Deal</Text>
                 </div>
             </div>
-            <div className="flex justify-center flex-col items-center hover:text-pink-500">
+            <div className="flex justify-center flex-col items-center hover:text-pink-600 focus:text-pink-600">
                 <div className="">
                     <MdOutlineShoppingCart className='font-semibold text-[17px]'/>
                 </div>
@@ -35,7 +35,7 @@ export default function BottomNav() {
                     <Text className='text-[12px]'>Order</Text>
                 </div>
             </div>
-            <div className="flex justify-center flex-col items-center hover:text-pink-500">
+            <div className="flex justify-center flex-col items-center hover:text-pink-600 focus:text-pink-600">
                 <div className="">
                     <MdSearch className='font-semibold text-[17px]'/>
                     {/* <Search/> */}
@@ -44,7 +44,7 @@ export default function BottomNav() {
                     <Text className='text-[12px]'>Search</Text>
                 </div>
             </div>
-            <div className="flex justify-center flex-col items-center hover:text-pink-500">
+            <div className="flex justify-center flex-col items-center hover:text-pink-600 focus:text-pink-600">
                 <div className="">
                     <CgMenuRight className='font-semibold text-[17px]'/>
                 </div>

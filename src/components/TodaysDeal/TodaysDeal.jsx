@@ -2,11 +2,15 @@ import { Box, Heading } from '@chakra-ui/react'
 import React, { createContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import TodaysDealsProducts from './TodaysDealsProducts'
+import Todays_deals_pag from '../paginations/todays_deals_pag/Todays_deals_pag';
 
 export const TodaysDealsProductsContext = createContext();
 
 export default function TodaysDeal() {
     const [products, setProducts] = useState([]);
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postPerPage] = useState(12);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -20,21 +24,31 @@ export default function TodaysDeal() {
         fetchProducts();
     }, []);
 
+    const startIndex = currentPage * postPerPage;
+    const endIndex = startIndex - postPerPage;
+
+    const currentPost = products.slice(endIndex, startIndex);
+
+    const paginate  = paginate => setCurrentPage(paginate);
+
   return (
     <Box className='my-10 bg-slate-200'>
-      <Box bgGradient='linear(to-l, gray.800, pink.800)' className="bg-white sticky top-0 py-3 rounded-t-lg px-3 flex justify-between items-center gap-4">
+      <Box bgGradient='linear(to-l, gray.800, pink.600)' className="bg-white sticky top-0 py-3 rounded-t-lg px-3 flex justify-between items-center gap-4">
           <Heading fontWeight={500} fontSize={{md:25, base: 20}} color={'white'} className='text-xl uppercase'>Today's Deals</Heading>
           <Link to={'/'} className='text-sm text-white font-medium uppercase'>See All</Link>
       </Box>
       <div className="py-3 px-2 grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
         {
-            products.map((product) => (
+            currentPost.length > 0 && currentPost.map((product) => (
                 <TodaysDealsProductsContext.Provider value={product}>
                     <TodaysDealsProducts product={product}/>
                 </TodaysDealsProductsContext.Provider>
             ))
         }
       </div>
+      <Box>
+        <Todays_deals_pag postPerPage={postPerPage} totalPost={products.length} paginate={paginate}/>
+      </Box>
     </Box>
   )
 }

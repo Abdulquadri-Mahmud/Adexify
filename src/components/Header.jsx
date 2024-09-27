@@ -1,5 +1,5 @@
 import { Box, Icon, useColorModeValue } from '@chakra-ui/react';
-import React from 'react'
+import React, { createContext, useState } from 'react'
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { IoLogoYoutube } from 'react-icons/io';
 import { MdOutlineShoppingCart, MdSearch } from "react-icons/md";
@@ -15,10 +15,15 @@ import { GrUserFemale } from "react-icons/gr";
 import { IoManOutline } from "react-icons/io5";
 import { BiSolidShoppingBags } from "react-icons/bi";
 import { GiConverseShoe } from "react-icons/gi";
+import All_category from './All_category';
+
+export const OpenMenuCOntext = createContext();
 
 export default function Header() {
+    
+
   return (
-    <div className="sticky top-0 z-10">
+    <div className="sticky top-0 z-20">
         <Box className="relative flex justify-between items-center px-2 md:px-6 bg-pink-600 text-white">
             <div className="flex items-center">
                 <IoMdCall/>
@@ -34,7 +39,7 @@ export default function Header() {
                 <Link to='#'><IoLogoYoutube className="text-1xl text-1xl duration-200 hover:-translate-y-1"/></Link>
             </div>
         </Box>
-        <Box top={0} position={'sticky'} zIndex={100} className=' flex justify-between items-center py-3 md:px-6 px-4 bg-gray-800 text-white'>
+        <Box top={0} position={'sticky'} className=' flex justify-between items-center py-3 md:px-6 px-4 bg-gray-800 text-white'>
             <Link to={'/'}>
                 <div className="flex items-center">
                     <MdOutlineShoppingCart className='md:text-3xl text-2xl animate text-pink-600'/>
@@ -65,7 +70,7 @@ export default function Header() {
                 </div>
                 <div className="md:hidden block text-xl relative">
                     <MdOutlineShoppingCart/>
-                    <div className="absolute -top-3 right-0 text-pink-600 text-sm">
+                    <div className="absolute -top-3 right-0 text-white text-sm">
                         <p>0</p>
                     </div>
                 </div>
@@ -75,54 +80,48 @@ export default function Header() {
             </div>
         </Box>
         <div className="hidde md:block bg-gray-800 text-white">
-            <Box className="flex justify-center items-center gap-4 sm:gap-5 font-medium py-3 md:max-w-[50%] w-full rounded-tr-2xl rounded-tl-2xl mx-auto md:bg-pink-600">
+            <Box className="relative flex md:justify-center justify-between px-2 items-center gap-4 sm:gap-5 font- py-3 md:max-w-[50%] w-full rounded-tr-2xl rounded-tl-2xl mx-auto md:bg-pink-600">
                 <div className="">
-                    <div className="flex items-center flex-col md:flex-row cursor-pointer">
-                        <RiMenu5Line className='text-lg'/>
-                        <h2 className="text-[10px] md:text-sm">Browse All</h2>
-                    </div>
-                    <div className="">
-                        
-                    </div>
+                    <All_category/>
                 </div>
                 <div className="md:hidden block">
-                    <div className="flex justify-center items-center flex-col">
+                    <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
                         <GrUserFemale className='text-lg'/>
                         <p className='text-[10px]'>Women's Wear</p>
                     </div>
                 </div>
                 <div className="md:hidden block">
-                    <div className="flex justify-center items-center flex-col">
+                    <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
                         <IoManOutline className='text-lg'/>
                         <p className='text-[10px]'>Men's Wear</p>
                     </div>
                 </div>
                 <div className="md:hidden block">
-                    <div className="flex justify-center items-center flex-col">
+                    <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
                         <BiSolidShoppingBags className='text-lg'/>
                         <p className='text-[10px]'>Bags</p>
                     </div>
                 </div>
                 <div className="md:hidden block">
-                    <div className="flex justify-center items-center flex-col">
+                    <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
                         <GiConverseShoe className='text-lg'/>
                         <p className='text-[10px]'>Shoes</p>
                     </div>
                 </div>
-                <div className="md:hidden block">
+                {/* <div className="md:hidden block">
                     <div className="flex justify-center items-center flex-col">
                         <GoTag className='text-lg'/>
                         <p className='text-[10px]'>All Deal</p>
                     </div>
-                </div>
+                </div> */}
                 <div className="hidden md:block">
-                    <div className="flex justify-center items-center gap-5 font-medium">
-                        <Link to={'/'} className='text-sm'>Home</Link>
-                        <Link to={'/'} className='text-sm'>Women's Wear</Link>
-                        <Link to={'/'} className='text-sm'>men's Wear</Link>
-                        <Link to={'/'} className='text-sm'>Bags</Link>
-                        <Link to={'/'} className='text-sm'>Shoes</Link>
-                        <Link to={'/'} className='text-sm'>Jwelleries</Link>
+                    <div className="flex justify-center items-center gap-5 font-">
+                        <Link to={'/'} className='text-md'>Home</Link>
+                        <Link to={'/'} className='text-md'>Women's Wear</Link>
+                        <Link to={'/'} className='text-md'>Men's Wear</Link>
+                        <Link to={'/'} className='text-md'>Bags</Link>
+                        <Link to={'/'} className='text-md'>Shoes</Link>
+                        <Link to={'/'} className='text-md'>Jwelleries</Link>
                     </div>
                 </div>
             </Box>

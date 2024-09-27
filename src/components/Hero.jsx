@@ -55,20 +55,20 @@ export default function Hero() {
     };
     
   return (
-    <section className='pt-10 px-2 md:px-0 bgImage bg-slate-1200'>
+    <section className='pt-10 px-2 md:px-0 bgImage bg-slate-200'>
       <Flex justifyContent={{md:'start', base: 'center'}} alignItems={'center'} gap={3} className='flex-wrap' p={{md:0, base: 0}} maxW={{md: '90%'}} mx={'auto'} height={'100%'}>
         <Flex gap={3} flexDir={'column'} color={'black'} className='glass p-3 md:py-7 rounded-md'>
-          <Heading textAlign={{md:'start', base: 'center'}} fontWeight={500} fontSize={{md:40, base:30}} className='uppercase'>Welcome To</Heading>
+          <Heading fontFamily={'serif'} textAlign={{md:'start', base: 'center'}} fontWeight={500} fontSize={{md:40, base:30}} className='uppercase'>Welcome To</Heading>
           <div className="flex items-center">
-            <MdOutlineShoppingCart className='text-center md:text-start md:text-5xl text-4xl animate text-pink-600'/>
-            <h1 className='text-center md:text-start md:text-7xl text-4xl font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify Store</h1>
+            <MdOutlineShoppingCart className='text-center md:text-center md:text-5xl text-4xl animate text-pink-600'/>
+            <Heading fontFamily={'serif'} textAlign={{md:'start', base: 'center'}} fontWeight={500} fontSize={{md:70, base:30}} className='text-center md:text-start md:text-7xl text-4xl font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify Store</Heading>
           </div>
           <div className="">
-            <p className='text-center md:text-start font-medium'>Shop What You Desire On ADEXIFY</p>
-            <p className='text-center md:text-start font-medium'>We are here to save you time and money</p>
+            <Text fontFamily={'serif'} className='text-center md:text-start font-medium py-2'>Shop What You Desire On ADEXIFY</Text>
+            <Text fontFamily={'serif'} className='text-center md:text-start font-medium'>We are here to save your time and money</Text>
           </div>
           <Flex justifyContent={{md:'start', base: 'center'}}>
-            <Button bgGradient='linear(to-l, gray.800, pink.800)' color={'white'} border={'none'} outline={'none'} _hover={{bgGradient:'linear(to-r, gray.800, pink.800)'}} transitionDuration={'0.3s'} className='uppercase bg-pink-600 text-white font-medium px-6 py-2 rounded-md'>shop now</Button>
+            <Button bgGradient='linear(to-l, gray.800, pink.600)' color={'white'} border={'none'} outline={'none'} _hover={{bgGradient:'linear(to-r, gray.800, pink.600)'}} transitionDuration={'0.3s'} className='uppercase bg-pink-600 text-white font-medium px-6 py-2 rounded-md'>shop now</Button>
           </Flex>
         </Flex>
       </Flex>
