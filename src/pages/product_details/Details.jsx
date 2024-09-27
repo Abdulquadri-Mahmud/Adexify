@@ -9,6 +9,7 @@ import { IoMdCall } from 'react-icons/io';
 import { FcLike } from "react-icons/fc";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlinePolicy } from "react-icons/md";
+import { PiGreaterThan } from 'react-icons/pi';
 
 export default function Details() {
     const { proId } = useParams();
@@ -33,10 +34,16 @@ export default function Details() {
   return (
     <div className='bg-slate-200 md:mb-0 mb-16'>
       <div className="bg-white p-2">
-        <div className="">
+        <div className="flex gap-1 items-center">
           <Link to={'/'} className='text-[13px]'>Home</Link>
+          <PiGreaterThan className='text-[13px] pt-1'/>
+          <Text className='text-[13px]'>category</Text>
+          <PiGreaterThan className='text-[13px] pt-1'/>
+          <Link to={`${category}`} className='text-[13px]'>{category}</Link>
         </div>
-        <Heading fontSize={{md:30, base: 25}} fontWeight={500}>{category}</Heading>
+        {/* <div className="">
+        </div> */}
+        {/* <Heading fontSize={{md:30, base: 25}} fontWeight={500} color={'black'}>{category}</Heading> */}
       </div>
       <div className="md:max-w-[95%] w-full mx-auto md:p-4 p-2 flex justify-center gap-2 flex-wrap">
         <div className="flex-1 bg-white md:p-4 p-2 rounded-md">

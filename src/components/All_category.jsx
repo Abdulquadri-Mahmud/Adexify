@@ -29,10 +29,10 @@ export default function All_category() {
             <RiMenu5Line className='text-lg'/>
             <h2 className="text-[10px] md:text-[1rem]">Browse All</h2>
         </div>
-        <div className={`${open ? 'md:w-[80%] w-[100%] p-3' : 'w-[0%]'} text-black text-sm duration-200 overflow-hidden fixed md:top-[21vh] left-0 bg-gray-100 h-full`}>
+        <div className={`${open ? 'md:w-[100%] w-[100%] p-3' : 'w-[0%]'} text-black text-sm duration-200 overflow-y-auto fixed md:top-[20vh] left-0 bg-gray-100 md:h-[500px] h-[550px]`}>
             <div className=''>
                 <Box>
-                    <Box top={0} position={'sticky'} zIndex={100} className=' flex justify-between items-center text-white'>
+                    <Box  className=' flex justify-between items-center text-white'>
                         <div onClick={handleClose} className={`bg-gray-200 w-8 h-8 flex justify-center items-center rounded-full cursor-pointer`}>
                             <LiaTimesSolid className='text-black text-2xl'/>
                         </div>

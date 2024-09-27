@@ -29,7 +29,7 @@ export default function TodaysDealsProducts() {
                 <BsCurrencyDollar/>
                 <span className='font-medium'>{price}.00</span>
             </p>
-            <button onClick={handleCart} className='w-[30px] h-[30px] bg-pink-600 rounded-full flex justify-center items-center text-white'><FaCartShopping/></button>
+            {/* <button onClick={handleCart} className='w-[30px] h-[30px] bg-pink-600 rounded-full flex justify-center items-center text-white'><FaCartShopping/></button> */}
         </div>
     </div>
   )

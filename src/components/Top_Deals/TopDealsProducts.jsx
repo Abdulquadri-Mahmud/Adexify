@@ -28,7 +28,7 @@ export default function TopDealsProducts() {
               <BsCurrencyDollar/>
               <span className='font-medium'>{price}</span>
           </p>
-          <button onClick={handleCart} className='w-[30px] h-[30px] bg-pink-600 rounded-full flex justify-center items-center text-white'><FaCartShopping/></button>
+          {/* <button onClick={handleCart} className='w-[30px] h-[30px] bg-pink-600 rounded-full flex justify-center items-center text-white'><FaCartShopping/></button> */}
       </div>
     </div>
   )
