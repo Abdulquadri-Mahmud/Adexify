@@ -2,8 +2,6 @@ import { Box, Heading, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
 import React, { createContext, Suspense, useEffect, useState } from 'react'
-import { FaSmileBeam } from 'react-icons/fa';
-// import Womens_wear_products from '../components/womens_wear/Womens_wear_products';
 
 export const MensWearProductsContext = createContext();
 
