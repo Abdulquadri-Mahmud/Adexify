@@ -3,8 +3,6 @@ import Hero from '../components/Hero'
 import TopDeals from '../components/Top_Deals/TopDeals'
 import TodaysDeal from '../components/TodaysDeal/TodaysDeal'
 import Section1 from '../components/sections/Section1'
-import Womens_wear from '../components/womens_wear/womens_wear'
-import Mens_wear from '../components/mens_wear/Mens_wear'
 import Recommended from '../components/recommend/Recommended'
 import LastSection from '../components/LastSection'
 
