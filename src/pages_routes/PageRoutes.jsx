@@ -7,6 +7,12 @@ import Details from '../pages/product_details/Details';
 import Signin from '../pages/user_auth/Signin';
 import Sign_up from '../pages/user_auth/Sign_up';
 import Footer from '../components/footer/Footer';
+import Private_Routes from '../components/private_routes/Private_Routes';
+import ContactUs from '../pages/ContactUs';
+import UserProfile from '../pages/profile/UserProfile';
+import Womens_Wear from '../pages/Womens_Wear';
+import Mens_Wear from '../pages/Mens_Wear';
+import NotFound from '../pages/NotFound';
 
 export default function PageRoutes() {
   return (
@@ -14,11 +20,20 @@ export default function PageRoutes() {
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/product-details/:proId' element={<Details/>}/>
+        <Route element={<Private_Routes/>}>
+          <Route path='/product-details/:proId' element={<Details/>}/>
+        </Route>
+        <Route element={<Private_Routes/>}>
+          <Route path='/profile/:userID' element={<UserProfile/>}/>
+        </Route>
+        <Route path="/womens-wear" element={<Womens_Wear/>}/>
+        <Route path="/mens-wear" element={<Mens_Wear/>}/>
         <Route path='/signin' element={<Signin/>}/>
         <Route path='/signup' element={<Sign_up/>}/>
+        <Route path='/contact' element={<ContactUs/>}/>
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
-      <BottomNav/>
+      {/* <BottomNav/> */}
       <Footer/>
     </Router>
   )

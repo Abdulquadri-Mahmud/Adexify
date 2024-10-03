@@ -27,7 +27,7 @@ export default function All_category() {
     <div className="">
         <div onClick={handleOpen} className="flex items-center flex-col md:flex-row cursor-pointer md:hover:text-black hover:text-pink-600">
             <RiMenu5Line className='text-lg'/>
-            <h2 className="text-[10px] md:text-[1rem]">Browse All</h2>
+            <h2 className="text-[10px] md:text-[1rem] font-medium">Browse All</h2>
         </div>
         <div className={`${open ? 'md:w-[100%] w-[100%] p-3' : 'w-[0%]'} text-black text-sm duration-200 overflow-y-auto fixed md:top-[20vh] left-0 bg-gray-100 md:h-[500px] h-[550px]`}>
             <div className=''>

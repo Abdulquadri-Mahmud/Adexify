@@ -10,8 +10,8 @@ import { AiOutlineYoutube } from 'react-icons/ai';
 
 export default function Footer() {
   return (
-    <Box bg={'gray.800'} className='hidden md:block'>
-        <Flex justifyContent={'space-between'} px={3} bg={'gray.700'} color={'white'} className="py-5">
+    <Box bg={'gray.800'} className=''>
+        <Flex justifyContent={'space-between'} flexWrap={'wrap'} gap={{md:0, base: 5}} px={3} bg={'gray.700'} color={'white'} className="py-5">
             <div className="flex items-center gap-1">
                 <div className="w-9 h-9 bg-white rounded-full flex justify-center items-center text-pink-600">
                     <MdEmail className='text-xl'/>
@@ -46,12 +46,12 @@ export default function Footer() {
                 </div>
             </div>
             <form className="flex items-center">
-                <input type="text" placeholder='Email Address' className='py-3 w-full bg-white text-black px-2 outline-none border-none'/>
-                <button type='submit' className='px-5 py-3 bg-pink-600 font-medium'>Subscribe</button>
+                <input type="text" placeholder='Email Address' className='md:py-3 py-2 w-full bg-white text-black px-2 outline-none border-none'/>
+                <button type='submit' className='px-5 md:py-3 py-2 bg-pink-600 font-medium'>Subscribe</button>
             </form>
         </Flex>
         <Box py={8}>
-            <Flex px={4} justifyContent={'space-between'} color={'white'}>
+            <Flex px={4} justifyContent={'space-between'} flexWrap={'wrap'} gap={5} color={'white'}>
                 <Box>
                     <Box>
                         <Heading fontSize={20} fontWeight={500}>ABOUT ADEXIFY</Heading>

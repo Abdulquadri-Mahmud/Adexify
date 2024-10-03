@@ -5,16 +5,18 @@ import TodaysDeal from '../components/TodaysDeal/TodaysDeal'
 import Section1 from '../components/sections/Section1'
 import Womens_wear from '../components/womens_wear/womens_wear'
 import Mens_wear from '../components/mens_wear/Mens_wear'
+import Recommended from '../components/recommend/Recommended'
 
 export default function Home() {
   return (
-    <div className='bg-slate-200'>
+    <div className=''t>
       <Hero/>
       <Section1/>
       <TodaysDeal/>
       <TopDeals/>
-      <Womens_wear/>
-      <Mens_wear/>
+      <Recommended/>
+      {/* <Womens_wear/>
+      <Mens_wear/> */}
     </div>
   )
 }

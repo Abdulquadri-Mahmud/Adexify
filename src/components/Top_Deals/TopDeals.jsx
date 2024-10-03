@@ -21,12 +21,12 @@ export default function TopDeals() {
     }, []);
 
   return (
-    <div className='mt-10 md:mb-0 mb-20 bg-slate-200 rounded-t-lg'>
-      <Box bgGradient='linear(to-l, gray.800, pink.600)' className="py-3 rounded-t-lg px-3 flex justify-between items-center">
-          <Heading fontWeight={500} fontSize={{md:25, base: 20}} className='text-xl text-white uppercase'>Top Deals</Heading>
-          <Link to={'/'} className='text-sm text-white font-medium uppercase'>See All</Link>
+    <div className='mt-10 md:mb-0 mb-20 bg-white rounded-t-lg'>
+      <Box className="py-2 rounded-t-lg px-3 flex justify-between items-center border-b-2 border-gray-200">
+          <Heading fontWeight={500} fontSize={{md:20, base: 18}} className='text-xl text-black'>Top Deals</Heading>
+          <Link to={'/'} className='text-[13px] text-black font-medium'>See All Items</Link>
       </Box>
-      <div className="py-3 px-2 grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
+      <div className="py-3 px-2 grid 2xl:grid-cols-8 xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
         {
             products.map((product) => (
               product.deal === 'Great' ? (

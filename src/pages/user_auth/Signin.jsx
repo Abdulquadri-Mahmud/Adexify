@@ -1,5 +1,5 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react'
-import React, { useEffect, useRef } from 'react'
+import { Box, Button, Flex, Heading, Spinner, Text, useToast } from '@chakra-ui/react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FaSmileBeam } from 'react-icons/fa'
 import { MdOutlineShoppingCart } from 'react-icons/md'
 import { FaUser } from "react-icons/fa";
@@ -8,13 +8,75 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { MdRemoveRedEye } from "react-icons/md";
 import { IoEyeOff } from "react-icons/io5";
 
+import {
+    Alert,
+    AlertIcon,
+    AlertTitle,
+    AlertDescription,
+} from '@chakra-ui/react'
+
 import { FaGoogle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { signinFailure, signinStart, signinSuccess } from '../../store/userReducers';
 
 export default function Signin() {
 
     const getLockPassIcon = useRef(null);
     const password = useRef(null);
+    const email = useRef(null);
+
+    const [formData, setFormData] = useState({});
+
+    const {loading, error} = useSelector((state) => state.user);
+
+    let navigate = useNavigate();
+    let dispatch = useDispatch();
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.id] : e.target.value
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            dispatch(signinStart);
+            
+            if (email.current.value === '' || email.current.value === null) {
+                dispatch(signinFailure('Email is Required!'));
+                return;
+            }
+            if (password.current.value === '' || password.current.value === null) {
+                dispatch(signinFailure('Password is Required!'));
+                return;
+            }
+
+            const signin_api = 'https://adexify-api.vercel.app/api/user/auth/signin';
+    
+            const res = await fetch(signin_api, {
+                method : 'POST',
+                headers : {'Content-Type' : 'application/json'},
+                body : JSON.stringify(formData),
+            });
+    
+            const data = await res.json();
+    
+            if (data.success === false) {
+                dispatch(signinFailure(data.message));
+                return;
+            }
+
+            dispatch(signinSuccess(data));
+            navigate('/');
+            
+        } catch (error) {
+            dispatch(signinFailure(error));
+        }
+    }
 
     const handlePassword = () => {
         let currentPassword = password.current.type;
@@ -44,9 +106,9 @@ export default function Signin() {
     
   return (
     <Box className='md:py-10 pt-6 pb-20 flex justify-center items-center px-2'>
-        <Flex flexWrap={'wrap'} className="md:w-[60%] w-[100%] md:p-5 p-3 bg-white rounded-xl ">
-            <Flex flexDirection={'column'} gap={4} alignItems={'start'} width={{md:'300px', base: '90%'}} mx={{md: '', base: 'auto'}} height={{md:'465px', base: '250px'}} rounded={'30px'} pos={'relative'} bgGradient='linear(pink.600, gray.800)' p={3}>
-                <Box className="img absolute bottom-0">
+        <Flex flexWrap={'wrap'} className="xl:w-[60%] w-[100%] md:p-5 p-3 bg-white rounded-xl ">
+            <Flex flexDirection={'column'} gap={4} alignItems={'start'} width={{xl:'300px', base: '100%'}} mx={{md: '', base: 'auto'}} height={{xl:'465px', md: '250px'}} rounded={'30px'} pos={'relative'} bgGradient='linear(pink.600, gray.800)' p={3}>
+                <Box className="img absolute bottom-0 xl:w-full w-[250px] right-0">
                     <img src="/side_banner1.png" alt="" className='max-w-full' />
                 </Box>
                 <Box className="mt-5 z-10">
@@ -57,7 +119,7 @@ export default function Signin() {
                     <Button className='' bg={'white'} color={'black'}>Login And Shop Now</Button>
                 </Box>
             </Flex>
-            <Box className="flex-1 md:mt-0 mt-5 px-5">
+            <Box className="flex-1 w-full xl:mt-0 mt-5 xl:px-5">
                 <Box className="flex items-center justify-center mx-auto bg-pink-200 py-1 px-2 rounded-2xl w-[140px]">
                     <MdOutlineShoppingCart className='md:text-xl animate text-pink-600'/>
                     <h1 className='md:text-xl font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify</h1>
@@ -66,15 +128,15 @@ export default function Signin() {
                     <Heading textAlign={'center'} fontWeight={500} fontSize={{md:30, base: 25}}>Welcome Back</Heading>
                     <p className='text-center text-gray-400 text-sm mt-1'>Please login to your account</p>
                 </Box>
-                <form className='flex w-full flex-col gap-5 mt-5'>
+                <form className='flex w-full flex-col gap-5 mt-5' onSubmit={handleSubmit}>
                     <Box className="relative">
-                        <input type="text" className='placeholder:text-gray-400 outline-none border-none font-medium bg-slate-200 w-full p-3 rounded-lg pl-10' placeholder='Example@gmail.com' />
+                        <input onChange={handleChange} type="email" id='email' ref={email} className='placeholder:text-gray-400 outline-none border-none font-medium bg-slate-200 w-full p-3 rounded-lg pl-10' placeholder='Example@gmail.com' />
                         <Box className="absolute top-4 left-3">
                             <MdEmail/>
                         </Box>                    
                     </Box>
                     <Box className="relative">
-                        <input type="password" ref={password} className='placeholder:text-gray-400 outline-none border-none font-medium bg-slate-200 w-full p-3 rounded-lg pl-10' placeholder='Enter Your Password' />
+                        <input onChange={handleChange} type="password" id='password' ref={password} className='placeholder:text-gray-400 outline-none border-none font-medium bg-slate-200 w-full p-3 rounded-lg pl-10' placeholder='Enter Your Password' />
                         <Box className="absolute top-4 left-3">
                             <RiLockPasswordFill/>
                         </Box>                    
@@ -82,8 +144,30 @@ export default function Signin() {
                             <button type='button' className='outline-none border-none' onClick={handlePassword} ref={getLockPassIcon}><MdRemoveRedEye/></button>
                         </Box>                    
                     </Box>
+                    {/* error */}
+                    <Box>
+                        {
+                            error && (
+                                <>
+                                    <Alert status='error' rounded={'8px'}>
+                                        <AlertIcon />
+                                        <AlertDescription>{error}</AlertDescription>
+                                    </Alert>
+                                </>
+                            )
+                        }
+                    </Box>
                     <Box className="mx-auto w-full">
-                        <button className='bg-slate-800 text-white w-full py-3 rounded-lg font-medium uppercase'>Login</button>
+                        <button className='bg-slate-800 text-white w-full py-3 rounded-lg font-medium uppercase'>
+                        {
+                            loading ? (
+                                <Flex justifyContent={'center'} alignItems={'center'} gap={2}>
+                                    <Spinner color='pink.600' />
+                                    <Text color={'pink.600'}>Loading...</Text>
+                                </Flex>
+                            ) : 'Login'
+                        }
+                        </button>
                     </Box>
                     <Box className="flex justify-center items-center">
                         <p className="w-[100px] p-[1px] bg-pink-300"></p>

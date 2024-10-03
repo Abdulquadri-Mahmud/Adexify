@@ -22,7 +22,7 @@ export default function Womens_wear() {
     
     
   return (
-    <Box className='my-10 bg-slate-200'>
+    <Box className='my-10 bg-white'>
       <Box bg={'white'} className="bg-white sticky top-0 py-3 rounded-t-lg px-3 flex justify-between items-center gap-4">
           <Heading fontWeight={500} fontSize={{md:25, base: 20}} color={'black'} className='text-xl uppercase'>Women's Wear</Heading>
           <Link to={'/'} className='text-sm text-black font-medium uppercase'>See All</Link>

@@ -30,7 +30,6 @@ export default function Details() {
 
     const {_id, name, category, image, price} = product;
 
-    console.log(product);
   return (
     <div className='bg-slate-200 md:mb-0 mb-16'>
       <div className="bg-white p-2">
@@ -39,13 +38,13 @@ export default function Details() {
           <PiGreaterThan className='text-[13px] pt-1'/>
           <Text className='text-[13px]'>category</Text>
           <PiGreaterThan className='text-[13px] pt-1'/>
-          <Link to={`${category}`} className='text-[13px]'>{category}</Link>
+          <Link to={`/${category}`} className='text-[13px]'>{category}</Link>
         </div>
         {/* <div className="">
         </div> */}
         {/* <Heading fontSize={{md:30, base: 25}} fontWeight={500} color={'black'}>{category}</Heading> */}
       </div>
-      <div className="md:max-w-[95%] w-full mx-auto md:p-4 p-2 flex justify-center gap-2 flex-wrap">
+      <div className="2xl:max-w-[65%] md:max-w-[95%] w-full mx-auto md:p-4 p-2 flex justify-center gap-2 flex-wrap">
         <div className="flex-1 bg-white md:p-4 p-2 rounded-md">
           <div className="flex gap-2 flex-wrap">
             <div className="w-[300px]">
@@ -85,23 +84,25 @@ export default function Details() {
                 </div>
               </div>
               <div className="border-b-[1px] border-b-gray-300 py-3">
-                <div className="flex items-center gap-2 mb-3">
-                  <p className='text-sm'>Quantity:</p>
-                  <div className="flex gap-2 items-center">
-                    <button className='w-8 h-8 bg-slate-200 rounded-md'>-</button>
-                    <span className="">1</span>
-                    <button className='w-8 h-8 bg-slate-200 rounded-md'>+</button>
+                <div className="flex items-center justify-between flex-wrap gap-2 mb-3">
+                  <div className="flex items-center gap-2">
+                    <p className='text-sm'>Quantity:</p>
+                    <div className="flex gap-2 items-center">
+                      <button className='w-8 h-8 bg-slate-200 rounded-md'>-</button>
+                      <span className="">1</span>
+                      <button className='w-8 h-8 bg-slate-200 rounded-md'>+</button>
+                    </div>
                   </div>
-                </div>
-                <div className="bg-pink-200 py-1 px-2 w-[200px] rounded-md mt-5">
-                  <p className='text-sm font-medium text-center'>Call us for Bulk Purchase</p>
-                  <div className="flex justify-center items-center text-pink-600 font-medium">
-                    <IoMdCall/>
-                    <Link to={'tell:07047594667'} className='text-center'>07047594667</Link>
+                  <div className="bg-pink-200 py-1 px-2 w-[200px] rounded-md mt-5">
+                    <p className='text-sm font-medium text-center'>Call us for Bulk Purchase</p>
+                    <div className="flex justify-center items-center text-pink-600 font-medium">
+                      <IoMdCall/>
+                      <Link to={'tell:07047594667'} className='text-center'>07047594667</Link>
+                    </div>
                   </div>
                 </div>
                 <div className=" mt-5 flex justify-between items-center">
-                  <button className="bg-green-600 text-white px-5 py-2 rounded-md w-[200px] font-medium">Add To Cart</button>
+                  <button className="bg-pink-600 text-white px-5 py-2 rounded-md w-[200px] font-medium">Add To Cart</button>
                   <div className="flex flex-col items-center cursor-pointer">
                     <div className="w-[45px] h-[45px] bg-gray-300 flex justify-center items-center rounded-full">
                       <FcLike className='text-2xl text-white'/>

@@ -2,10 +2,10 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { FaCartShopping } from 'react-icons/fa6';
-import { MensProductsContext } from './Mens_wear';
+import { MensWearProductsContext } from '../../pages/Mens_Wear';
 
 export default function Mens_wear_products() {
-    const product = useContext(MensProductsContext);
+    const product = useContext(MensWearProductsContext);
 
     const {_id, deal, quantity, image, name, price, description} = product;
 
@@ -29,7 +29,7 @@ export default function Mens_wear_products() {
                 <BsCurrencyDollar/>
                 <span className='font-medium'>{price}.00</span>
             </p>
-            {/* <button onClick={handleCart} className='w-[30px] h-[30px] bg-pink-600 rounded-full flex justify-center items-center text-white'><FaCartShopping/></button> */}
+            <button onClick={handleCart} className='w-[30px] h-[30px] bg-pink-600 rounded-full flex justify-center items-center text-white'><FaCartShopping/></button>
         </div>
     </div>
   )

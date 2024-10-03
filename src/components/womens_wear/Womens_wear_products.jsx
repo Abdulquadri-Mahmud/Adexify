@@ -2,22 +2,20 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { FaCartShopping } from 'react-icons/fa6';
-import { WomensProductsContext } from './womens_wear';
+import { WomensWearProductsContext } from '../../pages/Womens_Wear';
 
 export default function Womens_wear_products() {
-    const product = useContext(WomensProductsContext);
+    const product = useContext(WomensWearProductsContext);
 
     const {_id, deal, quantity, image, name, price, description} = product;
-
-    console.log(product);
 
     const handleCart = () => {
 
     }
 
   return (
-    <div className='bg-white p-2 rounded-xl shadow-sm '>
-        <Link to={`product-details/${_id}`}>
+    <div className='bg-slate-200 p-2 rounded-xl shadow-sm '>
+        <Link to={`/product-details/${_id}`}>
             <div className="flex justify-center pt-0 md:w-[200px] h-[170px] w-[140px] mx-auto">
                 <img src={image} alt="" className='max-w-full  object-cover object-top'/>
             </div>
@@ -31,7 +29,7 @@ export default function Womens_wear_products() {
                 <BsCurrencyDollar/>
                 <span className='font-medium'>{price}.00</span>
             </p>
-            {/* <button onClick={handleCart} className='w-[30px] h-[30px] bg-pink-600 rounded-full flex justify-center items-center text-white'><FaCartShopping/></button> */}
+            <button onClick={handleCart} className='w-[30px] h-[30px] bg-pink-600 rounded-full flex justify-center items-center text-white'><FaCartShopping/></button>
         </div>
     </div>
   )
