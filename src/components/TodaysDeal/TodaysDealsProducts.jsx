@@ -14,7 +14,7 @@ export default function TodaysDealsProducts() {
     }
 
   return (
-    <div className='bg-slate-200 p-2 rounded-xl shadow-sm '>
+    <div className='bg-white p-2 rounded-xl shadow-md'>
         <Link to={`product-details/${_id}`}>
             <div className="flex justify-center pt-0 md:w-[200px] h-[170px] w-[140px] mx-auto">
                 <img src={image} alt="" className='max-w-full  object-cover object-top'/>

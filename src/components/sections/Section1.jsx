@@ -88,7 +88,7 @@ export default function Section1() {
             <Heading pb={6} color={'black'} fontWeight={500} fontSize={{md: 30, base: 20}} textAlign={'center'}>Choose Department</Heading>
             <Slider {...settings}>
                 <div className="p-2">
-                    <Link to={'/'}>
+                    <Link to={"/mens-wear"}>
                         <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img1} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
                             <div className="">
                                 <h2>Men's Wear</h2>
@@ -97,7 +97,7 @@ export default function Section1() {
                     </Link>
                 </div>
                 <div className="p-2">
-                    <Link to={'/'}>
+                    <Link to={"/womens-wear"}>
                         <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img2} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
                             <div className="">
                                 <h2>Women's Wear</h2>
@@ -106,7 +106,7 @@ export default function Section1() {
                     </Link>
                 </div>
                 <div className="p-2">
-                    <Link to={'/'}>
+                    <Link to={"/mens-wear"}>
                         <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img1} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
                             <div className="">
                                 <h2>Men's Bags</h2>

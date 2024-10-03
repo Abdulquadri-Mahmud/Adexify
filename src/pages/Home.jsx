@@ -6,6 +6,7 @@ import Section1 from '../components/sections/Section1'
 import Womens_wear from '../components/womens_wear/womens_wear'
 import Mens_wear from '../components/mens_wear/Mens_wear'
 import Recommended from '../components/recommend/Recommended'
+import LastSection from '../components/LastSection'
 
 export default function Home() {
   return (
@@ -15,8 +16,7 @@ export default function Home() {
       <TodaysDeal/>
       <TopDeals/>
       <Recommended/>
-      {/* <Womens_wear/>
-      <Mens_wear/> */}
+      <LastSection/>
     </div>
   )
 }
