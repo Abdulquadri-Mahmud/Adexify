@@ -7,7 +7,6 @@ export default function Recommended_Products() {
     const product = useContext(RecommendedDealsProductsContext);
 
     const {_id, deal, quantity, image, name, price, description} = product;
-    console.log(price);
     
     const handleCart = () => {
 

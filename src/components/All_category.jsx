@@ -10,7 +10,6 @@ import { CiShoppingTag } from 'react-icons/ci';
 
 export default function All_category() {
     const [open, setOpen] = useState(false);
-    console.log(open)
     
     const handleOpen = () => {
         setOpen(true);

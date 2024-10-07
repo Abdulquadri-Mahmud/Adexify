@@ -1,5 +1,5 @@
 import { Box, Icon, useColorModeValue } from '@chakra-ui/react';
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { IoLogoYoutube } from 'react-icons/io';
 import { MdOutlineShoppingCart, MdSearch } from "react-icons/md";
@@ -23,73 +23,83 @@ export const OpenMenuCOntext = createContext();
 export default function Header() {
     
     const { currentUser } = useSelector((state) => state.user);
-    console.log(currentUser);
+    // console.log(currentUser);
+    const { items } = useSelector((state) => state.cart);
+
+    useEffect(() => {    
+        // console.log(items);
+    }, []);
+    
     
   return (
     <div className="sticky top-0 z-20 bg-white">
-        <Box className="relative flex justify-between items-center px-2 md:px-6 bg-pink-600 text-white">
-            <div className="flex items-center">
-                <IoMdCall/>
-                <Link to='tel:+2347047594667' className='text-[12px]'>+234-704-7594-667</Link>
-            </div>
-            <div className="md:max-w-[40%] max-w-[30%] mx-auto " >
-                <marquee behavior="sliding" direction="" className={'text-[12px] capitalize'}>Welcome To ADEXIFY, We Give The Best.</marquee>
-            </div>
-            <div className=" flex gap-x-2">
-                <Link to='#'><FaFacebookF className="text-[12px] duration-200 hover:-translate-y-1"/></Link>
-                <Link to='#'><FaInstagram className="text-[12px] duration-200 hover:-translate-y-1"/></Link>
-                <Link to='#'><FaTwitter className="text-[12px] duration-200 hover:-translate-y-1"/></Link>
-                <Link to='#'><IoLogoYoutube className="text-[12px] duration-200 hover:-translate-y-1"/></Link>
-            </div>
-        </Box>
-        <Box top={0} position={'sticky'} className=' flex justify-between items-center py-3 md:px-6 px-4 bg-gray-800 text-white'>
-            <Link to={'/'}>
+        <Box className='bg-pink-600'>
+            <Box className="relative flex justify-between items-center px-2 md:px-6 text-white max-w-[95vw] sm:max-w-[754px] xl:max-w-[1240px] w-full mx-auto">
                 <div className="flex items-center">
-                    <MdOutlineShoppingCart className='md:text-3xl text-2xl animate text-pink-600'/>
-                    <h1 className='md:text-3xl text-2xl font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify</h1>
+                    <IoMdCall/>
+                    <Link to='tel:+2347047594667' className='text-[12px]'>+234-704-7594-667</Link>
                 </div>
-            </Link>
-            <div className="w-[30%] rounded hidden md:block">
-                <form className='w-[100%] relative'>
-                    <form className="">
-                        <input type="text" placeholder='Search for products'  className=' text-black font-semibold rounded-sm border-none outline-none p-[6px] w-[100%]'/>
-                        <Box bg={'pink.500'} className="absolute top-0 right-0 flex justify-center items-center w-[45px] h-full rounded-r-sm cursor-pointer ">
-                            <Icon as={MdSearch} color={useColorModeValue('white', 'black')} fontSize={23}/>
-                        </Box>
+                <div className="md:max-w-[40%] max-w-[30%] mx-auto " >
+                    <marquee behavior="sliding" direction="" className={'text-[12px] capitalize'}>Welcome To ADEXIFY, We Give The Best.</marquee>
+                </div>
+                <div className=" flex gap-x-2">
+                    <Link to='#'><FaFacebookF className="text-[12px] duration-200 hover:-translate-y-1"/></Link>
+                    <Link to='#'><FaInstagram className="text-[12px] duration-200 hover:-translate-y-1"/></Link>
+                    <Link to='#'><FaTwitter className="text-[12px] duration-200 hover:-translate-y-1"/></Link>
+                    <Link to='#'><IoLogoYoutube className="text-[12px] duration-200 hover:-translate-y-1"/></Link>
+                </div>
+            </Box>
+        </Box>
+        <Box top={0} position={'sticky'} className='bg-gray-800 text-white'>
+            <Box className='flex justify-between items-center py-3 md:px-6 px-2 max-w-[100vw] sm:max-w-[754px] xl:max-w-[1240px] w-full mx-auto'>
+                <Link to={'/'}>
+                    <div className="flex items-center">
+                        <MdOutlineShoppingCart className='md:text-3xl text-2xl animate text-pink-600'/>
+                        <h1 className='md:text-3xl text-2xl font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify</h1>
+                    </div>
+                </Link>
+                <div className="w-[30%] rounded hidden md:block">
+                    <form className='w-[100%] relative'>
+                        <form className="">
+                            <input type="text" placeholder='Search for products'  className=' text-black font-semibold rounded-sm border-none outline-none p-[6px] w-[100%]'/>
+                            <Box bg={'pink.500'} className="absolute top-0 right-0 flex justify-center items-center w-[45px] h-full rounded-r-sm cursor-pointer ">
+                                <Icon as={MdSearch} color={useColorModeValue('white', 'black')} fontSize={23}/>
+                            </Box>
+                        </form>
                     </form>
-                </form>
-            </div>
-            <div className="flex items-center">
-                <div className="hidden md:block">
-                    <div className="bg-white text-black flex justify-between gap-2 p-1 px-3 rounded-md">
-                        <Box className='flex items-center gap-2 font-medium'>
-                            <Icon as={BsCart4} color={'black'}/>
-                            <p>My Cart</p>
-                        </Box>
-                        <div className="bg-white px-2 font-medium text-black rounded-full">
+                </div>
+                <div className="flex items-center">
+                    <div className="hidden md:block">
+                        <div className="bg-white text-black flex justify-between gap-2 p-1 px-3 rounded-md">
+                            <Box className='flex items-center gap-2 font-medium'>
+                                <Icon as={BsCart4} color={'black'}/>
+                                <p>My Cart</p>
+                            </Box>
+                            <div className="bg-white px-2 font-medium text-black rounded-full">
+                                <p>0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="md:hidden block text-xl relative">
+                        <MdOutlineShoppingCart className='text-2xl'/>
+                        <div className="absolute -top-5 right-0 text-white ">
                             <p>0</p>
                         </div>
                     </div>
-                </div>
-                <div className="md:hidden block text-xl relative">
-                    <MdOutlineShoppingCart className='text-2xl'/>
-                    <div className="absolute -top-5 right-0 text-white ">
-                        <p>0</p>
+                    <div className="flex items-center">
+                        {
+                            currentUser ? (
+                                <Settings/>
+                            ) : (
+                                <>
+                                    <Link to={'/signin'} className='text-[14px]'>Signin/</Link>
+                                    <Link to={'/signup'} className='text-[14px]'>Signup</Link>
+                                </>
+                            )
+                        }
                     </div>
                 </div>
-                <div className="">
-                    {
-                        currentUser ? (
-                            <Settings/>
-                        ) : (
-                            <>
-                                <Link to={'/signin'}>Signin/</Link>
-                                <Link to={'/signup'}>Signup</Link>
-                            </>
-                        )
-                    }
-                </div>
-            </div>
+            </Box>
         </Box>
         <div className="hidde md:blocktext-white">
             <Box className="flex md:justify-center justify-between px-2 items-center gap-4 sm:gap-5 py-3 xl:max-w-[50%] md:max-w-[80%] w-full rounded-tr-2xl rounded-tl-2xl mx-auto md:bg-white md:text-black">

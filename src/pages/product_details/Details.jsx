@@ -10,11 +10,22 @@ import { FcLike } from "react-icons/fc";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdOutlinePolicy } from "react-icons/md";
 import { PiGreaterThan } from 'react-icons/pi';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, changeQuantity } from '../../store/cart/cartsReucer';
 
 export default function Details() {
     const { proId } = useParams();
 
     const [product, setProduct] = useState([]);
+    const [handleQuantity, setHandleQuantity] = useState(1);
+
+    const increase = () => {
+      
+    }
+
+    console.log(handleQuantity);
+    
+    const dispatch = useDispatch();
 
     useEffect(() => {
       const fetchData = async () => {
@@ -29,6 +40,49 @@ export default function Details() {
     }, []);
 
     const {_id, name, category, image, price} = product;
+
+    const { items } = useSelector((state) => state.cart);
+    const { currentUser } = useSelector((state) => state.user);
+
+    const {quantity} = items;
+    
+    const getCarts = {
+        productID: _id,
+        productName: name,
+        productImage : image,
+        productPrice: price,
+        userId : currentUser._id,
+        quantity: 1
+    }
+    const handleCart = () => {
+      dispatch(addToCart(getCarts))
+    }
+
+    console.log(items);
+    
+
+    const increaseQuantity = () => {
+      dispatch(changeQuantity({
+        productID : items.productID,
+        quantity : items.quantity + 1
+      }));
+      // setHandleQuantity(handleQuantity => handleQuantity + 1);
+    }
+    // console.log(quantities);
+    
+    const decreaseQuantity = () => {
+      dispatch(changeQuantity({
+        productID : items.productID,
+        quantity : items.quantity - 1
+      }));
+      // if (handleQuantity <= 1) {
+      //   setHandleQuantity(handleQuantity = 1);
+      // }else{
+      //   setHandleQuantity(handleQuantity => handleQuantity - 1);
+      // }
+    }
+    // console.log(currentUser);
+    
 
   return (
     <div className='bg-slate-200 md:mb-0 mb-16'>
@@ -88,9 +142,9 @@ export default function Details() {
                   <div className="flex items-center gap-2">
                     <p className='text-sm'>Quantity:</p>
                     <div className="flex gap-2 items-center">
-                      <button className='w-8 h-8 bg-slate-200 rounded-md'>-</button>
-                      <span className="">1</span>
-                      <button className='w-8 h-8 bg-slate-200 rounded-md'>+</button>
+                      <button type='button' className='w-8 h-8 bg-slate-200 rounded-md' onClick={decreaseQuantity}>-</button>
+                      <span className="">{handleQuantity}</span>
+                      <button type='button' className='w-8 h-8 bg-slate-200 rounded-md' onClick={increaseQuantity}>+</button>
                     </div>
                   </div>
                   <div className="bg-pink-200 py-1 px-2 w-[200px] rounded-md mt-5">
@@ -102,7 +156,7 @@ export default function Details() {
                   </div>
                 </div>
                 <div className=" mt-5 flex justify-between items-center">
-                  <button className="bg-pink-600 text-white px-5 py-2 rounded-md w-[200px] font-medium">Add To Cart</button>
+                  <button className="bg-pink-600 text-white px-5 py-2 rounded-md w-[200px] font-medium" onClick={handleCart}>Add To Cart</button>
                   <div className="flex flex-col items-center cursor-pointer">
                     <div className="w-[45px] h-[45px] bg-gray-300 flex justify-center items-center rounded-full">
                       <FcLike className='text-2xl text-white'/>
