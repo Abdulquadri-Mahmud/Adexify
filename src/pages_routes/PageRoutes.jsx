@@ -13,6 +13,7 @@ import UserProfile from '../pages/profile/UserProfile';
 import Womens_Wear from '../pages/Womens_Wear';
 import Mens_Wear from '../pages/Mens_Wear';
 import NotFound from '../pages/NotFound';
+import Carts_Page from '../pages/cartsPage/Carts_Page';
 
 export default function PageRoutes() {
   return (
@@ -25,6 +26,9 @@ export default function PageRoutes() {
         </Route>
         <Route element={<Private_Routes/>}>
           <Route path='/profile/:userID' element={<UserProfile/>}/>
+        </Route>
+        <Route element={<Private_Routes/>}>
+          <Route path='/view-carts' element={<Carts_Page/>}/>
         </Route>
         <Route path="/womens-wear" element={<Womens_Wear/>}/>
         <Route path="/mens-wear" element={<Mens_Wear/>}/>

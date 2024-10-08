@@ -1,4 +1,4 @@
-import { Box, Icon, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, Icon, useColorModeValue } from '@chakra-ui/react';
 import React, { createContext, useEffect, useState } from 'react'
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { IoLogoYoutube } from 'react-icons/io';
@@ -21,15 +21,20 @@ import { useSelector } from 'react-redux';
 export const OpenMenuCOntext = createContext();
 
 export default function Header() {
-    
+    const [cartLength, setCartLength] = useState(0)
     const { currentUser } = useSelector((state) => state.user);
     // console.log(currentUser);
     const { items } = useSelector((state) => state.cart);
-
-    useEffect(() => {    
-        // console.log(items);
-    }, []);
     
+    useEffect(() => {
+
+        if (items.length >= 1) {
+            setCartLength(items.length);
+            return;
+        }else{
+            setCartLength(0);
+        }
+    })
     
   return (
     <div className="sticky top-0 z-20 bg-white">
@@ -70,31 +75,35 @@ export default function Header() {
                 </div>
                 <div className="flex items-center">
                     <div className="hidden md:block">
-                        <div className="bg-white text-black flex justify-between gap-2 p-1 px-3 rounded-md">
-                            <Box className='flex items-center gap-2 font-medium'>
-                                <Icon as={BsCart4} color={'black'}/>
-                                <p>My Cart</p>
-                            </Box>
-                            <div className="bg-white px-2 font-medium text-black rounded-full">
-                                <p>0</p>
+                        <Link to={'/view-carts'}>
+                            <div className="bg-white text-black flex justify-between gap-2 p-1 px-3 rounded-md">
+                                <Box className='flex items-center gap-2 font-medium'>
+                                    <Icon as={BsCart4} color={'black'}/>
+                                    <p>My Cart</p>
+                                </Box>
+                                <div className="bg-white px-2 font-medium text-black rounded-full">
+                                    <p>{cartLength}</p>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                     <div className="md:hidden block text-xl relative">
-                        <MdOutlineShoppingCart className='text-2xl'/>
-                        <div className="absolute -top-5 right-0 text-white ">
-                            <p>0</p>
-                        </div>
+                        <Link to={'/view-carts'}>
+                            <MdOutlineShoppingCart className='text-xl text-pink-600'/>
+                            <div className="absolute -top-3 -right-1 text-white ">
+                                <p className='text-sm'>{cartLength}</p>
+                            </div>
+                        </Link>
                     </div>
                     <div className="flex items-center">
                         {
                             currentUser ? (
                                 <Settings/>
                             ) : (
-                                <>
+                                <Flex gap={2}>
                                     <Link to={'/signin'} className='text-[14px]'>Signin/</Link>
                                     <Link to={'/signup'} className='text-[14px]'>Signup</Link>
-                                </>
+                                </Flex>
                             )
                         }
                     </div>

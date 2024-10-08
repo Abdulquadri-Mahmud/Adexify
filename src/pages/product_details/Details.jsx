@@ -1,7 +1,7 @@
-import { Heading, Text } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react'
+import { Box, Button, Heading, Text } from '@chakra-ui/react';
+import React, { createContext, useEffect, useRef, useState } from 'react'
 import { MdOutlineShoppingCart } from 'react-icons/md';
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { FaSmileBeam } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { BsCurrencyDollar } from 'react-icons/bs';
@@ -12,19 +12,21 @@ import { MdOutlinePolicy } from "react-icons/md";
 import { PiGreaterThan } from 'react-icons/pi';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, changeQuantity } from '../../store/cart/cartsReucer';
+import Quantity from '../../components/carts/quantity';
+import { CgMathMinus } from 'react-icons/cg';
+import { RiAddFill } from 'react-icons/ri';
+
+export const quantityContext = createContext();
 
 export default function Details() {
     const { proId } = useParams();
+    const { currentUser } = useSelector((state) => state.user);
+    const { items } = useSelector((state) => state.cart);
+    const logQuantity = useRef(null);
 
     const [product, setProduct] = useState([]);
-    const [handleQuantity, setHandleQuantity] = useState(1);
+    const [ success, setSuccess ] = useState(false);
 
-    const increase = () => {
-      
-    }
-
-    console.log(handleQuantity);
-    
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -40,11 +42,6 @@ export default function Details() {
     }, []);
 
     const {_id, name, category, image, price} = product;
-
-    const { items } = useSelector((state) => state.cart);
-    const { currentUser } = useSelector((state) => state.user);
-
-    const {quantity} = items;
     
     const getCarts = {
         productID: _id,
@@ -54,35 +51,41 @@ export default function Details() {
         userId : currentUser._id,
         quantity: 1
     }
-    const handleCart = () => {
-      dispatch(addToCart(getCarts))
-    }
 
-    console.log(items);
-    
+    const handleCart = () => {
+      let addProToCart = dispatch(addToCart(getCarts));
+      if (addProToCart) {
+        setSuccess(true);
+        return;
+      }else{
+        setSuccess(false);
+      }
+    }
 
     const increaseQuantity = () => {
-      dispatch(changeQuantity({
-        productID : items.productID,
-        quantity : items.quantity + 1
-      }));
-      // setHandleQuantity(handleQuantity => handleQuantity + 1);
+      items.map((item) => {
+        if (_id === item.productID) {
+          dispatch(changeQuantity({
+            productID : item.productID,
+            quantity : item.quantity + 1
+          }));
+        }
+      });
     }
-    // console.log(quantities);
-    
+
+    let navigate = useNavigate();
+
     const decreaseQuantity = () => {
-      dispatch(changeQuantity({
-        productID : items.productID,
-        quantity : items.quantity - 1
-      }));
-      // if (handleQuantity <= 1) {
-      //   setHandleQuantity(handleQuantity = 1);
-      // }else{
-      //   setHandleQuantity(handleQuantity => handleQuantity - 1);
-      // }
+      items.map((item) => {
+        if (_id === item.productID) {
+          dispatch(changeQuantity({
+            productID : item.productID,
+            quantity : item.quantity - 1 < 1 ? navigate('/')
+             : item.quantity - 1
+          }));
+        }
+      });
     }
-    // console.log(currentUser);
-    
 
   return (
     <div className='bg-slate-200 md:mb-0 mb-16'>
@@ -139,14 +142,28 @@ export default function Details() {
               </div>
               <div className="border-b-[1px] border-b-gray-300 py-3">
                 <div className="flex items-center justify-between flex-wrap gap-2 mb-3">
-                  <div className="flex items-center gap-2">
-                    <p className='text-sm'>Quantity:</p>
-                    <div className="flex gap-2 items-center">
-                      <button type='button' className='w-8 h-8 bg-slate-200 rounded-md' onClick={decreaseQuantity}>-</button>
-                      <span className="">{handleQuantity}</span>
-                      <button type='button' className='w-8 h-8 bg-slate-200 rounded-md' onClick={increaseQuantity}>+</button>
-                    </div>
-                  </div>
+                  <Box className="flex items-center gap-2">
+                    <Text className='text-sm'>Quantity: </Text>
+                    <Box className="flex gap-2 items-center">
+                      <Button type='button' bg={'gray.300'} px={1} py={1} className='rounded-md' onClick={decreaseQuantity}><CgMathMinus className='text-xl'/></Button>
+                      <span className="" ref={logQuantity}>
+                        {
+                          items.map((item) => (
+                            <>
+                              {
+                                _id === item.productID && (
+                                  <>
+                                    {item.quantity}
+                                  </>
+                                )
+                              }
+                            </>
+                          ))
+                        }
+                      </span>
+                      <Button type='button' bg={'gray.300'} px={1} py={1} className='rounded-md' onClick={increaseQuantity}><RiAddFill className='text-xl'/></Button>
+                    </Box>
+                  </Box>
                   <div className="bg-pink-200 py-1 px-2 w-[200px] rounded-md mt-5">
                     <p className='text-sm font-medium text-center'>Call us for Bulk Purchase</p>
                     <div className="flex justify-center items-center text-pink-600 font-medium">
@@ -157,6 +174,7 @@ export default function Details() {
                 </div>
                 <div className=" mt-5 flex justify-between items-center">
                   <button className="bg-pink-600 text-white px-5 py-2 rounded-md w-[200px] font-medium" onClick={handleCart}>Add To Cart</button>
+                  
                   <div className="flex flex-col items-center cursor-pointer">
                     <div className="w-[45px] h-[45px] bg-gray-300 flex justify-center items-center rounded-full">
                       <FcLike className='text-2xl text-white'/>

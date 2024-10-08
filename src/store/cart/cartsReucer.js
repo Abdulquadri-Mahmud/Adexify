@@ -12,8 +12,9 @@ const cartSlice = createSlice({
             const { productID, quantity, productName, userId, productPrice, productImage} = action.payload;
             const findProductsID = (state.items).findIndex(item => item.productID === productID);
             if (findProductsID >= 0) {
-                state.items[findProductsID].quantity += quantity;
-            }else{
+                // state.items[findProductsID].quantity += quantity;
+            }
+            else{
                 state.items.push({productID, quantity, productName, productImage, productPrice, userId});
                 localStorage.setItem('cart', JSON.stringify(state.items));
             }
@@ -23,7 +24,8 @@ const cartSlice = createSlice({
             const findProductsID = (state.items).findIndex(item => item.productID === productID);
             if (quantity > 0) {
                 state.items[findProductsID].quantity = quantity;
-            }else{
+            }
+            else{
                 state.items = (state.items).filter(item => item.productID !== productID);
             }
             localStorage.setItem('cart', JSON.stringify(state.items));
