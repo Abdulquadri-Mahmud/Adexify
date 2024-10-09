@@ -33,21 +33,25 @@ export default function TodaysDeal() {
 
   return (
     <Box className='my-10 bg-white'>
-      <Box className="bg-pink-600 sticky top-0 py-3 rounded-t-lg px-3 flex justify-between items-center gap-4">
-          <Heading fontWeight={500} fontSize={{md:20, base: 18}} color={'white'} className='text-xl'>Today's Deals</Heading>
-          <Link to={'/'} className='text-[12px] font-medium text-white'>See All Items</Link>
+      <Box className='bg-pink-600 py-3 rounded-t-lg px-3 '>
+        <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className="flex justify-between items-center gap-4">
+            <Heading fontWeight={500} fontSize={{md:20, base: 18}} color={'white'} className='text-xl'>Today's Deals</Heading>
+            <Link to={'/'} className='text-[12px] font-medium text-white'>See All Items</Link>
+        </Box>
       </Box>
-      <div className="py-3 px-2 grid 2xl:grid-cols-8 xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
-        {
-            currentPost.length > 0 && currentPost.map((product) => (
-                <TodaysDealsProductsContext.Provider value={product}>
-                    <TodaysDealsProducts product={product}/>
-                </TodaysDealsProductsContext.Provider>
-            ))
-        }
-      </div>
-      <Box pb={5}>
-        <Todays_deals_pag postPerPage={postPerPage} totalPost={products.length} paginate={paginate}/>
+      <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}>
+        <div className="py-3 px-2 grid 2xl:grid-cols-8 xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
+          {
+              currentPost.length > 0 && currentPost.map((product) => (
+                  <TodaysDealsProductsContext.Provider value={product}>
+                      <TodaysDealsProducts product={product}/>
+                  </TodaysDealsProductsContext.Provider>
+              ))
+          }
+        </div>
+        <Box pb={5}>
+          <Todays_deals_pag postPerPage={postPerPage} totalPost={products.length} paginate={paginate}/>
+        </Box>
       </Box>
     </Box>
   )

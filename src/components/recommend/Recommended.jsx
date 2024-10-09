@@ -40,7 +40,7 @@ export default function Recommended() {
       <div className="py-3 px-2 grid 2xl:grid-cols-8 xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
         {
             currentPost.length > 0 && currentPost.map((product, index) => (
-                product.price >= '100000' ? (
+                product.price >= 10000 ? (
                     <RecommendedDealsProductsContext.Provider value={product}>
                         <Recommended_Products product={product} key={index}/>
                     </RecommendedDealsProductsContext.Provider>

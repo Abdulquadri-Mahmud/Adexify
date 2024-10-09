@@ -23,7 +23,7 @@ export default function Mens_Wear() {
 
   return (
     <Box>
-        <Box className="bg-white p-2">
+        <Box className="bg-white p-2 shadow-md">
             <Box className="flex gap-1 items-center">
                 <Link to={'/'} className='text-[13px]'>Back to home page</Link>
             </Box>
@@ -36,14 +36,11 @@ export default function Mens_Wear() {
             </Box>
         </Box>
         <Box my={'10'} p={5} bg={'white'}>
-            <Box mb={2}>
-                <Text className='animate-pulse text-center text-pink-600' fontSize={'13px'} fontWeight={500}>Shop What You Desire On Adexify Now</Text>
-            </Box>
             <Box>
                 <div className="py-3 px-2 grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
                     {
                         products.map((product) => (
-                            product.category === "men's wear" ? (
+                            product.category === "menswear" || products.category === 'hoodies' ? (
                                 <>
                                     <MensWearProductsContext.Provider value={product}>
                                         <Suspense fallback={<div className='text-black'>Loading...</div>}>

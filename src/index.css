@@ -31,3 +31,14 @@
         height: 300px;
     }
 }
+
+table{
+    border-collapse: collapse;
+    border-radius: 5px;
+}
+table th{
+    padding: 8px;
+}
+table td{
+    /* border: 1px solid grey; */
+}

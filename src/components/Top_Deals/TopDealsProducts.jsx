@@ -2,12 +2,13 @@ import React, { useContext } from 'react'
 import { TopDealsProductsContext } from './TopDeals';
 import { Link } from 'react-router-dom';
 import { BsCurrencyDollar } from 'react-icons/bs';
-import { FaCartShopping } from 'react-icons/fa6';
+import { FaCartShopping, FaNairaSign } from 'react-icons/fa6';
 
 export default function TopDealsProducts() {
   const product = useContext(TopDealsProductsContext);
 
   const {_id, deal, quantity, image, name, price, description} = product;
+  const priceToLocalString = price.toLocaleString()
   
   const handleCart = () => {
 
@@ -25,8 +26,8 @@ export default function TopDealsProducts() {
       <p className="truncate">{description}</p>
       <div className="flex justify-between items-center mt-2">
           <p className='flex items-center'>
-              <BsCurrencyDollar/>
-              <span className='font-medium'>{price}</span>
+              <FaNairaSign/>
+              <span className='font-medium'>{priceToLocalString}</span>
           </p>
           {/* <button onClick={handleCart} className='w-[30px] h-[30px] bg-pink-600 rounded-full flex justify-center items-center text-white'><FaCartShopping/></button> */}
       </div>

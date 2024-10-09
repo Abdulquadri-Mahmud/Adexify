@@ -8,7 +8,7 @@ function SampleNextArrow(props) {
   
     const { className, style, onClick } = props;
     return (
-      <Box bgGradient='linear(to-l, gray.800, pink.600)' width={'30px'} height={'30px'} rounded={'full'}
+      <Box bg={''} width={'30px'} height={'30px'} rounded={'full'}
       right={'5vh'}  
       className={className}
         style={{ ...style, display: "block",
@@ -22,7 +22,7 @@ function SampleNextArrow(props) {
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
-      <Box bgGradient='linear(to-r, gray.800, pink.600)' width={'30px'} height={'30px'} rounded={'full'}
+      <Box bg={''} width={'30px'} height={'30px'} rounded={'full'}
         left={'5vh'} zIndex={'10'}
         className={className}
         style={{ ...style, display: "block", 
@@ -38,6 +38,7 @@ import img2 from '/img3.jpg';
 import img3 from '/img4.jpg';
 import img4 from '/img5.jpg';
 import img5 from '/img6.jpg';
+import img6 from '/img7.jpg';
 
 import { Box, Flex, Heading } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
@@ -74,17 +75,24 @@ export default function Section1() {
             {
               breakpoint: 600,
               settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-              }
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+              breakpoint: 420,
+              settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
             },
         ]
     };
 
   return (
-    <div className="bg-white py-10">
+    <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className="bg-white py-10">
 
-        <div className=' md:max-w-[90%] max-w-[1000%]  mx-auto text-black font-medium'>
+        <div className='text-black font-medium'>
             <Heading pb={6} color={'black'} fontWeight={500} fontSize={{md: 30, base: 20}} textAlign={'center'}>Choose Department</Heading>
             <Slider {...settings}>
                 <div className="p-2">
@@ -141,8 +149,17 @@ export default function Section1() {
                         </Flex>
                     </Link>
                 </div>
+                <div className="p-2">
+                    <Link to={'/'}>
+                        <Flex justifyContent={'center'} alignItems={'center'} color={'white'} bgImage={img6} height={'200px'} bgRepeat={'no-repeat'} bgBlendMode={'multiply'} bgPos={'top'} bgSize={'cover'} className="bg-gray-400 uppercase text-xl bbbbbbbbbbbv   rounded-md p-2">
+                            <div className="">
+                                <h2>Jewelleries</h2>
+                            </div>
+                        </Flex>
+                    </Link>
+                </div>
             </Slider>
         </div>
-    </div>
+    </Box>
   )
 }

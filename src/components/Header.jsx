@@ -39,7 +39,7 @@ export default function Header() {
   return (
     <div className="sticky top-0 z-20 bg-white">
         <Box className='bg-pink-600'>
-            <Box className="relative flex justify-between items-center px-2 md:px-6 text-white max-w-[95vw] sm:max-w-[754px] xl:max-w-[1240px] w-full mx-auto">
+            <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}  className="relative flex justify-between items-center px-2 md:px-6 text-white">
                 <div className="flex items-center">
                     <IoMdCall/>
                     <Link to='tel:+2347047594667' className='text-[12px]'>+234-704-7594-667</Link>
@@ -56,7 +56,7 @@ export default function Header() {
             </Box>
         </Box>
         <Box top={0} position={'sticky'} className='bg-gray-800 text-white'>
-            <Box className='flex justify-between items-center py-3 md:px-6 px-2 max-w-[100vw] sm:max-w-[754px] xl:max-w-[1240px] w-full mx-auto'>
+            <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}  className='flex justify-between items-center py-3 md:px-6 px-2'>
                 <Link to={'/'}>
                     <div className="flex items-center">
                         <MdOutlineShoppingCart className='md:text-3xl text-2xl animate text-pink-600'/>
@@ -67,7 +67,7 @@ export default function Header() {
                     <form className='w-[100%] relative'>
                         <form className="">
                             <input type="text" placeholder='Search for products'  className=' text-black font-semibold rounded-sm border-none outline-none p-[6px] w-[100%]'/>
-                            <Box bg={'pink.500'} className="absolute top-0 right-0 flex justify-center items-center w-[45px] h-full rounded-r-sm cursor-pointer ">
+                            <Box className="bg-pink-600 absolute top-0 right-0 flex justify-center items-center w-[45px] h-full rounded-r-sm cursor-pointer ">
                                 <Icon as={MdSearch} color={useColorModeValue('white', 'black')} fontSize={23}/>
                             </Box>
                         </form>
@@ -82,7 +82,7 @@ export default function Header() {
                                     <p>My Cart</p>
                                 </Box>
                                 <div className="bg-white px-2 font-medium text-black rounded-full">
-                                    <p>{cartLength}</p>
+                                    <p className='bg-pink-600 px-2 rounded-full text-white'>{cartLength}</p>
                                 </div>
                             </div>
                         </Link>
@@ -110,8 +110,8 @@ export default function Header() {
                 </div>
             </Box>
         </Box>
-        <div className="hidde md:blocktext-white">
-            <Box className="flex md:justify-center justify-between px-2 items-center gap-4 sm:gap-5 py-3 xl:max-w-[50%] md:max-w-[80%] w-full rounded-tr-2xl rounded-tl-2xl mx-auto md:bg-white md:text-black">
+        <div className="hidde md:block text-white bg-slate-800 ">
+            <Box maxW={{'2xl' : '50%', xl : '50%', lg : '100%', base: '97%'}} mx={'auto'} roundedTop={'30px'} className="flex md:justify-center justify-between px-2 items-center gap-4 sm:gap-5 py-3 xl:max-w-[50%] md:bg-pink-600 md:text-white">
                 <div className="">
                     <All_category/>
                 </div>
@@ -152,7 +152,7 @@ export default function Header() {
                         <Link to={'/mens-wear'} className='text-md'>Men's Wear</Link>
                         <Link to={'/'} className='text-md'>Bags</Link>
                         <Link to={'/'} className='text-md'>Shoes</Link>
-                        <Link to={'/'} className='text-md'>Jwelleries</Link>
+                        <Link to={'/'} className='text-md'>Jewelleries</Link>
                     </div>
                 </div>
             </Box>

@@ -15,6 +15,7 @@ import { addToCart, changeQuantity } from '../../store/cart/cartsReucer';
 import Quantity from '../../components/carts/quantity';
 import { CgMathMinus } from 'react-icons/cg';
 import { RiAddFill } from 'react-icons/ri';
+import { FaNairaSign } from 'react-icons/fa6';
 
 export const quantityContext = createContext();
 
@@ -26,6 +27,8 @@ export default function Details() {
 
     const [product, setProduct] = useState([]);
     const [ success, setSuccess ] = useState(false);
+
+    let displayImage = useRef(null);
 
     const dispatch = useDispatch();
 
@@ -41,8 +44,8 @@ export default function Details() {
       fetchData();
     }, []);
 
-    const {_id, name, category, image, price} = product;
-    
+    const {_id, name, category, image, price, trackingId, description, oldprice} = product;
+
     const getCarts = {
         productID: _id,
         productName: name,
@@ -87,6 +90,11 @@ export default function Details() {
       });
     }
 
+    const handleClick = (img) => {
+      console.log(img);
+      displayImage.current.src = img;
+    }
+
   return (
     <div className='bg-slate-200 md:mb-0 mb-16'>
       <div className="bg-white p-2">
@@ -106,10 +114,24 @@ export default function Details() {
           <div className="flex gap-2 flex-wrap">
             <div className="w-[300px]">
               <div className="w-[300px] flex md:justify-start justify-center">
-                <img src={image} alt="" className='max-w-full object-fill'/>
+                <img src={image} alt="" ref={displayImage} className='max-w-full object-fill'/>
               </div>
-              <div className="">
-
+              <div className="py-2">
+                {
+                  image !== undefined ? (
+                    <div className='flex items-center gap-2'>
+                      {
+                        image.length > 0 && image.map((img) => {
+                          return (
+                            <div className="">
+                              <img src={img} onClick={() => handleClick(img)} className='max-w-14' alt="" />
+                            </div>
+                          )
+                        })
+                      }
+                    </div>
+                  ) : ''
+                }
               </div>
             </div>
             <div className="flex-1 md:mt-0 mt-4">
@@ -120,7 +142,7 @@ export default function Details() {
               <div className=" mt-4 border-b-[1px] border-b-gray-300 pb-2">
                 <Heading fontSize={{md:23, base: 16}} fontWeight={500} color={'gray.800'}>{name}</Heading>
                 <div className="mt-3">
-                  <p className='text-sm text-gray-500 my-1'>Product Code: <span className='text-gray-600 text-[13px]'>{_id}</span></p>
+                  <p className='text-sm text-gray-500 my-1'>Product Code: <span className='text-gray-600 text-[13px]'>{trackingId}</span></p>
                   <div className="flex items-center gap-2">
                     <FaStar className='text-yellow-500'/>
                     <FaStar className='text-yellow-500'/>
@@ -133,11 +155,27 @@ export default function Details() {
                 </div>
                 <div className="py-3">
                   <div className="flex items-center">
-                    <BsCurrencyDollar className='text-2xl'/>
-                    <Heading fontSize={{md:30, base: 25}}>{price}</Heading>
+                    {
+                      price !== undefined ? (
+                        <>
+                          <FaNairaSign className='text-xl'/>
+                          <Heading fontSize={{md:30, base: 25}}>{price.toLocaleString()}.00</Heading>
+                          {
+                            oldprice && (
+                              <p className="text-[16px] text-gray-400 font-medium pt-1 line-through flex items-center pl-3"><FaNairaSign className='text-[16px]'/>{oldprice}</p>
+                            )
+                          }
+                        </>
+                      ): ''
+                    }
                     {/* old price */}
                   </div>
-                  <p className="text-[12px] text-green-600 font-medium pt-1">You Save #1000</p>
+                  {
+                    oldprice && (
+                      <p className="text-[13px] text-pink-400 font-medium pt-3">You save up to {oldprice - price}</p>
+                    )
+                  }
+                  <p className=""></p>
                 </div>
               </div>
               <div className="border-b-[1px] border-b-gray-300 py-3">
@@ -145,7 +183,7 @@ export default function Details() {
                   <Box className="flex items-center gap-2">
                     <Text className='text-sm'>Quantity: </Text>
                     <Box className="flex gap-2 items-center">
-                      <Button type='button' bg={'gray.300'} px={1} py={1} className='rounded-md' onClick={decreaseQuantity}><CgMathMinus className='text-xl'/></Button>
+                      <button type='button' className='bg-zinc-300 w-7 h-7 rounded-md flex justify-center items-center' onClick={decreaseQuantity}><CgMathMinus className='text-sm'/></button>
                       <span className="" ref={logQuantity}>
                         {
                           items.map((item) => (
@@ -161,10 +199,10 @@ export default function Details() {
                           ))
                         }
                       </span>
-                      <Button type='button' bg={'gray.300'} px={1} py={1} className='rounded-md' onClick={increaseQuantity}><RiAddFill className='text-xl'/></Button>
+                      <button type='button' className='bg-zinc-300 w-7 h-7 rounded-md flex justify-center items-center' onClick={increaseQuantity}><RiAddFill className='text-sm'/></button>
                     </Box>
                   </Box>
-                  <div className="bg-pink-200 py-1 px-2 w-[200px] rounded-md mt-5">
+                  <div className="bg-pink-200 px-2 rounded-md mt-5">
                     <p className='text-sm font-medium text-center'>Call us for Bulk Purchase</p>
                     <div className="flex justify-center items-center text-pink-600 font-medium">
                       <IoMdCall/>
@@ -173,17 +211,23 @@ export default function Details() {
                   </div>
                 </div>
                 <div className=" mt-5 flex justify-between items-center">
-                  <button className="bg-pink-600 text-white px-5 py-2 rounded-md w-[200px] font-medium" onClick={handleCart}>Add To Cart</button>
+                  <button className="bg-pink-600 text-white px-5 py-2 rounded-md w-[150px] font-medium" onClick={handleCart}>Add To Cart</button>
                   
                   <div className="flex flex-col items-center cursor-pointer">
-                    <div className="w-[45px] h-[45px] bg-gray-300 flex justify-center items-center rounded-full">
-                      <FcLike className='text-2xl text-white'/>
+                    <div className="w-[35px] h-[35px] bg-gray-300 flex justify-center items-center rounded-full">
+                      <FcLike className='text-xl text-white'/>
                     </div>
                     <p className='text-[13px] text-gray-400'>Save For Later</p>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div className="my-6">
+            <div className="mb-2">
+              <h2 className='font-medium text-xl'>Description:</h2>
+            </div>
+            <p className="">{description}</p>
           </div>
         </div>
         <div className="md:w-[350px] w-full bg-white rounded-md">
