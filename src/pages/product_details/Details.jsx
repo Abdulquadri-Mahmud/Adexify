@@ -1,6 +1,5 @@
 import { Box, Button, Heading, Text } from '@chakra-ui/react';
 import React, { createContext, useEffect, useRef, useState } from 'react'
-import { MdOutlineShoppingCart } from 'react-icons/md';
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { FaSmileBeam } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
@@ -12,7 +11,6 @@ import { MdOutlinePolicy } from "react-icons/md";
 import { PiGreaterThan } from 'react-icons/pi';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, changeQuantity } from '../../store/cart/cartsReucer';
-import Quantity from '../../components/carts/quantity';
 import { CgMathMinus } from 'react-icons/cg';
 import { RiAddFill } from 'react-icons/ri';
 import { FaNairaSign } from 'react-icons/fa6';
