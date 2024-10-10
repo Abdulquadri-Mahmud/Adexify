@@ -3,7 +3,6 @@ import React, { createContext, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { FaSmileBeam } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
-import { BsCurrencyDollar } from 'react-icons/bs';
 import { IoMdCall } from 'react-icons/io';
 import { FcLike } from "react-icons/fc";
 import { TbTruckDelivery } from "react-icons/tb";
@@ -14,6 +13,7 @@ import { addToCart, changeQuantity } from '../../store/cart/cartsReucer';
 import { CgMathMinus } from 'react-icons/cg';
 import { RiAddFill } from 'react-icons/ri';
 import { FaNairaSign } from 'react-icons/fa6';
+import { addWishlist } from '../../store/wishlists/Wishlists';
 
 export const quantityContext = createContext();
 
@@ -21,10 +21,10 @@ export default function Details() {
     const { proId } = useParams();
     const { currentUser } = useSelector((state) => state.user);
     const { items } = useSelector((state) => state.cart);
+   
     const logQuantity = useRef(null);
-
+    
     const [product, setProduct] = useState([]);
-    const [ success, setSuccess ] = useState(false);
 
     let displayImage = useRef(null);
 
@@ -54,13 +54,20 @@ export default function Details() {
     }
 
     const handleCart = () => {
-      let addProToCart = dispatch(addToCart(getCarts));
-      if (addProToCart) {
-        setSuccess(true);
-        return;
-      }else{
-        setSuccess(false);
-      }
+      dispatch(addToCart(getCarts));
+    }
+
+    const getWishlist = {
+      productID: _id,
+      productName: name,
+      productImage : image,
+      productPrice: price,
+      userId : currentUser._id,
+      quantity: 1
+    }
+
+    const handleWishlistItem = () => {
+      dispatch(addWishlist(getWishlist))
     }
 
     const increaseQuantity = () => {
@@ -89,7 +96,6 @@ export default function Details() {
     }
 
     const handleClick = (img) => {
-      console.log(img);
       displayImage.current.src = img;
     }
 
@@ -212,7 +218,7 @@ export default function Details() {
                   <button className="bg-pink-600 text-white px-5 py-2 rounded-md w-[150px] font-medium" onClick={handleCart}>Add To Cart</button>
                   
                   <div className="flex flex-col items-center cursor-pointer">
-                    <div className="w-[35px] h-[35px] bg-gray-300 flex justify-center items-center rounded-full">
+                    <div onClick={handleWishlistItem} className="w-[35px] h-[35px] bg-gray-300 flex justify-center items-center rounded-full">
                       <FcLike className='text-xl text-white'/>
                     </div>
                     <p className='text-[13px] text-gray-400'>Save For Later</p>

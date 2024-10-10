@@ -51,7 +51,7 @@ export default function Settings() {
                 <MenuItem color={'black'} rounded={5} padding={2.5} mb={1} transitionDuration={200} className='hover:-translate-y-1 hover:text-pink-600 duration-200'>
                     <Flex alignItems={'center'} gap={2}> 
                         <IoMdHeartEmpty/>
-                        <Link to={`/profile/${_id}`} className="">My Saved Items</Link>
+                        <Link to={`/view-wishlist`} className="">My Saved Items</Link>
                     </Flex>
                 </MenuItem>
                 <MenuItem color={'black'} rounded={5} padding={2.5} mb={1} transitionDuration={200} className='hover:-translate-y-1 hover:text-pink-600 duration-200'>

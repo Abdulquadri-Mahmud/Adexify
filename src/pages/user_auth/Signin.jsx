@@ -11,7 +11,6 @@ import { IoEyeOff } from "react-icons/io5";
 import {
     Alert,
     AlertIcon,
-    AlertTitle,
     AlertDescription,
 } from '@chakra-ui/react'
 
@@ -57,7 +56,7 @@ export default function Signin() {
 
             const signin_api = 'https://adexify-api.vercel.app/api/user/auth/signin';
     
-            const res = await fetch(signin_api, {
+            const res = await fetch('https://adexify-api.vercel.app/api/user/auth/signin', {
                 method : 'POST',
                 headers : {'Content-Type' : 'application/json'},
                 body : JSON.stringify(formData),
@@ -66,6 +65,7 @@ export default function Signin() {
             const data = await res.json();
     
             if (data.success === false) {
+                console.log(data.message);
                 dispatch(signinFailure(data.message));
                 return;
             }
@@ -74,6 +74,7 @@ export default function Signin() {
             navigate('/');
             
         } catch (error) {
+            console.log(error);
             dispatch(signinFailure(error));
         }
     }
@@ -142,7 +143,6 @@ export default function Signin() {
                             <button type='button' className='outline-none border-none' onClick={handlePassword} ref={getLockPassIcon}><MdRemoveRedEye/></button>
                         </Box>                    
                     </Box>
-                    {/* error */}
                     <Box>
                         {
                             error && (

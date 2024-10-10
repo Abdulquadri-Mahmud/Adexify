@@ -14,6 +14,7 @@ import Womens_Wear from '../pages/Womens_Wear';
 import Mens_Wear from '../pages/Mens_Wear';
 import NotFound from '../pages/NotFound';
 import Carts_Page from '../pages/cartsPage/Carts_Page';
+import Wishlist_Page from '../pages/wishlist_page/Wishlist_Page';
 
 export default function PageRoutes() {
   return (
@@ -30,8 +31,11 @@ export default function PageRoutes() {
         <Route element={<Private_Routes/>}>
           <Route path='/view-carts' element={<Carts_Page/>}/>
         </Route>
-        <Route path="/womens-wear" element={<Womens_Wear/>}/>
-        <Route path="/mens-wear" element={<Mens_Wear/>}/>
+        <Route element={<Private_Routes/>}>
+          <Route path='/view-wishlist' element={<Wishlist_Page/>}/>
+        </Route>
+        <Route path="/womenswear" element={<Womens_Wear/>}/>
+        <Route path="/menswear" element={<Mens_Wear/>}/>
         <Route path='/signin' element={<Signin/>}/>
         <Route path='/signup' element={<Sign_up/>}/>
         <Route path='/contact' element={<ContactUs/>}/>
