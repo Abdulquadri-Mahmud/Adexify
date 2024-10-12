@@ -26,6 +26,8 @@ export default function Mens_Wear() {
         <Box className="bg-white p-2 shadow-md">
             <Box className="flex gap-1 items-center">
                 <Link to={'/'} className='text-[13px]'>Back to home page</Link>
+                <PiGreaterThan className='text-[13px] pt-1 text-gray-400'/>
+                <Link to={'/menswear'} className='text-[13px]'>Men's Fashion</Link>
             </Box>
             <Box mt={4} className='flex gap-2 items-center'>
                 {/* <div className="flex items-center gap-1 bg-pink-200 py-1 px-2 rounded-r-xl w-[140px]">

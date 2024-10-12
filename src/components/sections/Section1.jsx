@@ -2,8 +2,6 @@ import React from 'react'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import Slider from "react-slick";
-
 function SampleNextArrow(props) {
   
     const { className, style, onClick } = props;
@@ -32,6 +30,8 @@ function SampleNextArrow(props) {
       />
     );
 }
+import Slider from "react-slick";
+
 
 import img1 from '/img2.jpg';
 import img2 from '/img3.jpg';
@@ -90,7 +90,7 @@ export default function Section1() {
     };
 
   return (
-    <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className="bg-white py-10">
+    <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className="bg-white py-8 rounded-md mt-3">
 
         <div className='text-black font-medium'>
             <Heading pb={6} color={'black'} fontWeight={500} fontSize={{md: 30, base: 20}} textAlign={'center'}>Choose Department</Heading>

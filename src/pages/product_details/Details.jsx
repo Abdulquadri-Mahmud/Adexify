@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
 import React, { createContext, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { FaSmileBeam } from "react-icons/fa";
@@ -14,6 +14,8 @@ import { CgMathMinus } from 'react-icons/cg';
 import { RiAddFill } from 'react-icons/ri';
 import { FaNairaSign } from 'react-icons/fa6';
 import { addWishlist } from '../../store/wishlists/Wishlists';
+import { useToast } from '@chakra-ui/react'
+import { IoHeart } from 'react-icons/io5';
 
 export const quantityContext = createContext();
 
@@ -21,7 +23,10 @@ export default function Details() {
     const { proId } = useParams();
     const { currentUser } = useSelector((state) => state.user);
     const { items } = useSelector((state) => state.cart);
-   
+    const toast = useToast({
+      position: 'top',
+      bg: 'pink.600',
+    });
     const logQuantity = useRef(null);
     
     const [product, setProduct] = useState([]);
@@ -67,7 +72,13 @@ export default function Details() {
     }
 
     const handleWishlistItem = () => {
-      dispatch(addWishlist(getWishlist))
+      dispatch(addWishlist(getWishlist));
+      toast({
+        description: "Your item has been saved.",
+        duration: 5000,
+        isClosable: true,
+        bgColor: 'pink.600',
+      });
     }
 
     const increaseQuantity = () => {
@@ -113,10 +124,10 @@ export default function Details() {
         </div> */}
         {/* <Heading fontSize={{md:30, base: 25}} fontWeight={500} color={'black'}>{category}</Heading> */}
       </div>
-      <div className="2xl:max-w-[65%] md:max-w-[95%] w-full mx-auto md:p-4 p-2 flex justify-center gap-2 flex-wrap">
-        <div className="flex-1 bg-white md:p-4 p-2 rounded-md">
+      <div className="2xl:max-w-[75%] md:max-w-[95%] w-full mx-auto md:p-4 p-2 flex justify-center gap-2 flex-wrap">
+        <div className="flex-1 relative bg-white md:p-4 p-2 rounded-md">
           <div className="flex gap-2 flex-wrap">
-            <div className="w-[300px]">
+            <div className="2xl:w-[350px] w-[300px]">
               <div className="w-[300px] flex md:justify-start justify-center">
                 <img src={image} alt="" ref={displayImage} className='max-w-full object-fill'/>
               </div>
@@ -138,7 +149,7 @@ export default function Details() {
                 }
               </div>
             </div>
-            <div className="flex-1 md:mt-0 mt-4">
+            <div className="flex-1 md:mt-0 mt-4 pl-3">
               <div className="flex items-center gap-1 bg-pink-200 py-1 px-2 rounded-r-xl w-[140px]">
                 <FaSmileBeam className='text-sm text-pink-600'/>
                 <Heading fontSize={13} fontFamily={'revert'} className='font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify <span className="black">Now</span></Heading>
@@ -179,8 +190,20 @@ export default function Details() {
                       <p className="text-[13px] text-pink-400 font-medium pt-3">You save up to {oldprice - price}</p>
                     )
                   }
-                  <p className=""></p>
                 </div>
+                <Box>
+                  <Text className='uppercase font-medium mb-4'>Variation Avalaible</Text>
+                  <Flex alignItems={'center'} flexWrap={'wrap'} gap={2}>
+                    <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-3 border border-zinc-300'>S</button>
+                    <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-3 border border-zinc-300'>M</button>
+                    <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-4 border border-zinc-300'>L</button>
+                    <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-2 border border-zinc-300'>XL</button>
+                    <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-2 border border-zinc-300'>XXL</button>
+                    <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-2 border border-zinc-300'>XXXL</button>
+                    <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-2 border border-zinc-300'>XXXL</button>
+                    <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-2 border border-zinc-300'>XS</button>
+                  </Flex>
+                </Box>
               </div>
               <div className="border-b-[1px] border-b-gray-300 py-3">
                 <div className="flex items-center justify-between flex-wrap gap-2 mb-3">
@@ -206,6 +229,7 @@ export default function Details() {
                       <button type='button' className='bg-zinc-300 w-7 h-7 rounded-md flex justify-center items-center' onClick={increaseQuantity}><RiAddFill className='text-sm'/></button>
                     </Box>
                   </Box>
+                  
                   <div className="bg-pink-200 px-2 rounded-md mt-5">
                     <p className='text-sm font-medium text-center'>Call us for Bulk Purchase</p>
                     <div className="flex justify-center items-center text-pink-600 font-medium">
@@ -215,15 +239,11 @@ export default function Details() {
                   </div>
                 </div>
                 <div className=" mt-5 flex justify-between items-center">
-                  <button className="bg-pink-600 text-white px-5 py-2 rounded-md w-[150px] font-medium" onClick={handleCart}>Add To Cart</button>
-                  
-                  <div className="flex flex-col items-center cursor-pointer">
-                    <div onClick={handleWishlistItem} className="w-[35px] h-[35px] bg-gray-300 flex justify-center items-center rounded-full">
-                      <FcLike className='text-xl text-white'/>
-                    </div>
-                    <p className='text-[13px] text-gray-400'>Save For Later</p>
-                  </div>
+                  <button className="bg-pink-600 text-white px-5 py-2 rounded-md w-[100%] font-medium" onClick={handleCart}>Add To Cart</button>
                 </div>
+                <button onClick={handleWishlistItem} className=" text-white cursor-pointer hover:text-pink-600 active:text-pink-600 focus:text-pink-600 absolute top-3 right-3 w-[30px] h-[30px] bg-gray-300 flex justify-center items-center rounded-full">
+                  <IoHeart className='text-xl'/>
+                </button>
               </div>
             </div>
           </div>

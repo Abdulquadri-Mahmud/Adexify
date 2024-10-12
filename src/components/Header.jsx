@@ -118,13 +118,13 @@ export default function Header() {
                 <div className="md:hidden block">
                     <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
                         <GrUserFemale className='text-lg'/>
-                        <Link to={'/womens-wear'} className='text-[10px]'>Women's Wear</Link>
+                        <Link to={'/womenswear'} className='text-[10px]'>Women's Wear</Link>
                     </div>
                 </div>
                 <div className="md:hidden block">
                     <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
                         <IoManOutline className='text-lg'/>
-                        <Link to={'/mens-wear'} className='text-[10px]'>Men's Wear</Link>
+                        <Link to={'/mens-clothing'} className='text-[10px]'>Men's Wear</Link>
                     </div>
                 </div>
                 <div className="md:hidden block">
@@ -148,8 +148,8 @@ export default function Header() {
                 <div className="hidden md:block">
                     <div className="flex justify-center items-center gap-5 font-medium">
                         <Link to={'/'} className='text-md'>Home</Link>
-                        <Link to={'/womens-wear'} className='text-md'>Women's Wear</Link>
-                        <Link to={'/mens-wear'} className='text-md'>Men's Wear</Link>
+                        <Link to={'/'} className='text-md'>Women's Fashion</Link>
+                        <Link to={'/mens-clothing'} className='text-md'>Men's Fashion</Link>
                         <Link to={'/'} className='text-md'>Bags</Link>
                         <Link to={'/'} className='text-md'>Shoes</Link>
                         <Link to={'/'} className='text-md'>Jewelleries</Link>

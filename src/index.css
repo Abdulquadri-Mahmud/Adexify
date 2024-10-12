@@ -34,7 +34,8 @@
 
 table{
     border-collapse: collapse;
-    border-radius: 5px;
+    border-collapse: collapse;
+    width: 100%;
 }
 table th{
     padding: 8px;
@@ -42,3 +43,8 @@ table th{
 table td{
     /* border: 1px solid grey; */
 }
+
+.scroll-table{
+    overflow-x: scroll;
+}
+/* tr:nth-child(even) {background-color: #f2f2f2;} */

@@ -47,14 +47,14 @@ export default function UserProfile() {
   }
 
   return (
-    <Box pb={'4vh'}>
+    <Box pb={'4vh'} className='bg-zinc-200'>
         <Box className="bg-white p-2">
             <Box className="flex gap-1 items-center">
             <Link to={'/'} className='text-[13px]'>Home</Link>
             <PiGreaterThan className='text-[13px] pt-1'/>
             <Link to={`/profile/${currentUser._id}`} className='text-[13px]'>Account Information</Link>
             </Box>
-            <Box className="mt-4">
+            <Box className="mt-4" display={{md: 'block', base: 'none'}}>
                 <Heading fontSize={{md:30, base: 25}} fontWeight={500} color={'black'}>Account Information</Heading>
             </Box>
         </Box>

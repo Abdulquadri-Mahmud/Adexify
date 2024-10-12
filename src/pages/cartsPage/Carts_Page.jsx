@@ -8,6 +8,17 @@ import { changeQuantity, deleteProduct } from '../../store/cart/cartsReucer';
 import { CgMathMinus } from 'react-icons/cg';
 import { RiAddFill } from 'react-icons/ri';
 import { FaNairaSign } from 'react-icons/fa6';
+import {
+    Table,
+    Thead,
+    Tbody,
+    Tr,
+    Th,
+    Td,
+    TableCaption,
+    TableContainer,
+} from '@chakra-ui/react';
+import { MdDelete } from 'react-icons/md';
 
 export default function Carts_Page() {
   const { items } = useSelector((state) => state.cart);
@@ -81,64 +92,64 @@ export default function Carts_Page() {
         </Box>
         <Box className='max-w-[95vw] xl:max-w-[1240px] w-full mx-auto'>
 
-          <Flex justifyContent={'space-between'} flexWrap={'wrap'} gap={{md: 5, base: 2}} mt={6}>
-            <Box flex={1} bg={'white'} rounded={'md'}>
-              <div className="w-full overflow-y-auto">
-                <table className='w-[100%] table-auto rounded-md'>
-                  <thead className='w-[100%] bg-pink-300'>
-                    <tr>
-                      <th className='font-medium p-[10px] text-center'>Image</th>
-                      <th className='font-medium p-[10px] text-center'>Name</th>
-                      <th className='font-medium p-[10px] text-center'>Quantity</th>
-                      <th className='font-medium p-[10px] text-center'>Items Price</th>
-                      <th className='font-medium p-[10px] text-center'>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody className='w-full'>
+          <Flex justifyContent={'space-between'} flexWrap={{md:'no-wrap', base: 'wrap'}} gap={{md: 5, base: 2}} mt={6}>
+            <Box flex={1} width={'50%'} bg={'white'} rounded={'md'}>
+              <TableContainer className="">
+                <Table className='w-[100%] table-auto rounded-md'>
+                  <Thead className='w-[100%] bg-pink-300'>
+                    <Tr>
+                      <Th className='font-medium p-[10px] text-center'>Image</Th>
+                      <Th className='font-medium p-[10px] text-center'>Name</Th>
+                      <Th className='font-medium p-[10px] text-center'>Quantity</Th>
+                      <Th className='font-medium p-[10px] text-center'>Items Price</Th>
+                      <Th className='font-medium p-[10px] text-center'>Action</Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody className='w-full'>
                     {
                       items.length > 0 && items.map((item) => {
                         total += item.productPrice * item.quantity;
                         return (
-                          <tr className='m-3'>
-                            <td className='p-2'>
+                          <Tr className='m-3'>
+                            <Td className='p-2'>
                               <Link to={`/product-details/${item.productID}`}>
                                 <img src={item.productImage} alt="" className='rounded-md max-w-[80px] max-h-[80px]'/>
                               </Link>
-                            </td>
-                            <td className='p-2 font-medium text-[14px] w-[20%]'>
-                              {item.productName.slice(0, 40)}...
-                            </td>
-                            <td className='p-2 font-medium'>
+                            </Td>
+                            <Td className='p-2 font-medium text-[14px] truncate'>
+                              {item.productName.slice(0, 20)}...
+                            </Td>
+                            <Td className='p-2 font-medium'>
                               <div className="flex justify-center items-center h-full gap-2">
                                 <button type='button' className='rounded-md bg-zinc-200 w-7 h-7 flex justify-center items-center' onClick={() => decreaseQuantity(item.productID)}><CgMathMinus className='text-sm text-black'/></button>
                                 <span className="" >{item.quantity}</span>
                                 <button type='button' className='rounded-md bg-zinc-200 w-7 h-7 flex justify-center items-center' onClick={() => increaseQuantity(item.productID)}><RiAddFill className='text-sm text-black'/></button>
                               </div>
-                            </td>
-                            <td className='p-2 font-medium w-[20%]'>
+                            </Td>
+                            <Td className='p-2 font-medium w-[20%]'>
                               <Text fontWeight={500} textAlign={'center'} className='flex items-center justify-center'><FaNairaSign/>{(item.productPrice * item.quantity).toLocaleString()}.00</Text>
-                            </td>
-                            <td className='p-2 font-medium'>
+                            </Td>
+                            <Td className='p-2 font-medium'>
                               <div className="flex justify-center items-center">
-                                <button className='text-red-500 text-[14px] font-medium text-center' onClick={() => handleRemoveItem(item.productID)}>Remove Item</button>
+                                <button className='text-red-500 text-[14px] font-medium text-center' onClick={() => handleRemoveItem(item.productID)}><MdDelete className='text-2xl'/></button>
                               </div>
-                            </td>
-                          </tr>
+                            </Td>
+                          </Tr>
                         )
                       })
                     }
-                  </tbody>
-                </table>
-                {
-                  emptyCart && (
-                    <Flex mt={{md:20, base: 15}} justifyContent={'center'} height={'70%'} alignItems={'center'}>
-                      <Text fontWeight={500} fontSize={20}>Your Cart Is Empty!</Text>
-                    </Flex>
-                  )
-                }
-              </div>
+                  </Tbody>
+                </Table>
+              </TableContainer>
+              {
+                emptyCart && (
+                  <Flex mt={{md:20, base: 15}} justifyContent={'center'} height={'70%'} alignItems={'center'}>
+                    <Text fontWeight={500} fontSize={20}>Your Cart Is Empty!</Text>
+                  </Flex>
+                )
+              }
             </Box>
-            <Box width={{md:'300px', base: '100%'}} height={'350px'} p={{md:3, base:2}} bg={'white'} rounded={'md'}>
+            <Box width={{md:'350px', base: '100%'}} height={'350px'} p={{md:3, base:2}} bg={'white'} rounded={'md'}>
               <Flex justifyContent={'space-between'} alignItems={'center'} pb={3} borderBottomWidth={1} borderBottomColor={'gray.100'}>
                 <Heading fontSize={16} fontWeight={500}>Order Summary</Heading>
                 <Text fontWeight={500} fontSize={15}>Subtotal ({items.length} Item)</Text>
