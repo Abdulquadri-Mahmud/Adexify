@@ -8,10 +8,10 @@ function SampleNextArrow(props) {
   
     const { className, style, onClick } = props;
     return (
-      <Box bg={'gray.500'} width={'30px'} height={'30px'} rounded={'full'}
+      <Box bg={'gray.200'} width={'30px'} height={'30px'} rounded={'full'}
       right={'1vh'}  
       className={className}
-        style={{ ...style, display: "block",
+        style={{ ...style, display: "none",
           paddingTop: '5.5px', paddingLeft: '5.5px',
         }}
         onClick={onClick}
@@ -22,10 +22,10 @@ function SampleNextArrow(props) {
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
-      <Box bg={'gray.500'} width={'30px'} height={'30px'} rounded={'full'}
+      <Box bg={'gray.200'} width={'30px'} height={'30px'} rounded={'full'}
         left={'1vh'} zIndex={'10'}
         className={className}
-        style={{ ...style, display: "block", 
+        style={{ ...style, display: "none", 
           paddingTop: '5.5px', paddingLeft: '5.5px',
         }}
         onClick={onClick}
@@ -66,14 +66,14 @@ export default function Home_banner4() {
         {
           breakpoint: 600,
           settings: {
-                slidesToShow: 2,
+                slidesToShow: 3,
                 slidesToScroll: 1,
             }
         },
         {
           breakpoint: 420,
           settings: {
-                slidesToShow: 1,
+                slidesToShow: 2,
                 slidesToScroll: 1,
             }
         },
@@ -81,7 +81,7 @@ export default function Home_banner4() {
 };
   return (
     <Box bg={'white'} my={5} p={2} rounded={'md'} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}>
-        <Box display={{md: 'block', base: 'none'}}>
+        <Box display={{xl: 'block', base: 'none'}}>
             <Flex gap={3} justifyContent={'center'}>
                 <Link to={'/'}>
                     <Box height={'230px'} width={'200px'}>
@@ -97,7 +97,7 @@ export default function Home_banner4() {
                 </Link>
                 <Link to={'/'}>
                     <Box height={'230px'} width={'200px'}>
-                        <Image height={'200px'} rounded={'md'} src="/fashion2.gif" alt="" />
+                        <Image height={'200px'} rounded={'md'} src="/fahsion3.gif" alt="" />
                         <Text fontSize={'14px'} mt={2} textAlign={'center'}>Fashion Deals</Text>
                     </Box>
                 </Link>
@@ -115,34 +115,34 @@ export default function Home_banner4() {
                 </Link>
             </Flex>
         </Box>
-        <Box display={{md: 'none', base: 'block'}}>
+        <Box display={{xl: 'none', base: 'block'}}>
             <Slider {...settings}>
               <Link to={'/'}>
-                <Box height={'230px'} width={'200px'}>
+                <Box height={{xl:'230px',md:'200px', base: '150px'}} width={{md:'200px', base: '150px'}}>
                     <Image  rounded={'md'} src="/new-arrival.jpg" alt="" />
                     <Text fontSize={'14px'} mt={2} textAlign={'center'}>New Arrival</Text>
                 </Box>
                 </Link>
                 <Link to={'/'}>
-                  <Box height={'230px'} width={'200px'}>
+                  <Box height={{xl:'230px',md:'200px', base: '150px'}} width={{md:'200px', base: '150px'}}>
                       <Image  rounded={'md'} src="/fashion1.gif" alt="" />
                       <Text fontSize={'14px'} mt={2} textAlign={'center'}>Pant</Text>
                   </Box>
                 </Link>
                 <Link to={'/'}>
-                  <Box height={'230px'} width={'200px'}>
-                      <Image height={'200px'} rounded={'md'} src="/fashion2.gif" alt="" />
+                  <Box height={{xl:'230px',md:'200px', base: '150px'}} width={{md:'200px', base: '150px'}}>
+                      <Image height={'200px'} rounded={'md'} src="/fahsion3.gif" alt="" />
                       <Text fontSize={'14px'} mt={2} textAlign={'center'}>Sportwear</Text>
                   </Box>
                 </Link>
                 <Link to={'/'}>
-                  <Box height={'230px'} width={'200px'}>
+                  <Box height={{xl:'230px',md:'200px', base: '150px'}} width={{md:'200px', base: '150px'}}>
                       <Image  rounded={'md'} src="/recommended.gif" alt="" />
                       <Text fontSize={'14px'} mt={2} textAlign={'center'}>Jeans</Text>
                   </Box>
                 </Link>
                 <Link to={'/'}>
-                  <Box height={'230px'} width={'200px'}>
+                  <Box height={{xl:'230px',md:'200px', base: '150px'}} width={{md:'200px', base: '150px'}}>
                       <Image  rounded={'md'} src="/specia-offer.png" alt="" />
                       <Text fontSize={'14px'} mt={2} textAlign={'center'}>Underwear</Text>
                   </Box>

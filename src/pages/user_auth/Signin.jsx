@@ -18,6 +18,7 @@ import { FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signinFailure, signinStart, signinSuccess } from '../../store/userReducers';
+import Header from '../../components/Header';
 
 export default function Signin() {
 
@@ -104,28 +105,17 @@ export default function Signin() {
     }
     
   return (
-    <Box className='md:py-10 pt-6 pb-20 flex justify-center items-center px-2'>
-        <Flex flexWrap={'wrap'} className="xl:w-[60%] w-[100%] md:p-5 p-3 bg-white rounded-xl ">
-            <Flex flexDirection={'column'} gap={4} alignItems={'start'} width={{xl:'300px', base: '100%'}} mx={{md: '', base: 'auto'}} height={{xl:'465px', md: '250px'}} rounded={'30px'} pos={'relative'} bgGradient='linear(pink.600, gray.800)' p={3}>
-                <Box className="img absolute bottom-0 xl:w-full w-[250px] right-0">
-                    <img src="/side_banner1.png" alt="" className='max-w-full' />
-                </Box>
-                <Box className="mt-5 z-10">
-                    <Heading color={'white'} fontWeight={500} fontSize={25} fontFamily={''} textAlign={'start'}>Shop What You Desire On ADEXIFY</Heading>
-                    <Text textAlign={'start'} color={'white'} mt={5} fontWeight={500}>We are here to save your time and money</Text>
-                </Box>
-                <Box>
-                    <Button className='' bg={'white'} color={'black'}>Login And Shop Now</Button>
-                </Box>
-            </Flex>
-            <Box className="flex-1 w-full xl:mt-0 mt-5 xl:px-5">
+    <Box>
+      <Header/>
+        <Box className='bg-zinc-100 md:py-10 pt-6 pb-20 flex justify-center items-center px-2'>
+            <Box bg={'white'} px={3} py={6} rounded={'md'} maxW={{md: '50%',base:'350px'}} mx={'auto'} className="flex-1 w-full xl:mt-0 mt-5 xl:px-5">
                 <Box className="flex items-center justify-center mx-auto bg-pink-200 py-1 px-2 rounded-2xl w-[140px]">
                     <MdOutlineShoppingCart className='md:text-xl animate text-pink-600'/>
                     <h1 className='md:text-xl font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify</h1>
                 </Box>
                 <Box className="mt-5">
                     <Heading textAlign={'center'} fontWeight={500} fontSize={{md:30, base: 25}}>Welcome Back</Heading>
-                    <p className='text-center text-gray-400 text-sm mt-1'>Please login to your account</p>
+                    <p className='text-center text-gray-400 text-sm mt-1'>We are here to save your time and money</p>
                 </Box>
                 <form className='flex w-full flex-col gap-5 mt-5' onSubmit={handleSubmit}>
                     <Box className="relative">
@@ -180,8 +170,11 @@ export default function Signin() {
                         <Link to={'/signup'} className='text-red-500 font-medium'>Signup</Link>
                     </Box>
                 </form>
+                <Flex mt={1} justifyContent={'start'} width={'full'}>
+                    <Link to={'/forgot-password'} className='text-red-500 text-sm underline'>Forgot Your Password?</Link>
+                </Flex>
             </Box>
-        </Flex>
+        </Box>
     </Box>
   )
 }

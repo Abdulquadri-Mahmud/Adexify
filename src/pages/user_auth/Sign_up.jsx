@@ -14,6 +14,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { LiaAddressCard } from 'react-icons/lia';
 
 import { useToast } from '@chakra-ui/react'
+import Header from '../../components/Header';
 
 export default function Sign_up() {
     const toast = useToast();
@@ -132,31 +133,20 @@ export default function Sign_up() {
     }
     
   return (
-    <Box className='md:py-10 pt-6 pb-20 flex justify-center items-center px-2'>
-        <Flex flexWrap={'wrap'} className="xl:w-[60%] w-[100%] md:p-5 p-3 bg-white rounded-xl ">
-            <Flex flexDirection={'column'} gap={4} alignItems={'start'} width={{xl:'300px', base: '100%'}} mx={{md: '', base: 'auto'}} height={{xl:'465px', md: '250px'}} rounded={{md:'30px', base: '15px'}} pos={'relative'} bgGradient='linear(pink.600, gray.800)' p={3}>
-                <Box className="img absolute bottom-0 xl:w-full w-[250px] right-0">
-                    <img src="/side_banner1.png" alt="" className='max-w-[100%]' />
-                </Box>
-                <Box className="mt-5 z-10">
-                    <Heading color={'white'} fontWeight={500} fontSize={25} fontFamily={''} textAlign={'start'}>Shop What You Desire On ADEXIFY</Heading>
-                    <Text textAlign={'start'} color={'white'} mt={5} fontWeight={500}>We are here to save your time and money</Text>
-                </Box>
-                <Box>
-                    <Button className='' bg={'white'} color={'black'}>Signup And Start Shopping Now</Button>
-                </Box>
-            </Flex>
-            <Box className="flex-1 xl:mt-0 mt-5 xl:px-5">
+    <Box>
+      <Header/>
+        <Box className='bg-zinc-100 md:py-10 pt-6 pb-20 flex justify-center items-center px-2'>
+            <Box bg={'white'} px={3} py={6} rounded={'md'} maxW={{md: '50%',base:'350px'}} mx={'auto'} className="xl:mt-0 mt-5 xl:px-5">
                 <Box className="flex items-center justify-center mx-auto bg-pink-200 py-1 px-2 rounded-2xl w-[140px]">
                     <MdOutlineShoppingCart className='md:text-xl animate text-pink-600'/>
                     <h1 className='md:text-xl font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify</h1>
                 </Box>
                 <Box className="mt-5">
                     <Heading textAlign={'center'} fontWeight={500} fontSize={{md:30, base: 25}}>Welcome Back</Heading>
-                    <p className='text-center text-gray-400 text-sm mt-1'>Please login to your account</p>
+                    <p className='text-center text-gray-400 text-[13px] mt-1'>Start shopping what you desire on ADEXIFY</p>
                 </Box>
                 <form className='flex w-full flex-col gap-5 mt-5' onSubmit={handleSubmit}>
-                    <Flex alignItems={'center'} gap={3}>
+                    <Flex flexWrap={{md: 'nowrap', base: 'wrap'}} gap={{md:5, base: 5}}>
                         <Box className="relative w-full">
                             <input onChange={handleChange} id='firstname' ref={firstname} type="text" className='placeholder:text-gray-400 outline-none border-none font-medium bg-slate-200 w-full p-3 rounded-lg pl-10' placeholder='First Name' />
                             <Box className="absolute top-4 left-3">
@@ -170,29 +160,26 @@ export default function Sign_up() {
                             </Box>                    
                         </Box>
                     </Flex>
-                    <Flex alignItems={'center'} gap={3}>
-                        <Box className="relative w-full">
-                            <input onChange={handleChange} id='email' type="email" className='placeholder:text-gray-400 outline-none border-none font-medium bg-slate-200 w-full p-3 rounded-lg pl-10' placeholder='Example@gmail.com' />
-                            <Box className="absolute top-4 left-3">
-                                <MdEmail/>
-                            </Box>                    
-                        </Box>
+                    <Box className="relative w-full">
+                        <input onChange={handleChange} id='email' type="email" className='placeholder:text-gray-400 outline-none border-none font-medium bg-slate-200 w-full p-3 rounded-lg pl-10' placeholder='Example@gmail.com' />
+                        <Box className="absolute top-4 left-3">
+                            <MdEmail/>
+                        </Box>                    
+                    </Box>
+                    <Flex flexWrap={{md: 'nowrap', base: 'wrap'}} gap={{md:5, base: 5}}>
                         <Box className="relative w-full">
                             <input onChange={handleChange} id='phone' ref={phone} type="Number" className='placeholder:text-gray-400 outline-none border-none font-medium bg-slate-200 w-full p-3 rounded-lg pl-10' placeholder='Phone' />
                             <Box className="absolute top-4 left-3">
                                 <FaPhoneAlt/>
                             </Box>                    
                         </Box>
+                        <Box className="relative w-full">
+                            <input onChange={handleChange} id='address' type="text" ref={homeAddress} className='placeholder:text-gray-400 outline-none border-none font-medium bg-slate-200 w-full p-3 rounded-lg pl-10' placeholder='Home Address' />
+                            <Box className="absolute top-4 left-3">
+                                <LiaAddressCard/>
+                            </Box>
+                        </Box>
                     </Flex>
-                    <Box className="relative">
-                        <input onChange={handleChange} id='address' type="text" ref={homeAddress} className='placeholder:text-gray-400 outline-none border-none font-medium bg-slate-200 w-full p-3 rounded-lg pl-10' placeholder='Home Address' />
-                        <Box className="absolute top-4 left-3">
-                            <LiaAddressCard/>
-                        </Box>                    
-                        {/* <Box className="absolute top-4 right-3">
-                            <button type='button' className='outline-none border-none' onClick={handlePassword} ref={getLockPassIcon}><MdRemoveRedEye/></button>
-                        </Box>                     */}
-                    </Box>
                     <Box className="relative">
                         <input onChange={handleChange} id='password' type="password" ref={password} className='placeholder:text-gray-400 outline-none border-none font-medium bg-slate-200 w-full p-3 rounded-lg pl-10' placeholder='Enter Your Password' />
                         <Box className="absolute top-4 left-3">
@@ -202,6 +189,7 @@ export default function Sign_up() {
                             <button type='button' className='outline-none border-none' onClick={handlePassword} ref={getLockPassIcon}><MdRemoveRedEye/></button>
                         </Box>                    
                     </Box>
+                    
                     <Box className="mx-auto w-full font-light">
                         <button type='submit' onClick={addToast} className='bg-slate-800 text-white w-full py-3 rounded-lg font-medium uppercase'>
                             {
@@ -228,7 +216,7 @@ export default function Sign_up() {
                     </Box>
                 </form>
             </Box>
-        </Flex>
+        </Box>
     </Box>
   )
 }

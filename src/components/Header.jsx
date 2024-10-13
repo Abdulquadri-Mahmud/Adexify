@@ -118,13 +118,13 @@ export default function Header() {
                 <div className="md:hidden block">
                     <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
                         <GrUserFemale className='text-lg'/>
-                        <Link to={'/womenswear'} className='text-[10px]'>Women's Wear</Link>
+                        <Link to={'/womens-clothing'} className='text-[10px]'>Women's Fashion</Link>
                     </div>
                 </div>
                 <div className="md:hidden block">
                     <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
                         <IoManOutline className='text-lg'/>
-                        <Link to={'/mens-clothing'} className='text-[10px]'>Men's Wear</Link>
+                        <Link to={'/mens-clothing'} className='text-[10px]'>Men's Fashion</Link>
                     </div>
                 </div>
                 <div className="md:hidden block">
@@ -148,7 +148,7 @@ export default function Header() {
                 <div className="hidden md:block">
                     <div className="flex justify-center items-center gap-5 font-medium">
                         <Link to={'/'} className='text-md'>Home</Link>
-                        <Link to={'/'} className='text-md'>Women's Fashion</Link>
+                        <Link to={'/womens-clothing'} className='text-md'>Women's Fashion</Link>
                         <Link to={'/mens-clothing'} className='text-md'>Men's Fashion</Link>
                         <Link to={'/'} className='text-md'>Bags</Link>
                         <Link to={'/'} className='text-md'>Shoes</Link>

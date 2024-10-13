@@ -16,11 +16,17 @@ import NotFound from '../pages/NotFound';
 import Carts_Page from '../pages/cartsPage/Carts_Page';
 import Wishlist_Page from '../pages/wishlist_page/Wishlist_Page';
 import Men_Clothing_page from '../pages/clothing_page/Men_Clothing_page';
+import Women_Clothing_page from '../pages/clothing_page/Women_Clothing_page';
+import Admin_Login from './admin/Admin_Login';
+import Admin_dashboard from './admin/Dashboards/Admin_dashboard';
+import Forgot_password from './admin/Forgot_password';
+import Reset_password from './admin/Reset_password';
+import User_forgotten_password from './user/User_forgotten_password';
+import User_reset_password from './user/User_reset_password';
 
 export default function PageRoutes() {
   return (
     <Router>
-      <Header/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route element={<Private_Routes/>}>
@@ -35,12 +41,26 @@ export default function PageRoutes() {
         <Route element={<Private_Routes/>}>
           <Route path='/view-wishlist' element={<Wishlist_Page/>}/>
         </Route>
+        <Route element={<Private_Routes/>}>
+          <Route path="/mens-clothing" element={<Men_Clothing_page/>}/>
+        </Route>
+        <Route element={<Private_Routes/>}>
+          <Route path="/womens-clothing" element={<Women_Clothing_page/>}/>
+        </Route>
         <Route path="/womenswear" element={<Womens_Wear/>}/>
         <Route path="/menswear" element={<Mens_Wear/>}/>
-        <Route path="/mens-clothing" element={<Men_Clothing_page/>}/>
         <Route path='/signin' element={<Signin/>}/>
         <Route path='/signup' element={<Sign_up/>}/>
+        <Route path='/forgot-password' element={<User_forgotten_password/>}/>
+        <Route path='/user/forgot-password/reset-password/:token' element={<User_reset_password/>}/>
+
         <Route path='/contact' element={<ContactUs/>}/>
+
+        <Route path="/admin-login" element={<Admin_Login/>}/>
+        <Route path="/admin-dashboard" element={<Admin_dashboard/>}/>
+        <Route path="/admin-login/forgot-password" element={<Forgot_password/>}/>
+        <Route path="/admin-login/forgot-password/reset-pssword/:token" element={<Reset_password/>}/>
+
         <Route path='*' element={<NotFound/>}/>
       </Routes>
       {/* <BottomNav/> */}

@@ -4,11 +4,13 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import cartsReucer from "./cart/cartsReucer";
 import Wishlists from "./wishlists/Wishlists";
+import adminReducer from "./adminReducer";
 
 const rootReducer = combineReducers({
     user: userReducers,
     cart: cartsReucer,
-    wishlist : Wishlists
+    wishlist : Wishlists,
+    admin: adminReducer
 });
 
 const persistConfig = {

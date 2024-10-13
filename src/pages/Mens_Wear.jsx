@@ -2,6 +2,7 @@ import { Box, Heading, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 
 import React, { createContext, Suspense, useEffect, useState } from 'react'
+import Header from '../components/Header';
 
 export const MensWearProductsContext = createContext();
 
@@ -23,6 +24,8 @@ export default function Mens_Wear() {
 
   return (
     <Box>
+      <Header/>
+
         <Box className="bg-white p-2 shadow-md">
             <Box className="flex gap-1 items-center">
                 <Link to={'/'} className='text-[13px]'>Back to home page</Link>
