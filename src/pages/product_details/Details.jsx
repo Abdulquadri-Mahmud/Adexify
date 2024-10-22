@@ -1,5 +1,5 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
-import React, { createContext, useEffect, useRef, useState } from 'react'
+import { Box, Button, Flex, Heading, Text, useDisclosure } from '@chakra-ui/react';
+import React, { createContext, Fragment, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { FaSmileBeam } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
@@ -17,17 +17,24 @@ import { addWishlist } from '../../store/wishlists/Wishlists';
 import { useToast } from '@chakra-ui/react'
 import { IoHeart } from 'react-icons/io5';
 import Header from '../../components/Header';
+import Footer from '../../components/footer/Footer';
+import ReactMarkdown from 'react-markdown';
+import rehypeHighlight from 'rehype-highlight';
 
 export const quantityContext = createContext();
 
 export default function Details() {
     const { proId } = useParams();
+    const [selectSizeOpt, setSelectSizeOpt] = useState([]);
+
     const { currentUser } = useSelector((state) => state.user);
+    const { currentAdmin } = useSelector((state) => state.admin);
     const { items } = useSelector((state) => state.cart);
     const toast = useToast({
       position: 'top',
       bg: 'pink.600',
     });
+
     const logQuantity = useRef(null);
     
     const [product, setProduct] = useState([]);
@@ -48,14 +55,20 @@ export default function Details() {
       fetchData();
     }, []);
 
-    const {_id, name, category, image, price, trackingId, description, oldprice} = product;
+    const {_id, name, category, image, price, trackingId, description, oldprice, size, gender} = product;
+    
+    // if (currentUser) {
+    //   adminid = currentUser._id
+    // };
+
+    let sizeSelected = [];
 
     const getCarts = {
         productID: _id,
         productName: name,
         productImage : image,
         productPrice: price,
-        userId : currentUser._id,
+        productSize: selectSizeOpt,
         quantity: 1
     }
 
@@ -68,7 +81,7 @@ export default function Details() {
       productName: name,
       productImage : image,
       productPrice: price,
-      userId : currentUser._id,
+      productSize: sizeSelected,
       quantity: 1
     }
 
@@ -110,25 +123,31 @@ export default function Details() {
     const handleClick = (img) => {
       displayImage.current.src = img;
     }
-
+    
+    const handleSize = (value) => {
+      setSelectSizeOpt([...selectSizeOpt,value]);
+    }
+    
   return (
     <Box>
       <Header/>
 
       <div className='bg-slate-200 md:mb-0 mb-16'>
-        <div className="bg-white p-2">
-          <div className="flex gap-1 items-center">
-            <Link to={'/'} className='text-[13px]'>Home</Link>
-            <PiGreaterThan className='text-[13px] pt-1'/>
-            <Text className='text-[13px]'>category</Text>
-            <PiGreaterThan className='text-[13px] pt-1'/>
-            <Link to={`/${category}`} className='text-[13px]'>{category}</Link>
-          </div>
-          {/* <div className="">
-          </div> */}
-          {/* <Heading fontSize={{md:30, base: 25}} fontWeight={500} color={'black'}>{category}</Heading> */}
-        </div>
-        <div className="2xl:max-w-[75%] md:max-w-[95%] w-full mx-auto md:p-4 p-2 flex justify-center gap-2 flex-wrap">
+        <Box className="bg-white p-2">
+          <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}>
+            <div className="flex gap-1 items-center">
+              <Link to={'/'} className='text-[13px]'>Home</Link>
+              <PiGreaterThan className='text-[13px] pt-1'/>
+              <Text className='text-[13px]'>category</Text>
+              <PiGreaterThan className='text-[13px] pt-1'/>
+              <Link to={`/${category}`} className='text-[13px]'>{category}</Link>
+            </div>
+            {/* <div className="">
+            </div> */}
+            {/* <Heading fontSize={{md:30, base: 25}} fontWeight={500} color={'black'}>{category}</Heading> */}
+          </Box>
+        </Box>
+        <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className="md:p-4 p-2 flex justify-center gap-2 flex-wrap">
           <div className="flex-1 relative bg-white md:p-4 p-2 rounded-md">
             <div className="flex gap-2 flex-wrap">
               <div className="2xl:w-[350px] w-[300px]">
@@ -198,14 +217,19 @@ export default function Details() {
                   <Box>
                     <Text className='uppercase font-medium mb-4'>Variation Avalaible</Text>
                     <Flex alignItems={'center'} flexWrap={'wrap'} gap={2}>
-                      <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-3 border border-zinc-300'>S</button>
-                      <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-3 border border-zinc-300'>M</button>
-                      <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-4 border border-zinc-300'>L</button>
-                      <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-2 border border-zinc-300'>XL</button>
-                      <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-2 border border-zinc-300'>XXL</button>
-                      <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-2 border border-zinc-300'>XXXL</button>
-                      <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-2 border border-zinc-300'>XXXL</button>
-                      <button className='rounded-md hover:bg-pink-300 active:bg-pink-300 focus:bg-pink-300 p-1 px-2 border border-zinc-300'>XS</button>
+                      {
+                        size !== undefined ? (
+                          <>
+                          {
+                            size.length > 0 && size.map((sz) => {
+                              return (
+                                <button onClick={() => handleSize(sz)} className='rounded-md hover:bg-pink-600 hover:text-white active:bg-pink-600 focus:bg-pink-600 p-1 px-3 border border-zinc-300'>{sz}</button>
+                              )
+                            })
+                          }
+                          </>
+                        ) : ''
+                      }
                     </Flex>
                   </Box>
                 </div>
@@ -248,17 +272,19 @@ export default function Details() {
                   <button onClick={handleWishlistItem} className=" text-white cursor-pointer hover:text-pink-600 active:text-pink-600 focus:text-pink-600 absolute top-3 right-3 w-[30px] h-[30px] bg-gray-300 flex justify-center items-center rounded-full">
                     <IoHeart className='text-xl'/>
                   </button>
+                  {
+                    currentAdmin && (
+                      <Box mt={4} className='text-pink-600 text-center'>
+                        <Link to={`/admin/update-products/${_id}`}>Update Product</Link>
+                      </Box>
+                    )
+                  }
                 </div>
               </div>
             </div>
-            <div className="my-6">
-              <div className="mb-2">
-                <h2 className='font-medium text-xl'>Description:</h2>
-              </div>
-              <p className="">{description}</p>
-            </div>
+            
           </div>
-          <div className="md:w-[350px] w-full bg-white rounded-md">
+          <div className="md:w-[350px] w-full bg-white rounded-md md:h-[]">
             <div className="py-2 border-b-[1px] border-b-gray-300 p-3">
               <Text className='text-[16px] font-medium'>Delivery & Retrurn</Text>
             </div>
@@ -295,11 +321,17 @@ export default function Details() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="bg-white p-3">
-
-        </div>
+        </Box>
+        <Box bg={'white'} py={4} px={3}>
+          <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className="my-6">
+            <Box className="mb-2">
+              <h2 className='font-medium text-xl'>Description:</h2>
+            </Box>
+            <ReactMarkdown rehypePlugins={[rehypeHighlight]}>{description}</ReactMarkdown>
+          </Box>
+        </Box>
       </div>
+      <Footer/>
     </Box>
   )
 }

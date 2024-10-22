@@ -11,7 +11,7 @@ function SampleNextArrow(props) {
       <Box bg={'gray.500'} width={'30px'} height={'30px'} rounded={'full'}
       right={'1vh'}  
       className={className}
-        style={{ ...style, display: "block",
+        style={{ ...style, display: "none",
           paddingTop: '5.5px', paddingLeft: '5.5px',
         }}
         onClick={onClick}
@@ -25,7 +25,7 @@ function SampleNextArrow(props) {
       <Box bg={'gray.500'} width={'30px'} height={'30px'} rounded={'full'}
         left={'1vh'} zIndex={'10'}
         className={className}
-        style={{ ...style, display: "block", 
+        style={{ ...style, display: "none", 
           paddingTop: '5.5px', paddingLeft: '5.5px',
         }}
         onClick={onClick}
@@ -82,7 +82,7 @@ export default function Home_banner2() {
 
   return (
     <Box bg={'white'} my={5} p={2} rounded={'md'} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}>
-        <Box display={{md: 'block', base: 'none'}}>
+        <Box display={{xl: 'block', base: 'none'}}>
             <Flex justifyContent={'center'} gap={{'2xl':5, md:3}}>
                 <Link to={'/'}>
                     <Box width={{'2xl':'210px', md:'190px'}}>
@@ -122,7 +122,7 @@ export default function Home_banner2() {
                 </Link>
             </Flex>
         </Box>
-        <Box display={{md: 'none', base: 'block'}}>
+        <Box display={{xl: 'none', lg: 'block'}}>
             <Slider {...settings}>
                 <Link to={'/'}>
                     <Box>

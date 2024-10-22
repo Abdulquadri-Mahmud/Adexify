@@ -26,8 +26,11 @@ export default function Carts_Page() {
   const [emptyCart, setEmptyCart] = useState(false);
 
   let total = 0;
-
+  
   let dispatch = useDispatch();
+
+  // useEffect()
+  // const mSize = item.productSize.findIndex((it) => it === 'M');
 
   const increaseQuantity = (id) => {
     items.map((item) => {
@@ -104,20 +107,28 @@ export default function Carts_Page() {
                         <Th className='font-medium p-[10px] text-center'>Image</Th>
                         <Th className='font-medium p-[10px] text-center'>Name</Th>
                         <Th className='font-medium p-[10px] text-center'>Quantity</Th>
+                        <Th className='font-medium p-[10px] text-center'>Size</Th>
                         <Th className='font-medium p-[10px] text-center'>Items Price</Th>
                         <Th className='font-medium p-[10px] text-center'>Action</Th>
                       </Tr>
                     </Thead>
                     <Tbody className='w-full'>
                       {
-                        items.length > 0 && items.map((item) => {
-                          total += item.productPrice * item.quantity;
+                        items.length > 0 && items.map((item, index) => {
+                          total += item.productPrice * item.quantity ;
+                          
+                          // check f m exist
+                          // let mSize = item.productSize.findIndex((it) => it === 'M');
+                          // let sSize = item.productSize.findIndex((it) => it === 'S');
+                          
+                          // count the lenght of m we've got
+                          // let sCount = item.productSize.filter((it) => it === 'S').length;
+                          // let mCount = item.productSize.filter((it) => it === 'M').length;
+                          
                           return (
-                            <Tr className='m-3'>
+                            <Tr className='m-3' key={index}>
                               <Td className='p-2'>
-                                <Link to={`/product-details/${item.productID}`}>
-                                  <img src={item.productImage} alt="" className='rounded-md max-w-[80px] max-h-[80px]'/>
-                                </Link>
+                                <img src={item.productImage} alt="" className='rounded-md max-w-[80px] max-h-[80px]'/>
                               </Td>
                               <Td className='p-2 font-medium text-[14px] truncate'>
                                 {item.productName.slice(0, 20)}...
@@ -128,6 +139,25 @@ export default function Carts_Page() {
                                   <span className="" >{item.quantity}</span>
                                   <button type='button' className='rounded-md bg-zinc-200 w-7 h-7 flex justify-center items-center' onClick={() => increaseQuantity(item.productID)}><RiAddFill className='text-sm text-black'/></button>
                                 </div>
+                              </Td>
+                              <Td className='p-2 font-medium '>
+                                <div className="">
+                                  {/* <Text>
+                                    {
+                                      mSize >= 0 ? `M: ${mCount}` : ''
+                                    }
+                                  </Text>
+                                  <Text>
+                                    {
+                                      sSize >= 0 ? `S: ${sCount}` : ''
+                                    }
+                                  </Text> */}
+                                </div>
+                                {/* <div className="flex justify-center flex- items-center h-full gap-1">
+                                  <button type='button' className='rounded-md bg-zinc-200 w-3 h-3 flex justify-center items-center' onClick={() => decreaseQuantity(item.productID)}><CgMathMinus className='text-[13px] text-black'/></button>
+                                  <span className="text-[13px]" >{item.quantity}</span>
+                                  <button type='button' className='rounded-md bg-zinc-200 w-3 h-3 flex justify-center items-center' onClick={() => increaseQuantity(item.productID)}><RiAddFill className='text-[13px] text-black'/></button>
+                                </div> */}
                               </Td>
                               <Td className='p-2 font-medium w-[20%]'>
                                 <Text fontWeight={500} textAlign={'center'} className='flex items-center justify-center'><FaNairaSign/>{(item.productPrice * item.quantity).toLocaleString()}.00</Text>

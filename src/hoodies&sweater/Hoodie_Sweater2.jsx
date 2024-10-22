@@ -25,7 +25,7 @@ export default function Hoodie_Sweater2() {
         productName: name,
         productImage : image,
         productPrice: price,
-        userId : currentUser._id,
+        // userId : currentUser._id,
         quantity: 1
     }
 

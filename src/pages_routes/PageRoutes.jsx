@@ -23,6 +23,10 @@ import Forgot_password from './admin/Forgot_password';
 import Reset_password from './admin/Reset_password';
 import User_forgotten_password from './user/User_forgotten_password';
 import User_reset_password from './user/User_reset_password';
+import Create_products from './admin/create_products/Create_products';
+import Update_product from './admin/create_products/Update_product';
+import Items from './admin/Dashboards/Items';
+import Fashion from './Fashion';
 
 export default function PageRoutes() {
   return (
@@ -47,6 +51,8 @@ export default function PageRoutes() {
         <Route element={<Private_Routes/>}>
           <Route path="/womens-clothing" element={<Women_Clothing_page/>}/>
         </Route>
+        <Route path="/fashion" element={<Fashion/>}/>
+        
         <Route path="/womenswear" element={<Womens_Wear/>}/>
         <Route path="/menswear" element={<Mens_Wear/>}/>
         <Route path='/signin' element={<Signin/>}/>
@@ -61,10 +67,15 @@ export default function PageRoutes() {
         <Route path="/admin-login/forgot-password" element={<Forgot_password/>}/>
         <Route path="/admin-login/forgot-password/reset-pssword/:token" element={<Reset_password/>}/>
 
+        {/* products routes */}
+        <Route path="/admin/create-products" element={<Create_products/>}/>
+        <Route path="/admin/update-products/:id" element={<Update_product/>}/>
+        <Route path="/admin/items" element={<Items/>}/>
+
         <Route path='*' element={<NotFound/>}/>
       </Routes>
       {/* <BottomNav/> */}
-      <Footer/>
+      {/* <Footer/> */}
     </Router>
   )
 }

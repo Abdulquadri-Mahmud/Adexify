@@ -2,15 +2,15 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { BsCurrencyDollar } from 'react-icons/bs';
 import { FaCartShopping, FaNairaSign } from 'react-icons/fa6';
-import { MensWearProductsContext } from '../../pages/Mens_Wear';
 import { IoHeart } from 'react-icons/io5';
 import { addToCart } from '../../store/cart/cartsReucer';
 import { addWishlist } from '../../store/wishlists/Wishlists';
 import { useDispatch, useSelector } from 'react-redux';
 import { useToast } from '@chakra-ui/react';
+import { MensProductsContext } from './Mens_wear';
 
 export default function Mens_wear_products() {
-    const product = useContext(MensWearProductsContext);
+    const product = useContext(MensProductsContext);
     const toast = useToast({
         position: 'top'
     });
@@ -26,7 +26,6 @@ export default function Mens_wear_products() {
         productName: name,
         productImage : image,
         productPrice: price,
-        userId : currentUser._id,
         quantity: 1
     }
 

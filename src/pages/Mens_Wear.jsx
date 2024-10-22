@@ -45,7 +45,7 @@ export default function Mens_Wear() {
                 <div className="py-3 px-2 grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
                     {
                         products.map((product) => (
-                            product.category === "menswear" || products.category === 'hoodies' ? (
+                            product.gender === "male" ? (
                                 <>
                                     <MensWearProductsContext.Provider value={product}>
                                         <Suspense fallback={<div className='text-black'>Loading...</div>}>

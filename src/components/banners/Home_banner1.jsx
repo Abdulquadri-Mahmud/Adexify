@@ -81,14 +81,20 @@ export default function Home_banner1() {
 
   return (
     <Box maxW={{'2xl' : '60%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} rounded={'md'} bg={'white'}>
-        <Box display={{md: 'block', base: 'block'}}>
+        <Box>
             <Flex alignItems={'center'} justifyContent={'center'} gap={2} px={2} py={2}>
-                <Box w={{md:'50%', base: '100%'}} height={{md: '250px', base: '100%'}}>
-                    <Image height={'100%'} w={'100%'}  rounded={'md'} src="/top-pick.jpg" alt="" />
-                </Box>
-                <Box w={{md:'50%', base: '100%'}} height={{md: '250px', base: '100%'}}>
-                    <Image height={'100%'} w={'100%'} rounded={'md'} src="/big-sale.jpg" alt="" />
-                </Box>
+                <Flex justifyContent={'center'} alignItems={'center'} w={{md:'50%', base: '100%'}} height={{'xl': '250px',md: '220px', base: '200px'}} bgRepeat={'no-repeat'} bgSize={'cover'} bgPos={'center'} bgBlendMode={'multiply'} rounded={'md'} className='bg-slate-400' bgImage={'/fm.jpg'} position={'relative'}>
+                    <Box position={'absolute'}>
+                      <Text color={'white'} fontWeight={500} textAlign={'center'}>SHOP</Text>
+                      <Heading color={'white'}>Men</Heading>
+                    </Box>
+                </Flex>
+                <Flex justifyContent={'center'} alignItems={'center'} w={{md:'50%', base: '100%'}} height={{'xl': '250px',md: '220px', base: '200px'}} bgRepeat={'no-repeat'} bgSize={'cover'} bgPos={'center'} bgBlendMode={'multiply'} rounded={'md'} className='bg-slate-400' bgImage={'/fw.jpg'} position={'relative'}>
+                    <Box position={'absolute'}>
+                      <Text color={'white'} fontWeight={500} textAlign={'center'}>SHOP</Text>
+                      <Heading color={'white'}>Women</Heading>
+                    </Box>
+                </Flex>
             </Flex>
         </Box>
     </Box>

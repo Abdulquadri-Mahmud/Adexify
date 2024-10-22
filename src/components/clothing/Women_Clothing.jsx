@@ -26,7 +26,7 @@ export default function Women_Clothing() {
         productName: name,
         productImage : image,
         productPrice: price,
-        userId : currentUser._id,
+        // userId : currentUser._id,
         quantity: 1
     }
 

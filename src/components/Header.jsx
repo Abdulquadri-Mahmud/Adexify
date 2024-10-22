@@ -23,7 +23,8 @@ export const OpenMenuCOntext = createContext();
 export default function Header() {
     const [cartLength, setCartLength] = useState(0)
     const { currentUser } = useSelector((state) => state.user);
-    // console.log(currentUser);
+    const { currentAdmin } = useSelector((state) => state.admin);
+    
     const { items } = useSelector((state) => state.cart);
     
     useEffect(() => {
@@ -55,10 +56,10 @@ export default function Header() {
                 </div>
             </Box>
         </Box>
-        <Box top={0} position={'sticky'} className='bg-gray-800 text-white'>
+        <Box top={0} position={'sticky'} className='bg-white text-white'>
             <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}  className='flex justify-between items-center py-3 md:px-6 px-2'>
                 <Link to={'/'}>
-                    <div className="flex items-center">
+                    <div className="flex items-center text-black">
                         <MdOutlineShoppingCart className='md:text-3xl text-2xl animate text-pink-600'/>
                         <h1 className='md:text-3xl text-2xl font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify</h1>
                     </div>
@@ -66,7 +67,7 @@ export default function Header() {
                 <div className="w-[30%] rounded hidden md:block">
                     <form className='w-[100%] relative'>
                         <form className="">
-                            <input type="text" placeholder='Search for products'  className=' text-black font-semibold rounded-sm border-none outline-none p-[6px] w-[100%]'/>
+                            <input type="text" placeholder='Search for products'  className=' text-black font-semibold rounded-sm border-none outline-none p-[8px] bg-zinc-100 w-[100%]'/>
                             <Box className="bg-pink-600 absolute top-0 right-0 flex justify-center items-center w-[45px] h-full rounded-r-sm cursor-pointer ">
                                 <Icon as={MdSearch} color={useColorModeValue('white', 'black')} fontSize={23}/>
                             </Box>
@@ -95,23 +96,29 @@ export default function Header() {
                             </div>
                         </Link>
                     </div>
-                    <div className="flex items-center">
+                    <div className="flex items-center md:gap-2 text-black">
                         {
                             currentUser ? (
                                 <Settings/>
                             ) : (
-                                <Flex gap={2}>
-                                    <Link to={'/signin'} className='text-[14px]'>Signin/</Link>
+                                <Flex gap={2} ml={2}>
+                                    <Link to={'/signin'} className='text-[14px]'>Signin</Link>
+                                    <span>/</span>
                                     <Link to={'/signup'} className='text-[14px]'>Signup</Link>
                                 </Flex>
+                            )
+                        }
+                        {
+                            currentAdmin && (
+                                <Link to={'/admin-dashboard'} className='text-[14px]'>Dashboard</Link>
                             )
                         }
                     </div>
                 </div>
             </Box>
         </Box>
-        <div className="hidde md:block text-white bg-slate-800 ">
-            <Box maxW={{'2xl' : '50%', xl : '50%', lg : '100%', base: '97%'}} mx={'auto'} roundedTop={'30px'} className="flex md:justify-center justify-between px-2 items-center gap-4 sm:gap-5 py-3 xl:max-w-[50%] md:bg-pink-600 md:text-white">
+        <div className="hidde md:block text-black ">
+            <Box maxW={{'2xl' : '50%', xl : '50%', lg : '100%', base: '97%'}} mx={'auto'} roundedTop={'0px'} className="flex md:justify-center justify-between px-2 items-center gap-4 sm:gap-5 py-3 xl:max-w-[50%] md:bg-pink-00 md:text-black">
                 <div className="">
                     <All_category/>
                 </div>
@@ -146,13 +153,14 @@ export default function Header() {
                     </div>
                 </div> */}
                 <div className="hidden md:block">
-                    <div className="flex justify-center items-center gap-5 font-medium">
-                        <Link to={'/'} className='text-md'>Home</Link>
-                        <Link to={'/womens-clothing'} className='text-md'>Women's Fashion</Link>
-                        <Link to={'/mens-clothing'} className='text-md'>Men's Fashion</Link>
-                        <Link to={'/'} className='text-md'>Bags</Link>
-                        <Link to={'/'} className='text-md'>Shoes</Link>
-                        <Link to={'/'} className='text-md'>Jewelleries</Link>
+                    <div className="flex justify-center items-center gap-5 font-">
+                        <Link to={'/'} className='text-[14px]'>Home</Link>
+                        <Link to={'/fashion'} className='text-[14px] hidden md:block'>Fashions</Link>
+                        <Link to={'/womens-clothing'} className='text-[14px]'>Women's Fashion</Link>
+                        <Link to={'/mens-clothing'} className='text-[14px]'>Men's Fashion</Link>
+                        <Link to={'/'} className='text-[14px]'>Bags</Link>
+                        <Link to={'/'} className='text-[14px]'>Shoes</Link>
+                        <Link to={'/'} className='text-[14px]'>Jewelleries</Link>
                     </div>
                 </div>
             </Box>

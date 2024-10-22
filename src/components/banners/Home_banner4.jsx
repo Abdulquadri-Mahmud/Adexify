@@ -52,15 +52,15 @@ export default function Home_banner4() {
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToShow: 4,
+            slidesToScroll: 1,
           }
         },
         {
           breakpoint: 768,
           settings: {
-            slidesToShow: 3,
-            slidesToScroll: 2,
+            slidesToShow: 4,
+            slidesToScroll: 1,
           }
         },
         {
@@ -80,19 +80,19 @@ export default function Home_banner4() {
     ]
 };
   return (
-    <Box bg={'white'} my={5} p={2} rounded={'md'} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}>
+    <Box bg={'white'} my={5} p={{md:4, base: 3}} rounded={'md'} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}>
         <Box display={{xl: 'block', base: 'none'}}>
-            <Flex gap={3} justifyContent={'center'}>
+            <Flex gap={6} justifyContent={'center'}>
                 <Link to={'/'}>
                     <Box height={'230px'} width={'200px'}>
                         <Image  rounded={'md'} src="/new-arrival.jpg" alt="" />
-                        <Text fontSize={'14px'} mt={2} textAlign={'center'}>New Arrival</Text>
+                        <Text fontSize={'14px'} mt={2} textAlign={'center'}>Fashion Deals</Text>
                     </Box>
                 </Link>
                 <Link to={'/'}>
                     <Box height={'230px'} width={'200px'}>
-                        <Image  rounded={'md'} src="/fashion1.gif" alt="" />
-                        <Text fontSize={'14px'} mt={2} textAlign={'center'}>Fashion Deals</Text>
+                        <Image  rounded={'md'} src="/men_fashion.jpg" alt="" />
+                        <Text fontSize={'14px'} mt={2} textAlign={'center'}>New Arrival</Text>
                     </Box>
                 </Link>
                 <Link to={'/'}>
@@ -124,27 +124,26 @@ export default function Home_banner4() {
                 </Box>
                 </Link>
                 <Link to={'/'}>
-                  <Box height={{xl:'230px',md:'200px', base: '150px'}} width={{md:'200px', base: '150px'}}>
-                      <Image  rounded={'md'} src="/fashion1.gif" alt="" />
-                      <Text fontSize={'14px'} mt={2} textAlign={'center'}>Pant</Text>
+                  <Box height={{xl:'230px',md:'200px', base: '100%'}} width={{md:'200px', base: '150px'}}>
+                      <Image  rounded={'md'} src="/men_fashion.jpg" alt="" />
                   </Box>
                 </Link>
                 <Link to={'/'}>
                   <Box height={{xl:'230px',md:'200px', base: '150px'}} width={{md:'200px', base: '150px'}}>
-                      <Image height={'200px'} rounded={'md'} src="/fahsion3.gif" alt="" />
-                      <Text fontSize={'14px'} mt={2} textAlign={'center'}>Sportwear</Text>
+                      <Image height={'150px'} rounded={'md'} src="/fahsion3.gif" alt="" />
+                      <Text fontSize={'14px'} mt={2} textAlign={'center'}>Fashion Deals</Text>
                   </Box>
                 </Link>
                 <Link to={'/'}>
                   <Box height={{xl:'230px',md:'200px', base: '150px'}} width={{md:'200px', base: '150px'}}>
                       <Image  rounded={'md'} src="/recommended.gif" alt="" />
-                      <Text fontSize={'14px'} mt={2} textAlign={'center'}>Jeans</Text>
+                      <Text fontSize={'14px'} mt={2} textAlign={'center'}>Great Deals</Text>
                   </Box>
                 </Link>
                 <Link to={'/'}>
                   <Box height={{xl:'230px',md:'200px', base: '150px'}} width={{md:'200px', base: '150px'}}>
                       <Image  rounded={'md'} src="/specia-offer.png" alt="" />
-                      <Text fontSize={'14px'} mt={2} textAlign={'center'}>Underwear</Text>
+                      <Text fontSize={'14px'} mt={2} textAlign={'center'}>Special Offter</Text>
                   </Box>
                 </Link>
             </Slider>

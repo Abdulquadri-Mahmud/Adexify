@@ -21,8 +21,8 @@ export default function Settings() {
 
   return (
     <div className=''>
-        <Menu className="bg-white">
-            <MenuButton display={{base: 'block', md: 'block'}} bg={'transparent'} height={'30px'} color={'white'}
+        <Menu className="bg-black">
+            <MenuButton display={{base: 'block', md: 'block'}} bg={'transparent'} height={'30px'} color={'black'}
             _hover={{bg: 'transparent'}} as={Button} _focus={{bg: 'transparent'}} fontWeight={400} className='flex'>
                 <Flex alignItems={'center'} gap={1}>
                     <Text>My Account</Text>

@@ -7,9 +7,11 @@ import { PiGreaterThan } from 'react-icons/pi';
 
 export const Women_ClothingContext = createContext();
 export const Hoodie_Sweater2_Context = createContext();
+export const Female_Context = createContext();
 
 const Women_Clothing = React.lazy(() => import('../../components/clothing/Women_Clothing.jsx'));
 const Hoodie_Sweater2 = React.lazy(() => import('../../hoodies&sweater/Hoodie_Sweater2.jsx'));
+const Females = React.lazy(() => import('../../components/genders/Females.jsx'));
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -46,6 +48,7 @@ import Slider from "react-slick";
 import { FaNairaSign } from 'react-icons/fa6';
 import Home_banner4 from '../../components/banners/Home_banner4.jsx';
 import Header from '../../components/Header.jsx';
+// import Females from '';
 
 export default function Women_Clothing_page() {
   const [products, setProducts] = useState([]);
@@ -336,7 +339,19 @@ export default function Women_Clothing_page() {
                         </Box>
                     </Box>
                     <Box flex={1} bg={'white'} rounded={'md'} p={2}>
-                        
+                        <Box className="py-3 px-2 grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
+                            {
+                                products.map((product) => (
+                                    product.gender === 'female' ? (
+                                    <Female_Context.Provider value={product}>
+                                        <Suspense fallback={'Loading...'}>
+                                            <Females product={product}/>
+                                        </Suspense>
+                                    </Female_Context.Provider>
+                                ) : ''
+                                ))
+                            }
+                        </Box>
                     </Box>
                 </Flex>
             </Box>

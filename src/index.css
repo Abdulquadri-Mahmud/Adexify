@@ -48,3 +48,15 @@ table td{
     overflow-x: scroll;
 }
 /* tr:nth-child(even) {background-color: #f2f2f2;} */
+
+.radio input[type='radio']{
+    accent-color: rgb(219 39 119 );
+}
+
+tbody tr:hover{
+    background: '#000';
+}
+
+tr:nth-child(even) {
+    background-color: rgb(249 168 212);
+}

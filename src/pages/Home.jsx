@@ -11,24 +11,29 @@ import Home_banner2 from '../components/banners/Home_banner2'
 import Home_banner3 from '../components/banners/Home_banner3'
 import Home_banner4 from '../components/banners/Home_banner4'
 import Header from '../components/Header'
+import Footer from '../components/footer/Footer'
+import Womens_wear from '../components/womens_wear/Womens_wear'
+import Mens_wear from '../components/mens_wear/Mens_wear'
 
 export default function Home() {
   return (
     <Box>
       <Header/>
 
-      <Box mb={10} className='bg-zinc-200'>
+      <Box pb={10} className='bg-zinc-200'>
         <Hero/>
         <Section1/>
-        <Home_banner4/>
         <TodaysDeal/>
+        <Home_banner4/>
 
-        <Home_banner1/>
+        {/* <Home_banner1/> */}
         
         <TopDeals/>
         <Home_banner2/>
         <Home_banner3/>
-        <Recommended/>
+        <Womens_wear/>
+        <Mens_wear/>
+        {/* <Recommended/> */}
         {/* <LastSection/> */}
         <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} mt={10} bg={'white'} p={3} rounded={'md'}>
           <Box>
@@ -62,6 +67,7 @@ export default function Home() {
           </Box>
         </Box>
       </Box>
+      <Footer/>
     </Box>
   )
 }
