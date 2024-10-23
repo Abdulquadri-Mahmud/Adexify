@@ -113,17 +113,15 @@ export default function Women_Clothing_page() {
     <Box>
       <Header/>
 
-        <Box pb={10} className='bg-zinc-100 rounded-t-lg'>
+        <Box pb={10} className='bg-zinc-200 rounded-t-lg'>
             <Box bg={''} py={2}>
                 <Box maxW={{'2xl' : '80%', xl : '90%', lg : '97%', base: '97%'}} mx={'auto'}>
                     <Box bg={''} className="flex gap-1 items-center">
-                        <Link to={'/'} className='text-[13px]'>Back to home page</Link>
+                        <Link to={'/'} className='text-[13px]'>home</Link>
                         <PiGreaterThan className='text-[13px] pt-1 text-gray-400'/>
                         <Link to={'/clothing'} className='text-[13px]'>Clothing</Link>
                         <PiGreaterThan className='text-[13px] pt-1 text-gray-400'/>
                         <Link to={'/womenswear'} className='text-[13px]'>Women's Fashion</Link>
-                        <PiGreaterThan className='text-[13px] pt-1 text-gray-400'/>
-                        <Link to={'/womenswear'} className='text-[13px]'>Men's Fashion</Link>
                     </Box>
                 </Box>
             </Box>
@@ -267,7 +265,7 @@ export default function Women_Clothing_page() {
             </Box>
             <Home_banner4/>
             <Box mb={10} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}>
-                <Flex gap={5}>
+                <Flex gap={5} flexWrap={'wrap'}>
                     <Box width={'300px'} bg={'white'} rounded={'md'}>
                         <Box p={2}>
                             <Heading fontWeight={500} mb={0} fontSize={18}>Category</Heading>

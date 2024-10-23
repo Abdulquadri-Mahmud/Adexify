@@ -5,7 +5,7 @@ import { MdOutlineShoppingCart } from 'react-icons/md';
 import { LiaTimesSolid } from 'react-icons/lia';
 import { RiMenu5Line } from 'react-icons/ri';
 import { IoCallOutline, IoLocationOutline } from 'react-icons/io5';
-import { FaRegStar } from 'react-icons/fa';
+import { FaHandSparkles, FaRegStar } from 'react-icons/fa';
 import { CiShoppingTag } from 'react-icons/ci';
 import {
     Drawer,
@@ -44,19 +44,19 @@ export default function All_category() {
         <Button leftIcon={<RiMenu5Line className='text-lg'/>} bg={'transparent'} _hover={{bg: 'transparent'}} onClick={onOpen} px={0} className="flex items-center flex-col md:flex-row cursor-pointer md:hover:text-black hover:text-pink-600">
             <h2 className="text-[14px] font">Browse All</h2>
         </Button>
-        <Drawer isOpen={isOpen} placement='left' initialFocusRef={firstField} onClose={onClose} size={'md'}>
+        <Drawer isOpen={isOpen} placement='top' initialFocusRef={firstField} onClose={onClose} size={'md'}>
             <DrawerOverlay />
             <DrawerContent>
-            <DrawerCloseButton top={5}/>
+            <DrawerCloseButton top={3}/>
                 <DrawerHeader borderBottomWidth={{md:'0px', base: '1px'}}>
-                    <Box  className=' flex justify-between items-center text-white'>
-                        <Link to={'/'} className='md: block'>
-                            <Box className="flex items-center justify-center mx-auto bg-pink-200 py-1 px-2 rounded-2xl w-[140px]">
-                                <MdOutlineShoppingCart className='md:text-xl animate text-pink-600'/>
-                                <h1 className='md:text-xl font-medium uppercase text-black'>Ade<span className="text-pink-600">X</span>ify</h1>
+                    <Box  className=' flex justify-between items-center text-black'>
+                        <Link to={`/profile/${currentUser._id}`} className='md: block'>
+                            <Box className='flex items-center gap-1'>
+                                <Text>Hi {currentUser.firstname}</Text>
+                                <FaHandSparkles className='text-pink-600' />
                             </Box>
                         </Link>
-                        <div className="pr-5">
+                        <div className="pr-9">
                             <Link to={'/view-carts'}>
                                 <div className="md: block text-xl relative">
                                     <MdOutlineShoppingCart className='text-black'/>
@@ -86,9 +86,9 @@ export default function All_category() {
                             )
                         }
                         </Box>
-                        <Box display={{md: '', base: 'block'}} mt={5}>
+                        <Box display={{md: '', base: 'block'}} mt={{md:5}}>
                             <Box className='grid grid-cols-2 grid-rows-2'>
-                                <div className="flex items-center gap-3 border-[1px] py-2 border-r-0 border-l-0 px-3 border-pink-300">
+                                <div className="flex items-center gap-3 border-[1px] py-2 border-r-0 border-l-0 px-2 border-pink-300">
                                     <div className="w-9 h-9 bg-pink-200 rounded-full flex justify-center items-center text-pink-600 ">
                                         <IoLocationOutline className='text-xl'/>
                                     </div>
@@ -97,7 +97,7 @@ export default function All_category() {
                                         <Text className='text-[10px] text-gray-400'>View Order Status</Text>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-3 border-[1px] py-2 border-r-0 border-l-0 px-3 border-pink-300">
+                                <div className="flex items-center gap-3 border-[1px] py-2 border-r-0 border-l-0 px-2 border-pink-300">
                                     <div className="w-9 h-9 bg-pink-200 rounded-full flex justify-center items-center text-pink-600 ">
                                         <FaRegStar className='text-xl'/>
                                     </div>
@@ -106,7 +106,7 @@ export default function All_category() {
                                         <Text className='text-[10px] text-gray-400'>View Pending Items</Text>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-3 border-[1px] py-2 border-t-0 border-r-0 border-l-0 px-3 border-pink-300">
+                                <div className="flex items-center gap-3 border-[1px] py-2 border-t-0 border-r-0 border-l-0 px-2 border-pink-300">
                                     <div className="w-9 h-9 bg-pink-200 rounded-full flex justify-center items-center text-pink-600 ">
                                         <CiShoppingTag className='text-xl'/>
                                     </div>
@@ -115,7 +115,7 @@ export default function All_category() {
                                         <Text className='text-[10px] text-gray-400'>View All Deals</Text>
                                     </div>
                                 </div>
-                            <div className="flex items-center gap-3 border-[1px] py-2 border-t-0 border-r-0 border-l-0 px-3 border-pink-300">
+                            <div className="flex items-center gap-3 border-[1px] py-2 border-t-0 border-r-0 border-l-0 px-2 border-pink-300">
                                 <div className="w-9 h-9 bg-pink-200 rounded-full flex justify-center items-center text-pink-600 ">
                                 </div>
                                 <div className="text-black">
@@ -129,28 +129,31 @@ export default function All_category() {
                     <Box mt={8} rounded={'lg'} p={0} bg={'white'}>
                         <Text mb={{md: 0, base: 5}} display={{md: 'none', base: 'block'}} fontWeight={'500'} fontSize={20}>Categories</Text>
                         <div className="flex justify-start flex-col items-start gap-1 font-">
-                            <Box className='border-[1px] py-3 border-t-1 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                            <Box className='border-[1px] py-3 border-t-1 border-r-0 border-l-0 border-b-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                                <Link to={'/fashion'} className='text-md hover:text-pink-500 duration-200 text-[14px]'>Fashions</Link>
+                            </Box>
+                            <Box className='border-[1px] py-3 border-t-1 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                 <Link to={'/'} className='text-md hover:text-pink-500 duration-200 text-[14px]'>Men's Wear</Link>
                             </Box>
-                            <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                            <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                 <Link to={'/'} className='text-md hover:text-pink-500 duration-200 text-[14px]'>Men's Bags</Link>
                             </Box>
-                            <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                            <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                 <Link to={'/'} className='text-md hover:text-pink-500 duration-200 text-[14px]'>Men's Shoes</Link>
                             </Box>
-                            <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                            <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                 <Link to={'/'} className='text-md hover:text-pink-500 duration-200 text-[14px]'>Women's Wear</Link>
                             </Box>
-                            <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                            <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                 <Link to={'/'} className='text-md hover:text-pink-500 duration-200 text-[14px]'>Women's Bags</Link>
                             </Box>
-                            <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                            <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                 <Link to={'/'} className='text-md hover:text-pink-500 duration-200 text-[14px]'>Women's Men's Shoes</Link>
                             </Box>
-                            <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                            <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                 <Link to={'/'} className='text-md hover:text-pink-500 duration-200 text-[14px]'>Jwelleries</Link>
                             </Box>
-                            <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                            <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                 <Link to={'/'} className='text-md hover:text-pink-500 duration-200 text-[14px]'>Sandals</Link>
                             </Box>
                         </div>
@@ -178,28 +181,28 @@ export default function All_category() {
                         <Box width={{md:'300px', base: '100%'}} rounded={'lg'} p={3} bg={'white'}>
                             <Text mb={{md: 0, base: 5}} display={{md: 'none', base: 'block'}} fontWeight={'500'} fontSize={20}>Categories</Text>
                             <div className="flex justify-start flex-col items-start gap-1 font-">
-                                <Box className='border-[1px] py-3 border-t-1 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                                <Box className='border-[1px] py-3 border-t-1 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                     <Link to={'/'} className='text-md hover:text-pink-500 duration-200'>Men's Wear</Link>
                                 </Box>
-                                <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                                <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                     <Link to={'/'} className='text-md hover:text-pink-500 duration-200'>Men's Bags</Link>
                                 </Box>
-                                <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                                <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                     <Link to={'/'} className='text-md hover:text-pink-500 duration-200'>Men's Shoes</Link>
                                 </Box>
-                                <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                                <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                     <Link to={'/'} className='text-md hover:text-pink-500 duration-200'>Women's Wear</Link>
                                 </Box>
-                                <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                                <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                     <Link to={'/'} className='text-md hover:text-pink-500 duration-200'>Women's Bags</Link>
                                 </Box>
-                                <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                                <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                     <Link to={'/'} className='text-md hover:text-pink-500 duration-200'>Women's Men's Shoes</Link>
                                 </Box>
-                                <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                                <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                     <Link to={'/'} className='text-md hover:text-pink-500 duration-200'>Jwelleries</Link>
                                 </Box>
-                                <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-3 hover:translate-x-3 duration-200 border-pink-200 w-full'>
+                                <Box className='border-[1px] py-3 border-t-0 border-r-0 border-l-0 px-2 hover:translate-x-3 duration-200 border-pink-200 w-full'>
                                     <Link to={'/'} className='text-md hover:text-pink-500 duration-200'>Sandals</Link>
                                 </Box>
                             </div>

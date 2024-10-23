@@ -439,7 +439,7 @@ export default function Create_products() {
                               <label className='pl-1 font-medium text-[14px] cursor-pointer' htmlFor="male">Male</label>
                             </Box>
                             <Box px={{md:5}} className='cursor-pointer radio'>
-                              <input onChange={handleChange} type="radio" name='gender' id="gender" className=' cursor-pointer' value={'femail'} />
+                              <input onChange={handleChange} type="radio" name='gender' id="gender" className=' cursor-pointer' value={'female'} />
                               <label className='pl-1 font-medium text-[14px] cursor-pointer' htmlFor="female">Female</label>
                             </Box>
                             <Box className='cursor-pointer radio'>

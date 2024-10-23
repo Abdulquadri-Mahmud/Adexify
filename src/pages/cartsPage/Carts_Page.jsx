@@ -20,6 +20,7 @@ import {
 } from '@chakra-ui/react';
 import { MdDelete } from 'react-icons/md';
 import Header from '../../components/Header';
+import Footer from '../../components/footer/Footer';
 
 export default function Carts_Page() {
   const { items } = useSelector((state) => state.cart);
@@ -76,10 +77,10 @@ export default function Carts_Page() {
   return (
     <Box>
       <Header/>
-      <Box pb={10} className='bg-zinc-100'>
+      <Box pb={10} className='bg-zinc-200'>
 
         <Box mt={3} className=''>
-          <Box bg={'white'}>
+          <Box bg={''}>
             <Box className="p-2 max-w-[95vw] sm:max-w-[754px] xl:max-w-[1240px] w-full mx-auto">
               <Box className="flex gap-1 items-center">
                 <Link to={'/'} className='text-[13px]'>Home</Link>
@@ -126,21 +127,21 @@ export default function Carts_Page() {
                           // let mCount = item.productSize.filter((it) => it === 'M').length;
                           
                           return (
-                            <Tr className='m-3' key={index}>
-                              <Td className='p-2'>
-                                <img src={item.productImage} alt="" className='rounded-md max-w-[80px] max-h-[80px]'/>
+                            <Tr className='' key={index}>
+                              <Td className=''>
+                                <img src={item.productImage} alt="" className='rounded-md max-w-[50px] max-h-[50px]'/>
                               </Td>
-                              <Td className='p-2 font-medium text-[14px] truncate'>
+                              <Td className='font-medium text-[14px] truncate'>
                                 {item.productName.slice(0, 20)}...
                               </Td>
-                              <Td className='p-2 font-medium'>
+                              <Td className='font-medium'>
                                 <div className="flex justify-center items-center h-full gap-2">
                                   <button type='button' className='rounded-md bg-zinc-200 w-7 h-7 flex justify-center items-center' onClick={() => decreaseQuantity(item.productID)}><CgMathMinus className='text-sm text-black'/></button>
                                   <span className="" >{item.quantity}</span>
                                   <button type='button' className='rounded-md bg-zinc-200 w-7 h-7 flex justify-center items-center' onClick={() => increaseQuantity(item.productID)}><RiAddFill className='text-sm text-black'/></button>
                                 </div>
                               </Td>
-                              <Td className='p-2 font-medium '>
+                              <Td className='font-medium '>
                                 <div className="">
                                   {/* <Text>
                                     {
@@ -159,10 +160,10 @@ export default function Carts_Page() {
                                   <button type='button' className='rounded-md bg-zinc-200 w-3 h-3 flex justify-center items-center' onClick={() => increaseQuantity(item.productID)}><RiAddFill className='text-[13px] text-black'/></button>
                                 </div> */}
                               </Td>
-                              <Td className='p-2 font-medium w-[20%]'>
+                              <Td className='font-medium w-[20%]'>
                                 <Text fontWeight={500} textAlign={'center'} className='flex items-center justify-center'><FaNairaSign/>{(item.productPrice * item.quantity).toLocaleString()}.00</Text>
                               </Td>
-                              <Td className='p-2 font-medium'>
+                              <Td className='font-medium'>
                                 <div className="flex justify-center items-center">
                                   <button className='text-red-500 text-[14px] font-medium text-center' onClick={() => handleRemoveItem(item.productID)}><MdDelete className='text-2xl'/></button>
                                 </div>
@@ -210,6 +211,7 @@ export default function Carts_Page() {
           </Box>
         </Box>
       </Box>
+      <Footer/>
     </Box>
   )
 }

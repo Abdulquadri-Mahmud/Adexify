@@ -14,6 +14,9 @@ import Header from '../components/Header'
 import Footer from '../components/footer/Footer'
 import Womens_wear from '../components/womens_wear/Womens_wear'
 import Mens_wear from '../components/mens_wear/Mens_wear'
+import Banner2 from '../components/FashionXtra/banner2'
+import Bags from '../Bags/Bags'
+import Shoes from '../components/top_sneakers/Shoes'
 
 export default function Home() {
   return (
@@ -33,8 +36,10 @@ export default function Home() {
         <Home_banner3/>
         <Womens_wear/>
         <Mens_wear/>
-        {/* <Recommended/> */}
-        {/* <LastSection/> */}
+        <Banner2/>
+        <Bags/>
+        <Shoes/>
+        
         <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} mt={10} bg={'white'} p={3} rounded={'md'}>
           <Box>
               <Heading fontWeight={500} fontSize={18}>Shop Men's and Women's Fashion at Affordable Prices on Adexify</Heading>

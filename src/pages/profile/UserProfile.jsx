@@ -8,6 +8,7 @@ import { IoBagHandle } from 'react-icons/io5';
 import { FiUserX } from 'react-icons/fi';
 import { updateFailure, updateStart, updateSuccess } from '../../store/userReducers';
 import Header from '../../components/Header';
+import Footer from '../../components/footer/Footer';
 
 export default function UserProfile() {
   const { currentUser, error, loading } = useSelector((state) => state.user);
@@ -52,17 +53,18 @@ export default function UserProfile() {
       <Header/>
 
       <Box pb={'4vh'} className='bg-zinc-200'>
-          <Box className="bg-white p-2">
+          <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className=" p-2">
               <Box className="flex gap-1 items-center">
               <Link to={'/'} className='text-[13px]'>Home</Link>
               <PiGreaterThan className='text-[13px] pt-1'/>
+              <Link to={'/view-carts'} className='text-[13px]'>cart page</Link>
+              <PiGreaterThan className='text-[13px] pt-1'/>
+              <Link to={'/view-wishlist'} className='text-[13px]'>My wishlist</Link>
+              <PiGreaterThan className='text-[13px] pt-1'/>
               <Link to={`/profile/${currentUser._id}`} className='text-[13px]'>Account Information</Link>
               </Box>
-              <Box className="mt-4" display={{md: 'block', base: 'none'}}>
-                  <Heading fontSize={{md:30, base: 25}} fontWeight={500} color={'black'}>Account Information</Heading>
-              </Box>
           </Box>
-          <Flex justifyContent={'center'} flexWrap={'wrap'} mt={'3vh'} p={{md: 5, base:0}} gap={5} maxW={{'2xl': '65%',md: '75%', base: '100%'}} mx={{md:'auto', base: 3}}>
+          <Flex justifyContent={'center'} flexWrap={'wrap'} p={{md: 5, base:0}} gap={5} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={{md:'auto', base: 3}}>
               <Box display={{md: 'block', base: 'none'}} width={{md: '300px', base: '100%'}} bg={'white'} p={{md: 5, base: 3}} rounded={10}>
                   <Flex gap={2}>
                     <Box>
@@ -152,6 +154,7 @@ export default function UserProfile() {
               </Box>
           </Flex>
       </Box>
+      <Footer/>
     </Box>
   )
 }

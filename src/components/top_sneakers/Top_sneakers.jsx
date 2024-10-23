@@ -1,10 +1,9 @@
 import { Box, Heading } from '@chakra-ui/react'
 import React, { createContext, useEffect, useState } from 'react';
-import TopDealsProducts from './TopDealsProducts';
 import { Link } from 'react-router-dom';
 import { FaAngleRight } from 'react-icons/fa';
 
-export const TopDealsProductsContext = createContext();
+export const TopSneakerProductsContext = createContext();
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -38,13 +37,13 @@ function SampleNextArrow(props) {
     );
 }
 import Slider from "react-slick";
-import Top_deals_pag from '../paginations/top_deals_pag/Top_deals_pag';
+import Top_sneak from './Top_sneak';
 
-export default function TopDeals() {
-  const [products, setProducts] = useState([]);
+export default function Top_sneakers() {
+    const [products, setProducts] = useState([]);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage] = useState(6);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postPerPage] = useState(6);
 
     useEffect(() => {
       const fetchProducts = async () => {
@@ -101,32 +100,42 @@ export default function TopDeals() {
               }
           },
       ]
-  };
+    };
+
+    const sneaker = [];
+
+    if (products.length > 0) {
+      products.map((pro) => {
+        if (pro.category === 'Shoes' && pro.price >= 5000) {
+            sneaker.push(pro);
+        }
+      })
+    }
 
   const startIndex = currentPage * postPerPage;
   const endIndex = startIndex - postPerPage;
 
-  const currentPost = products.slice(endIndex, startIndex);
+  const currentPost = sneaker.slice(endIndex, startIndex);
 
   const paginate  = paginate => setCurrentPage(paginate);
 
   return (
-    <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className='mt-10 md:mb-0 mb-20 bg-white rounded-lg'>
-      <Box className='bg-black py-3 rounded-t-lg px-3  text-white'>
-        <Box className="flex justify-between items-center">
-            <Heading fontWeight={500} fontSize={{md:20, base: 18}} className='text-xl '>Top Picks</Heading>
-            <Link to={'/'} className='text-[13px] font-medium uppercase flex items-center text-white'>See All <FaAngleRight className='text-[13px]'/></Link>
+    <Box mt={7} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className='md:mb-0 mb-0 bg-white rounded-lg'>
+        <Box className='bg-black py-3 rounded-t-lg px-3 text-white'>
+            <Box className="flex justify-between items-center">
+                <Heading fontWeight={500} fontSize={{md:20, base: 18}} className='text-xl '>Top Shoes Collection</Heading>
+                <Link to={'/'} className='text-[13px] font-medium uppercase flex items-center text-pink-600'>See All <FaAngleRight className='text-[13px]'/></Link>
+            </Box>
         </Box>
-      </Box>
       <Box bg={'white'} p={2} roundedBottom={'md'}>
         <Slider {...settings}>
           {
               currentPost.map((product) => (
                 product.deal === 'great' ? (
-                  <Box key={product._id} p={1} shadow={''}>
-                    <TopDealsProductsContext.Provider value={product}>
-                        <TopDealsProducts product={product}/>
-                    </TopDealsProductsContext.Provider>
+                  <Box key={product._id} p={1} shadow={'md'}>
+                    <TopSneakerProductsContext.Provider value={product}>
+                        <Top_sneak product={product}/>
+                    </TopSneakerProductsContext.Provider>
                   </Box>
                 ) : ''
               ))

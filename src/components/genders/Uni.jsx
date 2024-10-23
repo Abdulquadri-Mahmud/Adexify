@@ -4,11 +4,11 @@ import { FaCartShopping, FaNairaSign } from 'react-icons/fa6';
 import { addWishlist } from '../../store/wishlists/Wishlists';
 import { useToast } from '@chakra-ui/react';
 import { IoHeart } from 'react-icons/io5';
-import { FashProductsContext } from './FashionXtra';
+import { UinisexProductsContext } from './Unisex';
 
 
-export default function Fash() {
-    const product = useContext(FashProductsContext);
+export default function Uni() {
+    const product = useContext(UinisexProductsContext);
     const toast = useToast();
     const {_id,image, name, price, description} = product;
     const priceToLocalString = price.toLocaleString()

@@ -121,7 +121,7 @@ export default function FashionXtra() {
         <Slider {...settings}>
           {
               currentPost.map((product) => (
-                product.deal === 'great' ? (
+                product.price >= 1000 ? (
                   <Box key={product._id} p={1} shadow={'md'}>
                     <FashProductsContext.Provider value={product}>
                         <Fash product={product}/>

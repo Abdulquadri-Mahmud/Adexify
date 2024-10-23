@@ -17,6 +17,7 @@ import { BiSolidShoppingBags } from "react-icons/bi";
 import { GiConverseShoe } from "react-icons/gi";
 import All_category from './All_category';
 import { useSelector } from 'react-redux';
+import { SiPhpmyadmin } from 'react-icons/si';
 
 export const OpenMenuCOntext = createContext();
 
@@ -110,7 +111,7 @@ export default function Header() {
                         }
                         {
                             currentAdmin && (
-                                <Link to={'/admin-dashboard'} className='text-[14px]'>Dashboard</Link>
+                                <Link to={'/admin-dashboard'} className='text-[14px]'><SiPhpmyadmin /></Link>
                             )
                         }
                     </div>
@@ -155,10 +156,10 @@ export default function Header() {
                 <div className="hidden md:block">
                     <div className="flex justify-center items-center gap-5 font-">
                         <Link to={'/'} className='text-[14px]'>Home</Link>
-                        <Link to={'/fashion'} className='text-[14px] hidden md:block'>Fashions</Link>
+                        <Link to={'/fashion'} className='text-[14px]'>Fashions</Link>
                         <Link to={'/womens-clothing'} className='text-[14px]'>Women's Fashion</Link>
                         <Link to={'/mens-clothing'} className='text-[14px]'>Men's Fashion</Link>
-                        <Link to={'/'} className='text-[14px]'>Bags</Link>
+                        <Link to={'/'} className='text-[14px] hidden md:block'>Bags</Link>
                         <Link to={'/'} className='text-[14px]'>Shoes</Link>
                         <Link to={'/'} className='text-[14px]'>Jewelleries</Link>
                     </div>

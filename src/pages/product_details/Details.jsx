@@ -50,6 +50,8 @@ export default function Details() {
         const data = await res.json();
 
         setProduct(data);
+        console.log(data);
+        
       };
 
       fetchData();
@@ -132,15 +134,15 @@ export default function Details() {
     <Box>
       <Header/>
 
-      <div className='bg-slate-200 md:mb-0 mb-16'>
-        <Box className="bg-white p-2">
+      <div className='bg-zinc-200 md:mb-0 mb-16'>
+        <Box className=" p-2">
           <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}>
             <div className="flex gap-1 items-center">
-              <Link to={'/'} className='text-[13px]'>Home</Link>
-              <PiGreaterThan className='text-[13px] pt-1'/>
-              <Text className='text-[13px]'>category</Text>
-              <PiGreaterThan className='text-[13px] pt-1'/>
-              <Link to={`/${category}`} className='text-[13px]'>{category}</Link>
+              <Link to={'/'} className='text-[13px] text-gray-500'>Home</Link>
+              <PiGreaterThan className='text-[13px] text-gray-500 pt-1'/>
+              <Link to={'/'} className='text-[13px] text-gray-500'>{gender} fashion</Link>
+              <PiGreaterThan className='text-[13px] text-gray-500 pt-1'/>
+              <Link to={`/${category}`} className='text-[13px] text-gray-500'>{category}</Link>
             </div>
             {/* <div className="">
             </div> */}
@@ -322,8 +324,8 @@ export default function Details() {
             </div>
           </div>
         </Box>
-        <Box bg={'white'} py={4} px={3}>
-          <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className="my-6">
+        <Box py={4} px={3}>
+          <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} bg={'white'} py={4} px={3} rounded={'md'} className="my-6">
             <Box className="mb-2">
               <h2 className='font-medium text-xl'>Description:</h2>
             </Box>
