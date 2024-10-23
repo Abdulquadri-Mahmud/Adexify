@@ -81,29 +81,29 @@ export default function Carts_Page() {
 
         <Box mt={3} className=''>
           <Box bg={''}>
-            <Box className="p-2 max-w-[95vw] sm:max-w-[754px] xl:max-w-[1240px] w-full mx-auto">
+            <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className="py-2">
               <Box className="flex gap-1 items-center">
                 <Link to={'/'} className='text-[13px]'>Home</Link>
-                <PiGreaterThan className='text-[13px] pt-1 text-gray-400'/>
-                <Link to={'/view-carts'} className='text-[13px] text-pink-600'>Shopping Cart</Link>
-              </Box>
-              <Box className="mt-2" my={5}>
-                  <Heading fontSize={{md:30, base: 25}} fontWeight={500} color={'black'}>Shopping Cart</Heading>
+                <PiGreaterThan className='text-[13px] pt-1 text-gray-500'/>
+                <Link to={'/view-carts'} className='text-[13px] text-gray-500'>Shopping Cart</Link>
               </Box>
             </Box>
           </Box>
-          <Box mt={4} className=' max-w-[95vw] sm:max-w-[754px] xl:max-w-[1240px] w-full mx-auto'>
-            <Box width={'200px'} py={1} rounded={'md'} className='border border-pink-600' >
-              <Link to={'/'} fontWeight={500} className='text-pink-600 flex items-center justify-center gap-2'><BiLeftArrowAlt/> Continue Shopping</Link>
+          <Box bg={'white'} py={3} px={2} rounded={'md'} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} mt={4} className=''>
+            <Box className="">
+                <Heading fontSize={{md:30, base: 25}} fontWeight={500} color={'black'}>Shopping Cart</Heading>
+            </Box>
+            <Box mt={4} width={'200px'} py={1} rounded={'md'} className='border border-gray-300' >
+              <Link to={'/fashion'} fontWeight={500} className='text- flex items-center justify-center gap-2'><BiLeftArrowAlt/> Continue Shopping</Link>
             </Box>
           </Box>
-          <Box className='max-w-[95vw] xl:max-w-[1240px] w-full mx-auto'>
+          <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className=''>
 
             <Flex justifyContent={'space-between'} flexWrap={{md:'no-wrap', base: 'wrap'}} gap={{md: 5, base: 2}} mt={6}>
-              <Box flex={1} width={'50%'} bg={'white'} rounded={'md'}>
+              <Box flex={1} width={{md:'50%', base: '100%'}} overflowX={'scroll'}  bg={'white'} rounded={'md'}>
                 <TableContainer className="">
-                  <Table className='w-[100%] table-auto rounded-md'>
-                    <Thead className='w-[100%] bg-pink-300'>
+                  <Table className='rounded-md'>
+                    <Thead className='bg-pink-300'>
                       <Tr>
                         <Th className='font-medium p-[10px] text-center'>Image</Th>
                         <Th className='font-medium p-[10px] text-center'>Name</Th>
@@ -177,7 +177,7 @@ export default function Carts_Page() {
                 </TableContainer>
                 {
                   emptyCart && (
-                    <Flex mt={{md:20, base: 15}} justifyContent={'center'} height={'70%'} alignItems={'center'}>
+                    <Flex mt={{md:20, base: 15}} pb={6} justifyContent={'center'} height={'70%'} alignItems={'center'}>
                       <Text fontWeight={500} fontSize={20}>Your Cart Is Empty!</Text>
                     </Flex>
                   )

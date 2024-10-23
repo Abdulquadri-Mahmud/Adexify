@@ -1,7 +1,6 @@
 import { Box, Heading } from '@chakra-ui/react'
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, Suspense, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import TodaysDealsProducts from './TodaysDealsProducts'
 import Todays_deals_pag from '../paginations/todays_deals_pag/Todays_deals_pag';
 import { FaAngleRight } from 'react-icons/fa';
 
@@ -36,7 +35,11 @@ function SampleNextArrow(props) {
       />
     );
 }
+
 import Slider from "react-slick";
+import Loading from '../loader/loading';
+
+const TodaysDealsProducts = React.lazy(() => import('./TodaysDealsProducts'))
 
 export const TodaysDealsProductsContext = createContext();
 
@@ -122,7 +125,9 @@ export default function TodaysDeal() {
           {
               currentPost.length > 0 && currentPost.map((product) => (
                   <TodaysDealsProductsContext.Provider value={product}>
+                    <Suspense fallback={<Loading/>}>
                       <TodaysDealsProducts product={product}/>
+                    </Suspense>
                   </TodaysDealsProductsContext.Provider>
               ))
           }

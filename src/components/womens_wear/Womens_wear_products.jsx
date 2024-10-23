@@ -29,8 +29,6 @@ export default function Womens_wear_products() {
         quantity: 1
     };
 
-    console.log(product)
-
     const handleCart = () => {
       dispatch(addToCart(getCarts));
     }

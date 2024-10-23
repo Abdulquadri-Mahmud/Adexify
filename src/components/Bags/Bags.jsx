@@ -52,8 +52,6 @@ export default function Bags() {
           const data = await res.json();
 
           setProducts(data);
-          console.log(data);
-          
 
       };
       fetchProducts();
@@ -67,7 +65,7 @@ export default function Bags() {
       slidesToShow: 6,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 3000,
+      autoplaySpeed: 3500,
       waitForAnimate: false,
       cssEase: "linear",
       nextArrow: <SampleNextArrow />,

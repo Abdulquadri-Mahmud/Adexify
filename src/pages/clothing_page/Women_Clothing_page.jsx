@@ -20,7 +20,7 @@ function SampleNextArrow(props) {
   
     const { className, style, onClick } = props;
     return (
-      <Box bg={'gray.300'} width={'30px'} height={'30px'} rounded={'full'}
+      <Box bg={'pink.300'} width={'30px'} height={'30px'} rounded={'full'}
       right={'1vh'}  
       className={className}
         style={{ ...style, display: "block",
@@ -34,10 +34,10 @@ function SampleNextArrow(props) {
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
-      <Box bg={'gray.300'} width={'30px'} height={'30px'} rounded={'full'}
+      <Box bg={'pink.300'} width={'30px'} height={'30px'} rounded={'full'}
         left={'1vh'} zIndex={'10'}
         className={className}
-        style={{ ...style, display: "block", 
+        style={{ ...style, display: "none", 
           paddingTop: '5.5px', paddingLeft: '5.5px',
         }}
         onClick={onClick}
@@ -48,6 +48,7 @@ import Slider from "react-slick";
 import { FaNairaSign } from 'react-icons/fa6';
 import Home_banner4 from '../../components/banners/Home_banner4.jsx';
 import Header from '../../components/Header.jsx';
+import Loading from '../../components/loader/loading.jsx';
 // import Females from '';
 
 export default function Women_Clothing_page() {
@@ -117,18 +118,70 @@ export default function Women_Clothing_page() {
             <Box bg={''} py={2}>
                 <Box maxW={{'2xl' : '80%', xl : '90%', lg : '97%', base: '97%'}} mx={'auto'}>
                     <Box bg={''} className="flex gap-1 items-center">
-                        <Link to={'/'} className='text-[13px]'>home</Link>
-                        <PiGreaterThan className='text-[13px] pt-1 text-gray-400'/>
-                        <Link to={'/clothing'} className='text-[13px]'>Clothing</Link>
-                        <PiGreaterThan className='text-[13px] pt-1 text-gray-400'/>
-                        <Link to={'/womenswear'} className='text-[13px]'>Women's Fashion</Link>
+                        <Link to={'/'} className='text-[13px] text-gray-500'>Home</Link>
+                        <PiGreaterThan className='text-[13px] text-gray-500 pt-1'/>
+                        <Link to={'/fashion'} className='text-[13px] text-gray-500'>Fashion</Link>
+                        <PiGreaterThan className='text-[13px] text-gray-500 pt-1'/>
+                        <Link to={'/womenswear'} className='text-[13px] text-gray-500'>Women's Fashion</Link>
                     </Box>
                 </Box>
             </Box>
-            <Box  maxW={{'2xl' : '70%', xl : '70%', lg : '100%', base: '97%'}} mx={'auto'}>
-                <Flex justifyContent={'center'} height={{md: '260px'}} mt={5} bg={'white'} rounded={'md'}>
-                    <img src="/banner.jpg" className='max-h-full w-full rounded' alt="" />
+
+            <Box rounded={'md'} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} py={2} mt={3} mb={5} className='bg-pink-600'>
+                <Heading color={'white'} fontWeight={500} fontSize={20} textAlign={'center'} className='flex items-center gap-1 justify-center'>CALL TO ORDER 
+                    <Link to={'tel:07047594667'}>07047594667</Link>
+                </Heading>
+            </Box>
+            
+            <Box bg={'white'} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} rounded={'md'} p={2} mt={4}>
+                <Flex justifyContent={'center'} alignItems={'center'} p={2} height={{'xl': '300px',md: '220px', base: '200px'}} bgRepeat={'no-repeat'} bgSize={'cover'} bgPos={'top'} bgBlendMode={'multiply'} className='bg-slate-400' bgImage={'/wb.jpg'} position={'relative'}>
+                    <Box position={'absolute'}>
+                        <Text color={'white'} fontWeight={500} textAlign={'center'}>SHOP</Text>
+                        <Heading color={'white'} fontWeight={500} fontSize={{md: 40, base: 30}}>Women's Fahion</Heading>
+                    </Box>
                 </Flex>
+            </Box>
+            <Box bg={'white'} my={5} p={2} rounded={'md'} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}>
+                <Box>
+                    <Slider {...settings}>
+                        <Link to={'/'}>
+                            <Box>
+                                <Image  height={'150px'} rounded={'md'} src="/women/cloth.jpeg" alt="" />
+                                <Text fontSize={14} mt={2} textAlign={'center'}>Clothing</Text>
+                            </Box>
+                        </Link>
+                        <Link to={'/'}>
+                            <Box>
+                                <Image  height={'150px'} rounded={'md'} src="/women/bags.jpeg" alt="" />
+                                <Text fontSize={14} mt={2} textAlign={'center'}>Bags</Text>
+                            </Box>
+                        </Link>
+                        <Link to={'/'}>
+                            <Box>
+                                <Image  height={'150px'} rounded={'md'} src="/women/shoes.jpeg" alt="" />
+                                <Text fontSize={14} mt={2} textAlign={'center'}>Shoes</Text>
+                            </Box>
+                        </Link>
+                        <Link to={'/'}>
+                            <Box>
+                                <Image  height={'150px'} rounded={'md'} src="/women/pant.jpg" alt="" />
+                                <Text fontSize={14} mt={2} textAlign={'center'}>Jeans</Text>
+                            </Box>
+                        </Link>
+                        <Link to={'/'}>
+                            <Box>
+                                <Image  height={'150px'} rounded={'md'} src="/women/jewellery.jpeg" alt="" />
+                                <Text fontSize={14} mt={2} textAlign={'center'}>Jewelleries</Text>
+                            </Box>
+                        </Link>
+                        <Link to={'/'}>
+                            <Box>
+                                <Image  height={'150px'} rounded={'md'} src="/women/underwear.jpg" alt="" />
+                                <Text fontSize={14} mt={2} textAlign={'center'}>Underwear</Text>
+                            </Box>
+                        </Link>
+                    </Slider>
+                </Box>
             </Box>
             <Box mt={5} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className=''>
                 <Flex justifyContent={'space-between'} alignItems={'center'} className='bg-white py-3 rounded-t-lg px-3'>
@@ -141,9 +194,9 @@ export default function Women_Clothing_page() {
                     <Slider {...settings}>
                         {
                             products.map((product) => (
-                                product.category === 'womenswear' && product.price >= 4000 ? (
+                                product.gender === 'femail' || product.gender === 'female' && product.price >= 4000 ? (
                                 <Women_ClothingContext.Provider value={product}>
-                                    <Suspense fallback={'Loading...'}>
+                                    <Suspense fallback={<Loading/>}>
                                         <Women_Clothing product={product}/>
                                     </Suspense>
                                 </Women_ClothingContext.Provider>
@@ -153,92 +206,13 @@ export default function Women_Clothing_page() {
                     </Slider>
                 </Box>
             </Box>
-            <Box bg={'white'} my={5} p={2} rounded={'md'} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}>
-                <Box display={{md: 'block', base: 'none'}}>
-                    <Flex>
-                        <Link to={'/'}>
-                            <Box width={'200px'}>
-                                <Image  rounded={'md'} src="/shirt.jpg" alt="" />
-                                <Text textAlign={'center'}>Shirt</Text>
-                            </Box>
-                        </Link>
-                        <Link to={'/'}>
-                            <Box width={'200px'}>
-                                <Image  rounded={'md'} src="/pants.jpg" alt="" />
-                                <Text textAlign={'center'}>Pant</Text>
-                            </Box>
-                        </Link>
-                        <Link to={'/'}>
-                            <Box width={'200px'}>
-                                <Image  rounded={'md'} src="/sportsweat.jpg" alt="" />
-                                <Text textAlign={'center'}>Sportwear</Text>
-                            </Box>
-                        </Link>
-                        <Link to={'/'}>
-                            <Box width={'200px'}>
-                                <Image  rounded={'md'} src="/Jean.jpg" alt="" />
-                                <Text textAlign={'center'}>Jeans</Text>
-                            </Box>
-                        </Link>
-                        <Link to={'/'}>
-                            <Box width={'200px'}>
-                                <Image  rounded={'md'} src="/UNDERWEAR.jpg" alt="" />
-                                <Text textAlign={'center'}>Underwear</Text>
-                            </Box>
-                        </Link>
-                        <Link to={'/'}>
-                            <Box width={'200px'}>
-                                <Image  rounded={'md'} src="/sweatshirt.jpg" alt="" />
-                                <Text textAlign={'center'}>Hoodies & Sweatshirt</Text>
-                            </Box>
-                        </Link>
-                    </Flex>
-                </Box>
-                <Box display={{md: 'none', base: 'block'}}>
-                    <Slider {...settings}>
-                        <Link to={'/'}>
-                            <Box>
-                                <Image  rounded={'md'} src="/shirt.jpg" alt="" />
-                                <Text textAlign={'center'}>Shirt</Text>
-                            </Box>
-                        </Link>
-                        <Link to={'/'}>
-                            <Box>
-                                <Image  rounded={'md'} src="/pants.jpg" alt="" />
-                                <Text textAlign={'center'}>Pant</Text>
-                            </Box>
-                        </Link>
-                        <Link to={'/'}>
-                            <Box>
-                                <Image  rounded={'md'} src="/sportsweat.jpg" alt="" />
-                                <Text textAlign={'center'}>Sportwear</Text>
-                            </Box>
-                        </Link>
-                        <Link to={'/'}>
-                            <Box>
-                                <Image  rounded={'md'} src="/Jean.jpg" alt="" />
-                                <Text textAlign={'center'}>Jeans</Text>
-                            </Box>
-                        </Link>
-                        <Link to={'/'}>
-                            <Box>
-                                <Image  rounded={'md'} src="/UNDERWEAR.jpg" alt="" />
-                                <Text textAlign={'center'}>Underwear</Text>
-                            </Box>
-                        </Link>
-                        <Link to={'/'}>
-                            <Box>
-                                <Image  rounded={'md'} src="/sweatshirt.jpg" alt="" />
-                                <Text textAlign={'center'}>Hoodies & Sweatshirt</Text>
-                            </Box>
-                        </Link>
-                    </Slider>
-                </Box>
-            </Box>
-            <Box bg={'white'} rounded={'md'} mb={5} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}>
-                <Box p={2}>
-                    <Image  rounded={'md'} src="/Banner-2.jpg" width={'100%'} height={{md: '100%', base: '150px'}} alt="" />
-                </Box>
+
+            <Box bg={'white'} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} rounded={'md'} p={2} mt={4}>
+                <Flex justifyContent={'center'} alignItems={'center'} p={2} height={{'xl': '300px',md: '220px', base: '200px'}} bgRepeat={'no-repeat'} bgSize={'cover'} bgPos={'top'} bgBlendMode={'multiply'} className='bg-slate-300' bgImage={'/women.jpg'} position={'relative'}>
+                    <Box position={'absolute'}>
+                        <Heading fontWeight={500} fontSize={{md: 35, base: 25}} textAlign={'center'} className='text-white'>Continue shopping <br /> what you desire on ADEXIFY</Heading>
+                    </Box>
+                </Flex>
             </Box>
             <Box mb={'10'}>
                 <Box mt={5} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className=''>
@@ -251,9 +225,9 @@ export default function Women_Clothing_page() {
                     <Box className="py-3 px-2 grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
                         {
                             products.map((product) => (
-                                product.category === 'hoodies' ? (
+                                product.category === 'Hoodies & Sweatershirt' ? (
                                 <Hoodie_Sweater2_Context.Provider value={product}>
-                                    <Suspense fallback={'Loading...'}>
+                                    <Suspense fallback={<Loading/>}>
                                         <Hoodie_Sweater2 product={product}/>
                                     </Suspense>
                                 </Hoodie_Sweater2_Context.Provider>
@@ -342,7 +316,7 @@ export default function Women_Clothing_page() {
                                 products.map((product) => (
                                     product.gender === 'female' ? (
                                     <Female_Context.Provider value={product}>
-                                        <Suspense fallback={'Loading...'}>
+                                        <Suspense fallback={<Loading/>}>
                                             <Females product={product}/>
                                         </Suspense>
                                     </Female_Context.Provider>

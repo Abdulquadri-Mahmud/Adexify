@@ -4,7 +4,7 @@ import { FaCartShopping, FaNairaSign } from 'react-icons/fa6';
 import { useToast } from '@chakra-ui/react';
 import { IoHeart } from 'react-icons/io5';
 import { BagsProductsContext } from './Bags';
-import { addWishlist } from '../store/wishlists/Wishlists';
+import { addWishlist } from '../../store/wishlists/Wishlists';
 
 export default function Bag() {
     const product = useContext(BagsProductsContext);

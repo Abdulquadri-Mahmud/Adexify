@@ -52,7 +52,6 @@ export default function Mens_wear() {
             const data = await res.json();
 
             setProducts(data);
-
         };
         fetchProducts();
     }, []);
@@ -72,7 +71,6 @@ export default function Mens_wear() {
     const currentPost = male.slice(endIndex, startIndex);
 
     const paginate  = paginate => setCurrentPage(paginate);
-    console.log(male);
     
     const settings = {
       dots: false,
@@ -120,8 +118,8 @@ export default function Mens_wear() {
   };
 
   return (
-    <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className='mt-5 md:mb-0 mb-20 bg-white rounded-lg'>
-      <Box className='bg-white py-3 rounded-t-lg px-3 '>
+    <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className='mt-5 md:mb-0 mb-0 bg-white rounded-lg'>
+      <Box className='bg-black text-white py-3 rounded-t-lg px-3 '>
         <Box className="flex justify-between items-center">
             <Heading fontWeight={500} fontSize={{md:20, base: 18}} className='text-xl '>Men's Wear</Heading>
             <Link to={'/'} className='text-[13px] font-medium uppercase flex items-center text-pink-600'>See All <FaAngleRight className='text-[13px]'/></Link>

@@ -477,6 +477,7 @@ export default function Update_product() {
                           <option value="Pants">Pants</option>
                           <option value="Hoodies & Sweatershirt">Hoodies & Sweatershirt</option>
                           <option value="Jeans">Jeans</option>
+                          <option value="Jewellery">Jewellery</option>
                           <option value="Underwear">Underwear</option>
                           <option value="Sportwear">Sportwear</option>
                           <option value="Socks">Socks</option>

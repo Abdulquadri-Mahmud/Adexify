@@ -1,6 +1,6 @@
 import { Box, Flex, Icon, useColorModeValue } from '@chakra-ui/react';
 import React, { createContext, useEffect, useState } from 'react'
-import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaSmileBeam, FaTwitter } from 'react-icons/fa';
 import { IoLogoYoutube } from 'react-icons/io';
 import { MdOutlineShoppingCart, MdSearch } from "react-icons/md";
 import { IoMdCall } from "react-icons/io";
@@ -61,7 +61,7 @@ export default function Header() {
             <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}  className='flex justify-between items-center py-3 md:px-6 px-2'>
                 <Link to={'/'}>
                     <div className="flex items-center text-black">
-                        <MdOutlineShoppingCart className='md:text-3xl text-2xl animate text-pink-600'/>
+                        <FaSmileBeam className='md:text-2xl text-2xl animate text-pink-600'/>
                         <h1 className='md:text-3xl text-2xl font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify</h1>
                     </div>
                 </Link>
@@ -91,8 +91,8 @@ export default function Header() {
                     </div>
                     <div className="md:hidden block text-xl relative">
                         <Link to={'/view-carts'}>
-                            <MdOutlineShoppingCart className='text-xl text-pink-600'/>
-                            <div className="absolute -top-3 -right-1 text-white ">
+                            <MdOutlineShoppingCart className='text-xl text-black'/>
+                            <div className="absolute -top-3 right-0 text-pink-600 ">
                                 <p className='text-sm'>{cartLength}</p>
                             </div>
                         </Link>
@@ -111,7 +111,7 @@ export default function Header() {
                         }
                         {
                             currentAdmin && (
-                                <Link to={'/admin-dashboard'} className='text-[14px]'><SiPhpmyadmin /></Link>
+                                <Link to={'/admin-dashboard'} className='text-[14px]'><SiPhpmyadmin className='text-xl'/></Link>
                             )
                         }
                     </div>

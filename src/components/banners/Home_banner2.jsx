@@ -43,7 +43,7 @@ export default function Home_banner2() {
         slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2500,
+        autoplaySpeed: 3500,
         waitForAnimate: false,
         cssEase: "linear",
         nextArrow: <SampleNextArrow />,
@@ -73,7 +73,7 @@ export default function Home_banner2() {
             {
               breakpoint: 420,
               settings: {
-                    slidesToShow: 1,
+                    slidesToShow: 2,
                     slidesToScroll: 1,
                 }
             },

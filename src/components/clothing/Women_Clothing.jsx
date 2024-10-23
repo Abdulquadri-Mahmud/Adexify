@@ -54,7 +54,7 @@ export default function Women_Clothing() {
               <h2 className='py-1 font-medium md:text-center truncate'>{name}</h2>
           </div>
       </Link>
-      <button onClick={handleWishlistItem} className=" text-white cursor-pointer hover:text-pink-600 active:text-pink-600 focus:text-pink-600 absolute top-2 right-2 w-[30px] h-[30px] bg-gray-300 flex justify-center items-center rounded-full">
+      <button onClick={handleWishlistItem} className=" text-white cursor-pointer hover:text-pink-600 active:text-pink-600 focus:text-pink-600 absolute top-2 right-2 w-[30px] h-[30px] bg-pink-300 flex justify-center items-center rounded-full">
           <IoHeart className='text-xl'/>
       </button>
       <p className="truncate">{description}</p>

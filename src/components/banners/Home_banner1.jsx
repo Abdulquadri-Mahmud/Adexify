@@ -42,7 +42,7 @@ export default function Home_banner1() {
         slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2500,
+        autoplaySpeed: 3000,
         waitForAnimate: false,
         cssEase: "linear",
         nextArrow: <SampleNextArrow />,
@@ -86,13 +86,13 @@ export default function Home_banner1() {
                 <Flex justifyContent={'center'} alignItems={'center'} w={{md:'50%', base: '100%'}} height={{'xl': '250px',md: '220px', base: '200px'}} bgRepeat={'no-repeat'} bgSize={'cover'} bgPos={'left'} bgBlendMode={'multiply'} rounded={'md'} className='bg-slate-400' bgImage={'/fm.jpg'} position={'relative'}>
                     <Box position={'absolute'}>
                       <Text color={'white'} fontWeight={500} textAlign={'center'}>SHOP</Text>
-                      <Heading color={'white'}>Men</Heading>
+                      <Heading color={'white'} fontWeight={500}>Men</Heading>
                     </Box>
                 </Flex>
                 <Flex justifyContent={'center'} alignItems={'center'} w={{md:'50%', base: '100%'}} height={{'xl': '250px',md: '220px', base: '200px'}} bgRepeat={'no-repeat'} bgSize={'cover'} bgPos={'right'} bgBlendMode={'multiply'} rounded={'md'} className='bg-slate-400' bgImage={'/fw.jpg'} position={'relative'}>
                     <Box position={'absolute'}>
                       <Text color={'white'} fontWeight={500} textAlign={'center'}>SHOP</Text>
-                      <Heading color={'white'}>Women</Heading>
+                      <Heading color={'white'} fontWeight={500}>Women</Heading>
                     </Box>
                 </Flex>
             </Flex>

@@ -65,7 +65,7 @@ export default function FashionXtra() {
       slidesToShow: 6,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 3000,
+      autoplaySpeed: 3500,
       waitForAnimate: false,
       cssEase: "linear",
       nextArrow: <SampleNextArrow />,

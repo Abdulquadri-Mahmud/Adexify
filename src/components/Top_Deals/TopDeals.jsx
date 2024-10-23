@@ -111,7 +111,7 @@ export default function TopDeals() {
   const paginate  = paginate => setCurrentPage(paginate);
 
   return (
-    <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className='mt-10 md:mb-0 mb-20 bg-white rounded-lg'>
+    <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className='mt-10 md:mb-0 mb-0 bg-white rounded-lg'>
       <Box className='bg-black py-3 rounded-t-lg px-3  text-white'>
         <Box className="flex justify-between items-center">
             <Heading fontWeight={500} fontSize={{md:20, base: 18}} className='text-xl '>Top Picks</Heading>

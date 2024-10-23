@@ -11,7 +11,7 @@ import Banner1 from '../components/FashionXtra/Banner1'
 import Banner2 from '../components/FashionXtra/banner2'
 import Unisex from '../components/genders/Unisex'
 import Top_sneakers from '../components/top_sneakers/Top_sneakers'
-import Bags from '../Bags/Bags'
+import Bags from '../components/Bags/Bags'
 
 export default function Fashion() {
   return (
