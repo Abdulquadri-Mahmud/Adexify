@@ -8,10 +8,10 @@ import Home_banner1 from '../components/banners/Home_banner1'
 import TopDeals from '../components/Top_Deals/TopDeals'
 import FashionXtra from '../components/FashionXtra/FashionXtra'
 import Banner1 from '../components/FashionXtra/Banner1'
-import Banner2 from '../components/FashionXtra/banner2'
 import Unisex from '../components/genders/Unisex'
 import Top_sneakers from '../components/top_sneakers/Top_sneakers'
 import Bags from '../components/Bags/Bags'
+import FashionXtraBanner from '../components/FashionXtra/FashionXtraBanner'
 
 export default function Fashion() {
   return (
@@ -42,7 +42,7 @@ export default function Fashion() {
             <TopDeals/>
             <Banner1/>
             <Unisex/>
-            <Banner2/>
+            <FashionXtraBanner/>
             <Bags/>
             <Top_sneakers/>
             <Box mt={6} rounded={'md'} p={3} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} bg={'white'}>
