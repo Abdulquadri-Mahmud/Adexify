@@ -37,7 +37,7 @@ function SampleNextArrow(props) {
 }
 
 import Slider from "react-slick";
-import Loading from '../loader/loading';
+import Loading from '../loader/Loading';
 
 const TodaysDealsProducts = React.lazy(() => import('./TodaysDealsProducts'))
 
