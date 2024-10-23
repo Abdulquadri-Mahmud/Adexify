@@ -14,11 +14,11 @@ import Header from '../components/Header'
 import Footer from '../components/footer/Footer'
 import Womens_wear from '../components/womens_wear/Womens_wear'
 import Mens_wear from '../components/mens_wear/Mens_wear'
-import Banner2 from '../components/FashionXtra/banner2'
 import Shoes from '../components/top_sneakers/Shoes'
 import Jewelleries from '../Jewellery/Jewelleries'
 import Banner from '../Jewellery/Banner'
 import Bags from '../components/Bags/Bags'
+import Banner2 from '../components/FashionXtra/banner2'
 
 export default function Home() {
   return (
