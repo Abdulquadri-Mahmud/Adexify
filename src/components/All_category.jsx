@@ -50,12 +50,16 @@ export default function All_category() {
             <DrawerCloseButton top={3}/>
                 <DrawerHeader borderBottomWidth={{md:'0px', base: '1px'}}>
                     <Box  className=' flex justify-between items-center text-black'>
-                        <Link to={`/profile/${currentUser._id}`} className='md: block'>
-                            <Box className='flex items-center gap-1'>
-                                <Text>Hi {currentUser.firstname}</Text>
-                                <FaHandSparkles className='text-pink-600' />
-                            </Box>
-                        </Link>
+                        {
+                            currentUser && (
+                                <Link to={`/profile/${currentUser._id}`} className='md: block'>
+                                    <Box className='flex items-center gap-1'>
+                                        <Text>Hi {currentUser.firstname}</Text>
+                                        <FaHandSparkles className='text-pink-600' />
+                                    </Box>
+                                </Link>
+                            )
+                        }
                         <div className="pr-9">
                             <Link to={'/view-carts'}>
                                 <div className="md: block text-xl relative">
