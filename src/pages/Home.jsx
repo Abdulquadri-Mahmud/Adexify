@@ -15,7 +15,7 @@ import Shoes from '../components/top_sneakers/Shoes'
 import Jewelleries from '../Jewellery/Jewelleries'
 import Banner from '../Jewellery/Banner'
 import Bags from '../components/Bags/Bags'
-import Banner2 from '../components/FashionXtra/banner2'
+// import Banner2 from '../components/FashionXtra/banner2'
 
 export default function Home() {
   return (
@@ -35,7 +35,7 @@ export default function Home() {
         <Home_banner3/>
         <Womens_wear/>
         <Mens_wear/>
-        <Banner2/>
+        {/* <Banner2/> */}
         <Bags/>
         <Shoes/>
         <Banner/>
