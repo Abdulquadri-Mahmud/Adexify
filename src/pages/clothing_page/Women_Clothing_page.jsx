@@ -48,7 +48,7 @@ import Slider from "react-slick";
 import { FaNairaSign } from 'react-icons/fa6';
 import Home_banner4 from '../../components/banners/Home_banner4.jsx';
 import Header from '../../components/Header.jsx';
-import Loading from '../../components/loader/loading.jsx';
+import Loading from '../../components/loader/Loading.jsx';
 // import Females from '';
 
 export default function Women_Clothing_page() {
