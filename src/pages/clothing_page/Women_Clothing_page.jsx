@@ -72,7 +72,7 @@ export default function Women_Clothing_page() {
         speed: 500,
         slidesToShow: 6,
         slidesToScroll: 1,
-        autoplay: true,
+        // autoplay: true,
         autoplaySpeed: 2500,
         waitForAnimate: false,
         cssEase: "linear",
@@ -237,10 +237,10 @@ export default function Women_Clothing_page() {
                     </Box>
                 </Box>
             </Box>
-            <Home_banner4/>
+            {/* <Home_banner4/> */}
             <Box mb={10} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}>
                 <Flex gap={5} flexWrap={'wrap'}>
-                    <Box width={'300px'} bg={'white'} rounded={'md'}>
+                    <Box width={'300px'} height={'550px'} bg={'white'} rounded={'md'}>
                         <Box p={2}>
                             <Heading fontWeight={500} mb={0} fontSize={18}>Category</Heading>
                         </Box>
@@ -311,10 +311,10 @@ export default function Women_Clothing_page() {
                         </Box>
                     </Box>
                     <Box flex={1} bg={'white'} rounded={'md'} p={2}>
-                        <Box className="py-3 px-2 grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3">
+                        <Box className="py-3 px-2 grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 grid-cols-2 gap-3">
                             {
                                 products.map((product) => (
-                                    product.gender === 'female' ? (
+                                    product.gender === 'male' ? (
                                     <Female_Context.Provider value={product}>
                                         <Suspense fallback={<Loading/>}>
                                             <Females product={product}/>

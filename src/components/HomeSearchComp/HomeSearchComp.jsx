@@ -4,12 +4,13 @@ import { FaCartShopping, FaNairaSign } from 'react-icons/fa6';
 import { IoHeart } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import { useToast } from '@chakra-ui/react';
-import { Female_Context } from '../../pages/clothing_page/Women_Clothing_page';
 import { addToCart } from '../../store/cart/cartsReucer';
 import { addWishlist } from '../../store/wishlists/Wishlists';
+import { FashionContext } from '../../pages_routes/Fashion';
+import { HomeContext } from '../../pages/Home';
 
-export default function Females() {
-    const product = useContext(Female_Context);
+export default function HomeSearchComp() {
+    const product = useContext(HomeContext);
     const toast = useToast({
         position: 'top'
     });
@@ -46,8 +47,8 @@ export default function Females() {
   return (
     <div className='relative bg-white p-2 rounded-xl shadow-md addTocartCont'>
         <Link to={`/product-details/${_id}`}>
-            <div className="flex justify-center pt-0 md:w-[100%] h-[170px] w-[140px] mx-auto">
-                <img src={image} alt="" className='max-w-full rounded-md object-cover object-top'/>
+            <div className="flex justify-center pt-0 md:w-[200px] h-[170px] w-[140px] mx-auto">
+                <img src={image} alt="" className='max-w-full  object-cover object-top'/>
             </div>
             <div className="w-full">
                 <h2 className='py-1 font-medium md:text-center truncate'>{name}</h2>
@@ -58,8 +59,8 @@ export default function Females() {
         </button>
         <p className="truncate">{description}</p>
         <div className="flex justify-between items-center mt-2">
-            <p className='flex items-center text-[13px]'>
-                <FaNairaSign className='text-[13px]'/>
+            <p className='flex items-center text-[14px]'>
+                <FaNairaSign className='text-[14px]'/>
                 <span className='font-medium'>{priceToLocalString}.00</span>
             </p>
             {

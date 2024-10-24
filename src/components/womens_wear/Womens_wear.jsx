@@ -13,7 +13,7 @@ function SampleNextArrow(props) {
   
     const { className, style, onClick } = props;
     return (
-      <Box bg={'pink.600'} width={'30px'} height={'30px'} rounded={'full'}
+      <Box bg={''} width={'30px'} height={'30px'} rounded={'full'}
       right={'1vh'}  
       className={className}
         style={{ ...style, display: "block",
@@ -81,7 +81,7 @@ export default function Womens_wear() {
       speed: 500,
       slidesToShow: 6,
       slidesToScroll: 1,
-      autoplay: true,
+      // autoplay: true,
       autoplaySpeed: 3000,
       waitForAnimate: false,
       cssEase: "linear",

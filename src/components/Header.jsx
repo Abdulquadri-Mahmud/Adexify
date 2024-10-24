@@ -7,7 +7,7 @@ import { IoMdCall } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import { BsCart4 } from 'react-icons/bs';
 import { FaUser } from "react-icons/fa";
-import { RiMenu5Line } from "react-icons/ri";
+import { RiMenu5Line, RiTShirt2Line } from "react-icons/ri";
 import { GoTag } from "react-icons/go";
 import Settings from './settings/Settings';
 import { GiClothes } from "react-icons/gi";
@@ -119,49 +119,60 @@ export default function Header() {
             </Box>
         </Box>
         <div className="hidde md:block text-black ">
-            <Box maxW={{'2xl' : '50%', xl : '50%', lg : '100%', base: '97%'}} mx={'auto'} roundedTop={'0px'} className="flex md:justify-center justify-between px-2 items-center gap-4 sm:gap-5 py-3 xl:max-w-[50%] md:bg-pink-00 md:text-black">
+            <Box maxW={{'2xl' : '50%', xl : '80%', lg : '100%', base: '97%'}} mx={'auto'} roundedTop={'0px'} className="flex md:justify-center justify-between px-2 items-center gap-4 sm:gap-5 py-3 xl:max-w-[50%] md:bg-pink-00 md:text-black">
                 <div className="">
                     <All_category/>
                 </div>
                 <div className="md:hidden block">
                     <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
-                        <GrUserFemale className='text-lg'/>
+                        <Link to={'/womens-clothing'}>
+                            <GrUserFemale className='text-lg'/>
+                        </Link>
                         <Link to={'/womens-clothing'} className='text-[10px]'>Women's Fashion</Link>
                     </div>
                 </div>
                 <div className="md:hidden block">
                     <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
-                        <IoManOutline className='text-lg'/>
+                        <Link to={'/mens-clothing'}>
+                            <IoManOutline className='text-lg'/>
+                        </Link>
                         <Link to={'/mens-clothing'} className='text-[10px]'>Men's Fashion</Link>
                     </div>
                 </div>
                 <div className="md:hidden block">
                     <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
-                        <BiSolidShoppingBags className='text-lg'/>
+                        <Link to={'/mens-clothing'}>
+                            <RiTShirt2Line className='text-lg'/>
+                        </Link>
+                        <Link to={'/mens-clothing'} className='text-[10px]'>Shirts</Link>
+                    </div>
+                </div>
+                <div className="md:hidden block">
+                    <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
+                        <Link to={'/womens-clothing'}>
+                            <BiSolidShoppingBags className='text-lg'/>
+                        </Link>
                         <Link to={'/'} className='text-[10px]'>Bags</Link>
                     </div>
                 </div>
                 <div className="md:hidden block">
                     <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
-                        <GiConverseShoe className='text-lg'/>
+                        <Link to={'/womens-clothing'}>
+                            <GiConverseShoe className='text-lg'/>
+                        </Link>
                         <Link to={'/'} className='text-[10px]'>Shoes</Link>
                     </div>
                 </div>
-                {/* <div className="md:hidden block">
-                    <div className="flex justify-center items-center flex-col">
-                        <GoTag className='text-lg'/>
-                        <p className='text-[10px]'>All Deal</p>
-                    </div>
-                </div> */}
                 <div className="hidden md:block">
                     <div className="flex justify-center items-center gap-5 font-">
-                        <Link to={'/'} className='text-[14px]'>Home</Link>
-                        <Link to={'/fashion'} className='text-[14px]'>Fashions</Link>
-                        <Link to={'/womens-clothing'} className='text-[14px]'>Women's Fashion</Link>
-                        <Link to={'/mens-clothing'} className='text-[14px]'>Men's Fashion</Link>
-                        <Link to={'/'} className='text-[14px] hidden md:block'>Bags</Link>
-                        <Link to={'/'} className='text-[14px]'>Shoes</Link>
-                        <Link to={'/'} className='text-[14px]'>Jewelleries</Link>
+                        <Link to={'/'} className='text-[15px]'>Home</Link>
+                        <Link to={'/fashion'} className='text-[15px]'>Fashions</Link>
+                        <Link to={'/womens-clothing'} className='text-[15px]'>Women's Fashion</Link>
+                        <Link to={'/mens-clothing'} className='text-[15px]'>Men's Fashion</Link>
+                        <Link to={'/'} className='text-[15px] hidden md:block'>Bags</Link>
+                        <Link to={'/'} className='text-[15px]'>Shoes</Link>
+                        <Link to={'/'} className='text-[15px]'>Shirts</Link>
+                        <Link to={'/'} className='text-[15px]'>Jewelleries</Link>
                     </div>
                 </div>
             </Box>

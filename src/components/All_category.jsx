@@ -18,6 +18,7 @@ import {
 } from '@chakra-ui/react'
 import { AddIcon } from '@chakra-ui/icons';
 import { useSelector } from 'react-redux';
+import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 
 export default function All_category() {
     const { items } = useSelector((state) => state.cart);
@@ -41,10 +42,11 @@ export default function All_category() {
 
   return (
     <div className="">
-        <Button leftIcon={<RiMenu5Line className='text-lg'/>} bg={'transparent'} _hover={{bg: 'transparent'}} onClick={onOpen} px={0} className="flex items-center flex-col md:flex-row cursor-pointer md:hover:text-black hover:text-pink-600">
-            <h2 className="text-[14px] font">Browse All</h2>
+        <Button bg={'transparent'} _hover={{bg: 'transparent'}} onClick={onOpen} px={0} className="flex items-center flex-col md:flex-row cursor-pointer md:hover:text-black hover:text-pink-600">
+            <HiOutlineMenuAlt2 className='text-xl' />
+            <h2 className="md:text-[15px] hidden md:block text-[10px] font-normal">Browse All</h2>
         </Button>
-        <Drawer isOpen={isOpen} placement='top' initialFocusRef={firstField} onClose={onClose} size={'md'}>
+        <Drawer isOpen={isOpen} placement='left' initialFocusRef={firstField} onClose={onClose} size={'md'}>
             <DrawerOverlay />
             <DrawerContent>
             <DrawerCloseButton top={3}/>
@@ -90,7 +92,7 @@ export default function All_category() {
                             )
                         }
                         </Box>
-                        <Box display={{md: '', base: 'block'}} mt={{md:5}}>
+                        <Box display={{md: '', base: 'block'}} mt={{md:5, base: 3}} >
                             <Box className='grid grid-cols-2 grid-rows-2'>
                                 <div className="flex items-center gap-3 border-[1px] py-2 border-r-0 border-l-0 px-2 border-pink-300">
                                     <div className="w-9 h-9 bg-pink-200 rounded-full flex justify-center items-center text-pink-600 ">

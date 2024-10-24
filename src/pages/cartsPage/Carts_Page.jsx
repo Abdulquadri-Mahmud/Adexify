@@ -100,7 +100,7 @@ export default function Carts_Page() {
           <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className=''>
 
             <Flex justifyContent={'space-between'} flexWrap={{md:'no-wrap', base: 'wrap'}} gap={{md: 5, base: 2}} mt={6}>
-              <Box flex={1} width={{md:'50%', base: '100%'}} overflowX={'scroll'}  bg={'white'} rounded={'md'}>
+              <Box flex={1} width={{md:'50%', base: '100%'}} bg={'white'} rounded={'md'}>
                 <TableContainer className="">
                   <Table className='rounded-md'>
                     <Thead className='bg-pink-300'>
