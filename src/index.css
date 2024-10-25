@@ -68,3 +68,9 @@ tr:nth-child(even) {
 .addTocartCont:hover > .addTocart{
     height: 35px;
 }
+
+@media screen and (max-width: 320px) {
+    .remove{
+        display: none;
+    }
+}

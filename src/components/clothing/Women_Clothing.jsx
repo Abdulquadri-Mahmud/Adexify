@@ -14,7 +14,7 @@ export default function Women_Clothing() {
     const toast = useToast({
         position: 'top'
     });
-    const {_id, deal, quantity, image, name, price, description, oldprice} = product;
+    const {_id,image, name, price, description, oldprice} = product;
     const priceToLocalString = price.toLocaleString();
 
     const { currentUser } = useSelector((state) => state.user);

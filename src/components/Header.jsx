@@ -2,7 +2,7 @@ import { Box, Flex, Icon, useColorModeValue } from '@chakra-ui/react';
 import React, { createContext, useEffect, useState } from 'react'
 import { FaFacebookF, FaInstagram, FaSmileBeam, FaTwitter } from 'react-icons/fa';
 import { IoLogoYoutube } from 'react-icons/io';
-import { MdOutlineShoppingCart, MdSearch } from "react-icons/md";
+import { MdHomeFilled, MdOutlineShoppingCart, MdSearch } from "react-icons/md";
 import { IoMdCall } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import { BsCart4 } from 'react-icons/bs';
@@ -40,7 +40,7 @@ export default function Header() {
     
   return (
     <div className="sticky top-0 z-20 bg-white">
-        <Box className='bg-pink-600'>
+        <Box className='bg-pink-600 hidden md:block'>
             <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}  className="relative flex justify-between items-center px-2 md:px-6 text-white">
                 <div className="flex items-center">
                     <IoMdCall/>
@@ -58,17 +58,17 @@ export default function Header() {
             </Box>
         </Box>
         <Box top={0} position={'sticky'} className='bg-white text-white'>
-            <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}  className='flex justify-between items-center py-3 md:px-6 px-2'>
+            <Box maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '100%'}} mx={'auto'}  className='flex justify-between items-center py-3 md:px-6 px-2 md:bg-white bg-pink-600'>
                 <Link to={'/'}>
-                    <div className="flex items-center text-black">
-                        <FaSmileBeam className='md:text-2xl text-2xl animate text-pink-600'/>
-                        <h1 className='md:text-3xl text-2xl font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify</h1>
+                    <div className="flex items-center md:text-black">
+                        <FaSmileBeam className='md:text-2xl text-2xl animate text-yellow-500'/>
+                        <h1 className='md:text-3xl text-2xl font-medium uppercase md:text-pink-600 text-white'>Ade<span className="text-">X</span>ify</h1>
                     </div>
                 </Link>
                 <div className="w-[30%] rounded hidden md:block">
                     <form className='w-[100%] relative'>
                         <form className="">
-                            <input type="text" placeholder='Search for products'  className=' text-black font-semibold rounded-sm border-none outline-none p-[8px] bg-zinc-100 w-[100%]'/>
+                            <input type="text" placeholder='Search for products'  className=' text-white font-semibold rounded-sm border-none outline-none p-[8px] bg-zinc-100 w-[100%]'/>
                             <Box className="bg-pink-600 absolute top-0 right-0 flex justify-center items-center w-[45px] h-full rounded-r-sm cursor-pointer ">
                                 <Icon as={MdSearch} color={useColorModeValue('white', 'black')} fontSize={23}/>
                             </Box>
@@ -91,13 +91,13 @@ export default function Header() {
                     </div>
                     <div className="md:hidden block text-xl relative">
                         <Link to={'/view-carts'}>
-                            <MdOutlineShoppingCart className='text-xl text-black'/>
-                            <div className="absolute -top-3 right-0 text-pink-600 ">
-                                <p className='text-sm'>{cartLength}</p>
+                            <MdOutlineShoppingCart className='text-xl text-white'/>
+                            <div className="absolute -top-5 right-0 text-white ">
+                                <p className='text-[17px] font-medium'>{cartLength}</p>
                             </div>
                         </Link>
                     </div>
-                    <div className="flex items-center md:gap-2 text-black">
+                    <div className="flex items-center md:gap-2 md:text-black text-white">
                         {
                             currentUser ? (
                                 <Settings/>
@@ -119,24 +119,34 @@ export default function Header() {
             </Box>
         </Box>
         <div className="hidde md:block text-black ">
-            <Box maxW={{'2xl' : '50%', xl : '80%', lg : '100%', base: '97%'}} mx={'auto'} roundedTop={'0px'} className="flex md:justify-center justify-between px-2 items-center gap-4 sm:gap-5 py-3 xl:max-w-[50%] md:bg-pink-00 md:text-black">
+            <Box maxW={{'2xl' : '50%', xl : '80%', lg : '100%', base: '100%'}} mx={'auto'} roundedTop={'0px'} className="flex md:justify-center justify-between flex-wrap px-2 items-center gap-4 sm:gap-5 py-3 md:bg-pink-00 md:text-black">
                 <div className="">
                     <All_category/>
                 </div>
                 <div className="md:hidden block">
                     <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
+                        <Link to={'/'}>
+                            <MdHomeFilled className='text-lg'/>
+                        </Link>
+                        <Link to={'/'} className='text-[10px]'>Home</Link>
+                    </div>
+                </div>
+
+                <div className="md:hidden block">
+                    <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
                         <Link to={'/womens-clothing'}>
                             <GrUserFemale className='text-lg'/>
                         </Link>
-                        <Link to={'/womens-clothing'} className='text-[10px]'>Women's Fashion</Link>
+                        <Link to={'/womens-clothing'} className='text-[10px]'>Women</Link>
                     </div>
                 </div>
+                
                 <div className="md:hidden block">
                     <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
                         <Link to={'/mens-clothing'}>
                             <IoManOutline className='text-lg'/>
                         </Link>
-                        <Link to={'/mens-clothing'} className='text-[10px]'>Men's Fashion</Link>
+                        <Link to={'/mens-clothing'} className='text-[10px]'>Men</Link>
                     </div>
                 </div>
                 <div className="md:hidden block">
@@ -155,7 +165,7 @@ export default function Header() {
                         <Link to={'/'} className='text-[10px]'>Bags</Link>
                     </div>
                 </div>
-                <div className="md:hidden block">
+                <div className="md:hidden block remove">
                     <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
                         <Link to={'/womens-clothing'}>
                             <GiConverseShoe className='text-lg'/>

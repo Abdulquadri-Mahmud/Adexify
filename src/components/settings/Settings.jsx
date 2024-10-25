@@ -29,7 +29,7 @@ export default function Settings() {
                     <MdKeyboardArrowDown/>
                 </Flex>
                 <Box  display={{md: 'none', base: 'block'}}>
-                    <MdOutlineAccountCircle className='text-xl hover:text-pink-600' />
+                    <MdOutlineAccountCircle className='text-xl hover:text-black text-white' />
                 </Box>
             </MenuButton>
             <MenuList p={2} bg={useColorModeValue('white')}>
