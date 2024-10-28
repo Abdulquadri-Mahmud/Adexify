@@ -296,7 +296,7 @@ export default function Women_Clothing_page() {
             <Box mb={'10'}>
                 <Box mt={5} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className=''>
                     <Flex justifyContent={'space-between'} alignItems={'center'} className='bg-pink-600 text-white py-3 rounded-t-lg px-3'>
-                        <Heading fontWeight={500} fontSize={20}>Top Bags</Heading>
+                        <Heading fontWeight={500} fontSize={20}>Top Clothes</Heading>
                         <Link className='font-medium uppercase text-sm flex items-center'>See All <FaAngleRight className='text-[20px]'/></Link>
                     </Flex>            
                 </Box>
@@ -305,7 +305,32 @@ export default function Women_Clothing_page() {
                         <Slider {...settings}>
                             {
                                 products.map((product) => (
-                                    product.gender === 'female' && product.category === 'Bags' ? (
+                                    product.gender === 'female' && product.category === 'Shirts' ? (
+                                    <Hoodie_Sweater2_Context.Provider value={product}>
+                                        <Suspense fallback={<Loading/>}>
+                                            <Hoodie_Sweater2 product={product}/>
+                                        </Suspense>
+                                    </Hoodie_Sweater2_Context.Provider>
+                                ) : ''
+                                ))
+                            }
+                        </Slider>
+                    </Box>
+                </Box>
+            </Box>
+            <Box mb={'10'}>
+                <Box mt={5} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className=''>
+                    <Flex justifyContent={'space-between'} alignItems={'center'} className='bg-pink-600 text-white py-3 rounded-t-lg px-3'>
+                        <Heading fontWeight={500} fontSize={20}>Top Shoes</Heading>
+                        <Link className='font-medium uppercase text-sm flex items-center'>See All <FaAngleRight className='text-[20px]'/></Link>
+                    </Flex>            
+                </Box>
+                <Box bg={'white'} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} roundedBottom={'md'}>
+                    <Box className="py-3 px-2">
+                        <Slider {...settings}>
+                            {
+                                products.map((product) => (
+                                    product.gender === 'female' && product.category === 'Shoes' ? (
                                     <Hoodie_Sweater2_Context.Provider value={product}>
                                         <Suspense fallback={<Loading/>}>
                                             <Hoodie_Sweater2 product={product}/>

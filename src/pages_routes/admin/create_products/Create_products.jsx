@@ -555,6 +555,7 @@ export default function Create_products() {
                           <option value="Pants">Pants</option>
                           <option value="Jewellery">Jewellery</option>
                           <option value="Bags">Bags</option>
+                          <option value="Dress">Dress</option>
                           <option value="Hoodies & Sweatershirt">Hoodies & Sweatershirt</option>
                           <option value="Jeans">Jeans</option>
                           <option value="Trouser">Trouser</option>
