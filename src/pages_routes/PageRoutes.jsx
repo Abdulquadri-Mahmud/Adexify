@@ -27,6 +27,7 @@ import Create_products from './admin/create_products/Create_products';
 import Update_product from './admin/create_products/Update_product';
 import Items from './admin/Dashboards/Items';
 import Fashion from './Fashion';
+import Shirt from '../pages/shirts/Shirt';
 
 export default function PageRoutes() {
   return (
@@ -52,6 +53,7 @@ export default function PageRoutes() {
           <Route path="/womens-clothing" element={<Women_Clothing_page/>}/>
         </Route>
         <Route path="/fashion" element={<Fashion/>}/>
+        <Route path="/shirts" element={<Shirt/>}/>
         
         <Route path="/womenswear" element={<Womens_Wear/>}/>
         <Route path="/menswear" element={<Mens_Wear/>}/>

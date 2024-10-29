@@ -154,7 +154,7 @@ export default function Header() {
                         <Link to={'/mens-clothing'}>
                             <RiTShirt2Line className='text-lg'/>
                         </Link>
-                        <Link to={'/mens-clothing'} className='text-[10px]'>Shirts</Link>
+                        <Link to={'/shirts'} className='text-[10px]'>Shirts</Link>
                     </div>
                 </div>
                 <div className="md:hidden block">
@@ -167,7 +167,7 @@ export default function Header() {
                 </div>
                 <div className="md:hidden block remove">
                     <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
-                        <Link to={'/womens-clothing'}>
+                        <Link to={'/shirts'}>
                             <GiConverseShoe className='text-lg'/>
                         </Link>
                         <Link to={'/'} className='text-[10px]'>Shoes</Link>

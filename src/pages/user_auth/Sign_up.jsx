@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Spinner, Text } from '@chakra-ui/react'
+import { Alert, AlertDescription, AlertIcon, Box, Button, Flex, Heading, Spinner, Text } from '@chakra-ui/react'
 import React, { useEffect, useRef, useState } from 'react'
 import { FaSmileBeam } from 'react-icons/fa'
 import { MdOutlineShoppingCart } from 'react-icons/md'
@@ -15,14 +15,15 @@ import { LiaAddressCard } from 'react-icons/lia';
 
 import { useToast } from '@chakra-ui/react'
 import Header from '../../components/Header';
+import { useDispatch, useSelector } from 'react-redux';
+import { signUpFailure, signUpStart } from '../../store/userReducers';
 
 export default function Sign_up() {
-    const toast = useToast();
-    const toastIdRef = useRef();
-    
     const [formData, setFormData] = useState({});
-    const [formError, setFormError] = useState(false);
-    const [ loading, setLoading ] = useState(false);
+
+    const {loading, error} = useSelector((state) => state.user);
+
+    let dispatch = useDispatch();
     let navigate = useNavigate();
 
     const phone = useRef(null);
@@ -30,14 +31,6 @@ export default function Sign_up() {
     const lastname = useRef(null);
     const homeAddress = useRef(null);
     // const password = useRef(null);
-
-    const addToast = () => {
-        formError ? toastIdRef.current = toast({
-            status: 'error',
-            description : formError,
-            duration: 900
-        }) : ''
-    }
 
     const handleChange = (e) => {
         setFormData({
@@ -51,26 +44,22 @@ export default function Sign_up() {
 
         
         try {
-            setLoading(true);
+            dispatch(signUpStart());
             
             if (firstname.current.value === '' || firstname.current.value === null) {
-                setFormError('Firstname is Required!');
-                setLoading(false);
+                dispatch(signUpFailure('Firstname is Required!'))
                 return;
             }
             if (lastname.current.value === '' || lastname.current.value === null) {
-                setFormError('Lastname is Required!');
-                setLoading(false);
+                dispatch(signUpFailure('Lastname is Required!'))
                 return;
             }
             if (phone.current.value === '' || phone.current.value === null) {
-                setFormError('Phone Number is Required!');
-                setLoading(false);
+                dispatch(signUpFailure('Phone Number is Required!'));
                 return;
             }
             if (homeAddress.current.value === '' || homeAddress.current.value === null) {
-                setFormError('Home Address is Required!');
-                setLoading(false);
+                dispatch(signUpFailure('Home Address is Required!'));
                 return;
             }
 
@@ -85,21 +74,12 @@ export default function Sign_up() {
             const data = await res.json();
     
             if (data.success === false) {
-                setFormError(data.message);
-                console.log(data.message);
-                setLoading(false);
+                dispatch(signUpFailure(data.message));
                 return;
             }
-
-            setLoading(false);
-            setFormError(false);
             navigate('/signin');
-            console.log(formData);
-            
         } catch (error) {
-            setFormError(error);
-            console.log(error);
-            setLoading(false);
+            dispatch(signUpFailure(error))
         }
     }
 
@@ -136,7 +116,7 @@ export default function Sign_up() {
     <Box>
       <Header/>
         <Box className='bg-zinc-100 md:py-10 pt-6 pb-20 flex justify-center items-center px-2'>
-            <Box bg={'white'} px={3} py={6} rounded={'md'} maxW={{md: '50%',base:'350px'}} mx={'auto'} className="xl:mt-0 mt-5 xl:px-5">
+            <Box bg={'white'} px={3} py={6} rounded={'md'} maxW={{md: '50%',base:'100%'}} mx={'auto'} className="xl:mt-0 mt-5 xl:px-5">
                 <Box className="flex items-center justify-center mx-auto bg-pink-200 py-1 px-2 rounded-2xl w-[140px]">
                     <MdOutlineShoppingCart className='md:text-xl animate text-pink-600'/>
                     <h1 className='md:text-xl font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify</h1>
@@ -189,9 +169,20 @@ export default function Sign_up() {
                             <button type='button' className='outline-none border-none' onClick={handlePassword} ref={getLockPassIcon}><MdRemoveRedEye/></button>
                         </Box>                    
                     </Box>
-                    
+                    <Box>
+                        {
+                            error && (
+                                <>
+                                    <Alert status='error' rounded={'8px'}>
+                                        <AlertIcon />
+                                        <AlertDescription>{error}</AlertDescription>
+                                    </Alert>
+                                </>
+                            )
+                        }
+                    </Box>
                     <Box className="mx-auto w-full font-light">
-                        <button type='submit' onClick={addToast} className='bg-slate-800 text-white w-full py-3 rounded-lg font-medium uppercase'>
+                        <button type='submit' className='bg-slate-800 text-white w-full py-3 rounded-lg font-medium uppercase'>
                             {
                                 loading ? (
                                     <Flex justifyContent={'center'} alignItems={'center'} gap={2}>

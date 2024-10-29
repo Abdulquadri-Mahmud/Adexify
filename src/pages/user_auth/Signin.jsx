@@ -107,7 +107,7 @@ export default function Signin() {
     <Box>
       <Header/>
         <Box className='bg-zinc-100 md:py-10 pt-6 pb-20 flex justify-center items-center px-2'>
-            <Box bg={'white'} px={3} py={6} rounded={'md'} maxW={{md: '50%',base:'350px'}} mx={'auto'} className="flex-1 w-full xl:mt-0 mt-5 xl:px-5">
+            <Box bg={'white'} px={3} py={6} rounded={'md'} maxW={{md: '50%',base:'100%'}} mx={'auto'} className="flex-1 w-full xl:mt-0 mt-5 xl:px-5">
                 <Box className="flex items-center justify-center mx-auto bg-pink-200 py-1 px-2 rounded-2xl w-[140px]">
                     <MdOutlineShoppingCart className='md:text-xl animate text-pink-600'/>
                     <h1 className='md:text-xl font-medium uppercase'>Ade<span className="text-pink-600">X</span>ify</h1>
