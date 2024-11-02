@@ -159,10 +159,10 @@ export default function Header() {
                 </div>
                 <div className="md:hidden block">
                     <div className="flex justify-center items-center flex-col hover:text-pink-600 duration-200">
-                        <Link to={'/womens-clothing'}>
+                        <Link to={'/bags'}>
                             <BiSolidShoppingBags className='text-lg'/>
                         </Link>
-                        <Link to={'/'} className='text-[10px]'>Bags</Link>
+                        <Link to={'/bags'} className='text-[10px]'>Bags</Link>
                     </div>
                 </div>
                 <div className="md:hidden block remove">
