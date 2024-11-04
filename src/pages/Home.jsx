@@ -3,7 +3,7 @@ import Hero from '../components/Hero'
 import TopDeals from '../components/Top_Deals/TopDeals'
 import TodaysDeal from '../components/TodaysDeal/TodaysDeal'
 import Section1 from '../components/sections/Section1'
-import { Box, Flex, Heading, Text } from '@chakra-ui/react'
+import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react'
 import Home_banner2 from '../components/banners/Home_banner2'
 import Home_banner3 from '../components/banners/Home_banner3'
 import Home_banner4 from '../components/banners/Home_banner4'
@@ -20,8 +20,42 @@ import { Link } from 'react-router-dom'
 import Loading from '../components/loader/Loading'
 import { FaNairaSign } from 'react-icons/fa6'
 
+function SampleNextArrow(props) {
+  
+    const { className, style, onClick } = props;
+    return (
+      <Box bg={''} width={'30px'} height={'30px'} rounded={'full'}
+      right={'1vh'}  
+      className={className}
+        style={{ ...style, display: "block",
+          paddingTop: '5.5px', paddingLeft: '5.5px',
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <Box bg={''} width={'30px'} height={'30px'} rounded={'full'}
+        left={'1vh'} zIndex={'10'}
+        className={className}
+        style={{ ...style, display: "none", 
+          paddingTop: '5.5px', paddingLeft: '5.5px',
+        }}
+        onClick={onClick}
+      />
+    );
+}
+
 export const HomeContext = createContext();
 const HomeSearchComp = React.lazy(() => import('../components/HomeSearchComp/HomeSearchComp'))
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import Slider from "react-slick";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -37,6 +71,50 @@ export default function Home() {
         fetchProducts();
     }, []);
 
+    const settings = {
+        dots: false,
+        infinite: true,
+        focusOnSelect: true,
+        speed: 500,
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        // autoplay: true,
+        autoplaySpeed: 3000,
+        waitForAnimate: false,
+        cssEase: "linear",
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
+        responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 5,
+                slidesToScroll: 3,
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 4,
+                slidesToScroll: 2,
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+              breakpoint: 420,
+              settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+        ]
+    };
 
   return (
     <Box>
@@ -51,10 +129,95 @@ export default function Home() {
         {/* <Home_banner1/> */}
         
         <TopDeals/>
-        <Home_banner2/>
-        <Home_banner3/>
-        <Womens_wear/>
+        {/* <Home_banner2/> */}
+        <Box bg={'white'} my={5} p={2} rounded={'md'} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}>
+            <Box>
+                <Slider {...settings}>
+                    <Link to={'/'}>
+                        <Box p={2} className='bg-zinc-100'>
+                            <Image  height={'150px'} width={'100%'} rounded={'md'} src="/men/cloth.jpg" alt="cloth" />
+                            <Text fontSize={14} mt={2} textAlign={'center'}>Clothing</Text>
+                        </Box>
+                    </Link>
+                    <Link to={'/'}>
+                        <Box p={2} className='bg-zinc-100'>
+                            <Image  height={'150px'} width={'100%'} rounded={'md'} src="/men/bags.gif" alt="bags" />
+                            <Text fontSize={14} mt={2} textAlign={'center'}>Bags</Text>
+                        </Box>
+                    </Link>
+                    <Link to={'/'}>
+                        <Box p={2} className='bg-zinc-100'>
+                        <Image  height={'150px'} width={'100%'} rounded={'md'} src="/men/shoes.gif" alt="shoes" />
+                        <Text fontSize={14} mt={2} textAlign={'center'}>Shoes</Text>
+                        </Box>
+                    </Link>
+                    <Link to={'/'}>
+                        <Box p={2} className='bg-zinc-100'>
+                            <Image  height={'150px'} width={'100%'} rounded={'md'} src="/men/pants.gif" alt="pants" />
+                            <Text fontSize={14} mt={2} textAlign={'center'}>Pants</Text>
+                        </Box>
+                    </Link>
+                    <Link to={'/'}>
+                        <Box p={2} className='bg-zinc-100'>
+                            <Image  height={'150px'} width={'100%'} rounded={'md'} src="/men/jewelleries.jpg" alt="jewelleries" />
+                            <Text fontSize={14} mt={2} textAlign={'center'}>Jewelleries</Text>
+                        </Box>
+                    </Link>
+                    <Link to={'/'}>
+                        <Box p={2} className='bg-zinc-100'>
+                            <Image  height={'150px'} width={'100%'} rounded={'md'} src="/men/underwear.jpg" alt="underwear" />
+                            <Text fontSize={14} mt={2} textAlign={'center'}>Underwear</Text>
+                        </Box>
+                    </Link>
+                </Slider>
+            </Box>
+        </Box>
+        {/* <Home_banner3/> */}
         <Mens_wear/>
+        
+        <Box bg={'white'} my={5} p={2} rounded={'md'} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'}>
+            <Box>
+                <Slider {...settings}>
+                    <Link to={'/'}>
+                        <Box>
+                            <Image  height={'150px'} width={'90%'} rounded={'md'} src="/women/cloth.jpeg" alt="" />
+                            <Text fontSize={14} mt={2} textAlign={'center'}>Clothing</Text>
+                        </Box>
+                    </Link>
+                    <Link to={'/'}>
+                        <Box>
+                            <Image  height={'150px'} width={'90%'} rounded={'md'} src="/women/bags.jpeg" alt="" />
+                            <Text fontSize={14} mt={2} textAlign={'center'}>Bags</Text>
+                        </Box>
+                    </Link>
+                    <Link to={'/'}>
+                        <Box>
+                            <Image  height={'150px'} width={'90%'} rounded={'md'} src="/women/shoes.jpeg" alt="" />
+                            <Text fontSize={14} mt={2} textAlign={'center'}>Shoes</Text>
+                        </Box>
+                    </Link>
+                    <Link to={'/'}>
+                        <Box>
+                            <Image  height={'150px'} width={'90%'} rounded={'md'} src="/women/pant.jpg" alt="" />
+                            <Text fontSize={14} mt={2} textAlign={'center'}>Pants</Text>
+                        </Box>
+                    </Link>
+                    <Link to={'/'}>
+                        <Box>
+                            <Image  height={'150px'} width={'90%'} rounded={'md'} src="/women/jewellery.jpeg" alt="" />
+                            <Text fontSize={14} mt={2} textAlign={'center'}>Jewelleries</Text>
+                        </Box>
+                    </Link>
+                    <Link to={'/'}>
+                        <Box>
+                            <Image  height={'150px'} width={'90%'} rounded={'md'} src="/women/underwear.jpg" alt="" />
+                            <Text fontSize={14} mt={2} textAlign={'center'}>Underwear</Text>
+                        </Box>
+                    </Link>
+                </Slider>
+            </Box>
+        </Box>
+        <Womens_wear/>
         <FashionXtraBanner/>
         <Bags/>
         <Shoes/>

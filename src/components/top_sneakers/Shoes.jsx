@@ -121,10 +121,10 @@ export default function Shoes() {
 
   return (
     <Box mt={7} maxW={{'2xl' : '80%', xl : '90%', lg : '100%', base: '97%'}} mx={'auto'} className='md:mb-0 mb-0 bg-white rounded-lg'>
-        <Box className='bg-black py-3 rounded-t-lg px-3 text-white'>
+        <Box className='bg-pink-600 py-3 rounded-t-lg px-3 text-white'>
             <Box className="flex justify-between items-center">
                 <Heading fontWeight={500} fontSize={{md:20, base: 18}} className='text-xl '>Top Shoes Collection</Heading>
-                <Link to={'/'} className='text-[13px] font-medium uppercase flex items-center text-pink-600'>See All <FaAngleRight className='text-[13px]'/></Link>
+                <Link to={'/'} className='text-[13px] font-medium uppercase flex items-center text-white'>See All <FaAngleRight className='text-[13px]'/></Link>
             </Box>
         </Box>
       <Box bg={'white'} p={2} roundedBottom={'md'}>

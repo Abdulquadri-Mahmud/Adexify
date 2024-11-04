@@ -29,6 +29,8 @@ import Items from './admin/Dashboards/Items';
 import Fashion from './Fashion';
 import Shirt from '../pages/shirts/Shirt';
 import Bags_page from '../pages/Bags/Bags_page';
+import Shoes_page from '../pages/Bags/Shoes/Shoes_page';
+import Jewellery_page from '../pages/Jewellery/Jewellery_page';
 
 export default function PageRoutes() {
   return (
@@ -56,6 +58,8 @@ export default function PageRoutes() {
         <Route path="/fashion" element={<Fashion/>}/>
         <Route path="/shirts" element={<Shirt/>}/>
         <Route path="/bags" element={<Bags_page/>}/>
+        <Route path="/shoes" element={<Shoes_page/>}/>
+        <Route path="/jewellery" element={<Jewellery_page/>}/>
         
         <Route path="/womenswear" element={<Womens_Wear/>}/>
         <Route path="/menswear" element={<Mens_Wear/>}/>

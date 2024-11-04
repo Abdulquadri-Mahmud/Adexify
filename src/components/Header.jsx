@@ -170,7 +170,7 @@ export default function Header() {
                         <Link to={'/shirts'}>
                             <GiConverseShoe className='text-lg'/>
                         </Link>
-                        <Link to={'/'} className='text-[10px]'>Shoes</Link>
+                        <Link to={'/shoes'} className='text-[10px]'>Shoes</Link>
                     </div>
                 </div>
                 <div className="hidden md:block">
@@ -179,10 +179,10 @@ export default function Header() {
                         <Link to={'/fashion'} className='text-[15px]'>Fashions</Link>
                         <Link to={'/womens-clothing'} className='text-[15px]'>Women's Fashion</Link>
                         <Link to={'/mens-clothing'} className='text-[15px]'>Men's Fashion</Link>
-                        <Link to={'/'} className='text-[15px] hidden md:block'>Bags</Link>
-                        <Link to={'/'} className='text-[15px]'>Shoes</Link>
-                        <Link to={'/'} className='text-[15px]'>Shirts</Link>
-                        <Link to={'/'} className='text-[15px]'>Jewelleries</Link>
+                        <Link to={'/bags'} className='text-[15px] hidden md:block'>Bags</Link>
+                        <Link to={'/shoes'} className='text-[15px]'>Shoes</Link>
+                        <Link to={'/shirts'} className='text-[15px]'>Shirts</Link>
+                        <Link to={'/jewellery'} className='text-[15px]'>Jewelleries</Link>
                     </div>
                 </div>
             </Box>
